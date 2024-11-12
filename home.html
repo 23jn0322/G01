@@ -17,6 +17,29 @@
     </head>
     <body>
         <h2>必要栄養類摂取比較グラフ</h2>
+        <div id="chart"></div>
+        <div id="chart2"></div>
+        <script>
+            let options = {
+                chart: {
+                    type: 'pie',
+                },
+                series: [60, 40],
+            }
+            let options2 = {
+                chart: {
+                    type: 'pie',
+                },
+                series: [100, 0],
+            }
 
+            let chart = new ApexCharts(document.querySelector("#chart"), options);
+            let chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
+
+            chart.render();
+            chart2.render();
+        </script>
+        
+        
     </body>
 </html>
