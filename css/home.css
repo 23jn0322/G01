@@ -2,7 +2,16 @@ h2 {
     text-align: center;
 }
 
-body div {
-    max-width: 300px;
-    margin:35px auto;
+
+
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+}
+
+.chart {
+    width: 30%;
+    height: 300px;
 }
