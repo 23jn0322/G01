@@ -2,118 +2,174 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <link href="css/shokutou.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>細かいジャンル選択</title>
+    <title>食材カテゴリ選択</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+
+        /* 左側の大カテゴリリスト */
+        .category-list {
+            width: 250px;
+            background-color: #fff;
+            border-right: 2px solid #ddd;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .category-btn {
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .category-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* 右側の細かいカテゴリリスト */
+        .subcategory-list {
+            width: 300px;
+            background-color: #fff;
+            border-left: 2px solid #ddd;
+            padding: 20px;
+            box-sizing: border-box;
+            display: none; /* 初期状態で隠す */
+            overflow-y: auto;
+        }
+
+        .subcategory-item {
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .subcategory-item:hover {
+            background-color: #ddd;
+        }
+
+        /* 右側の食材リストエリア */
+        .ingredient-list {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .ingredient-list.active {
+            display: block;
+        }
+
+        .ingredient-list div {
+            margin-bottom: 10px;
+        }
+
+        .ingredient-list div input {
+            margin-right: 10px;
+        }
+
+    </style>
 </head>
 <body>
-    <!-- サイドメニュー -->
-    <div class="sidebar">
-        <a href="javascript:void(0);" onclick="showContent('vegetables')">野菜</a>
-        <a href="javascript:void(0);" onclick="showContent('fruits')">果物</a>
-        <a href="javascript:void(0);" onclick="showContent('meats')">肉類</a>
-    </div>
-    <!-- 右側のサイドメニュー -->
-    <div class="rightbar">
-        <!-- カテゴリ： 野菜 -->
-        <div class="content" id="vegetables">
-            <h2>野菜</h2>
-            <a href="javascript:void(0);" onclick="showSubCategory('leafy')">葉物野菜</a>
-            <a href="javascript:void(0);" onclick="showSubCategory('root')">根菜類</a>
-        </div>
 
-        <!-- カテゴリ： 果物 -->
-        <div class="content" id="fruits">
-            <h2>果物</h2>
-            <a href="javascript:void(0);" onclick="showSubCategory('citrus')">柑橘類</a>
-            <a href="javascript:void(0);" onclick="showSubCategory('berries')">ベリー類</a>
-        </div>
+<!-- 左側の大カテゴリリスト -->
+<div class="category-list">
+    <button class="category-btn" onclick="showSubcategories('vegetables')">野菜</button>
+    <button class="category-btn" onclick="showSubcategories('fruits')">果物</button>
+    <button class="category-btn" onclick="showSubcategories('meats')">肉類</button>
+</div>
 
-        <!-- カテゴリ： 肉類 -->
-        <div class="content" id="meats">
-            <h2>肉類</h2>
-            <a href="javascript:void(0);" onclick="showSubCategory('poultry')">鶏肉</a>
-            <a href="javascript:void(0);" onclick="showSubCategory('pork')">豚肉</a>
-        </div>
-    </div>
+<!-- 右側の細かいカテゴリリスト -->
+<div class="subcategory-list" id="subcategoryList">
+    <!-- 細かいカテゴリのリストがここに表示されます -->
+</div>
 
-    <!-- 右側のサブカテゴリエリア -->
-    <!-- 野菜：葉物野菜 -->
-    <div class="content" id="leafy" style="display: none;">
-        <h3>葉物野菜</h3>
-        <label><input type="checkbox" name="leafy" value="ほうれん草"> ほうれん草</label>
-        <label><input type="checkbox" name="leafy" value="レタス"> レタス</label>
-        <label><input type="checkbox" name="leafy" value="キャベツ"> キャベツ</label>
-    </div>
+<!-- 食材リストを表示するエリア -->
+<div class="ingredient-list" id="ingredientList"></div>
 
-    <!-- 野菜：根菜類 -->
-    <div class="content" id="root" style="display: none;">
-        <h3>根菜類</h3>
-        <label><input type="checkbox" name="root" value="にんじん"> にんじん</label>
-        <label><input type="checkbox" name="root" value="大根"> 大根</label>
-        <label><input type="checkbox" name="root" value="じゃがいも"> じゃがいも</label>
-    </div>
-
-    <!-- 果物：柑橘類 -->
-    <div class="content" id="citrus" style="display: none;">
-        <h3>柑橘類</h3>
-        <label><input type="checkbox" name="citrus" value="オレンジ"> オレンジ</label>
-        <label><input type="checkbox" name="citrus" value="グレープフルーツ"> グレープフルーツ</label>
-        <label><input type="checkbox" name="citrus" value="レモン"> レモン</label>
-    </div>
-
-    <!-- 果物：ベリー類 -->
-    <div class="content" id="berries" style="display: none;">
-        <h3>ベリー類</h3>
-        <label><input type="checkbox" name="berries" value="いちご"> いちご</label>
-        <label><input type="checkbox" name="berries" value="ブルーベリー"> ブルーベリー</label>
-        <label><input type="checkbox" name="berries" value="ラズベリー"> ラズベリー</label>
-    </div>
-
-    <!-- 肉類：鶏肉 -->
-    <div class="content" id="poultry" style="display: none;">
-        <h3>鶏肉</h3>
-        <label><input type="checkbox" name="poultry" value="鶏むね肉"> 鶏むね肉</label>
-        <label><input type="checkbox" name="poultry" value="鶏もも肉"> 鶏もも肉</label>
-    </div>
-
-    <!-- 肉類：豚肉 -->
-    <div class="content" id="pork" style="display: none;">
-        <h3>豚肉</h3>
-        <label><input type="checkbox" name="pork" value="豚ロース"> 豚ロース</label>
-        <label><input type="checkbox" name="pork" value="豚ひれ肉"> 豚ひれ肉</label>
-    </div>
-
-    <script>
-        // カテゴリを表示
-        function showContent(category) {
-            var contents = document.querySelectorAll('.content');
-            contents.forEach(function(content) {
-                content.style.display = 'none'; // 全て非表示にする
-            });
-
-            var activeContent = document.getElementById(category);
-            if (activeContent) {
-                activeContent.style.display = 'block'; // 選択されたカテゴリを表示
-            }
+<script>
+    // 各カテゴリに対応する細かいカテゴリと食材のデータ
+    const data = {
+        vegetables: {
+            leafy: ['レタス', 'ほうれん草'],
+            root: ['にんじん', '大根']
+        },
+        fruits: {
+            citrus: ['オレンジ', 'レモン'],
+            berry: ['いちご', 'ブルーベリー']
+        },
+        meats: {
+            poultry: ['鶏肉', '七面鳥'],
+            beef: ['ステーキ', 'ひき肉']
         }
+    };
 
-        // サブカテゴリを表示
-        function showSubCategory(subCategory) {
-            var subCategories = document.querySelectorAll('.content');
-            subCategories.forEach(function(subCategoryElement) {
-                subCategoryElement.style.display = 'none'; // 全て非表示にする
+    // カテゴリをクリックした時に細かいカテゴリを表示
+    function showSubcategories(category) {
+        const subcategoryList = document.getElementById('subcategoryList');
+        const ingredientList = document.getElementById('ingredientList');
+
+        // 細かいカテゴリリストをリセット
+        subcategoryList.innerHTML = '';
+        ingredientList.innerHTML = '';  // 食材リストをクリア
+        ingredientList.classList.remove('active'); // 食材リストを非表示
+
+        // 細かいカテゴリリストを表示
+        subcategoryList.style.display = 'block';
+
+        // 選択したカテゴリに基づいて細かいカテゴリを生成
+        if (category) {
+            const subcategories = Object.keys(data[category]);
+            subcategories.forEach(subcategory => {
+                const item = document.createElement('div');
+                item.classList.add('subcategory-item');
+                item.textContent = subcategory === 'leafy' ? '葉物' :
+                                   subcategory === 'root' ? '根菜' :
+                                   subcategory === 'citrus' ? '柑橘類' :
+                                   subcategory === 'berry' ? 'ベリー類' :
+                                   subcategory === 'poultry' ? '鶏肉' : '牛肉';
+                item.setAttribute('data-subcategory', subcategory);
+                item.onclick = function () {
+                    showIngredients(category, subcategory);
+                };
+                subcategoryList.appendChild(item);
             });
-
-            var activeSubCategory = document.getElementById(subCategory);
-            if (activeSubCategory) {
-                activeSubCategory.style.display = 'block'; // 選択されたサブカテゴリを表示
-            }
         }
+    }
 
-        // 初期表示は「野菜」カテゴリを表示
-        showContent('vegetables');
-    </script>
+    // 細かいカテゴリ選択時に食材を表示
+    function showIngredients(category, subcategory) {
+        const ingredientList = document.getElementById('ingredientList');
+
+        // 食材リストをリセット
+        ingredientList.innerHTML = '';
+
+        if (category && subcategory) {
+            const ingredients = data[category][subcategory];
+            ingredientList.classList.add('active'); // 食材リストを表示
+            ingredients.forEach(ingredient => {
+                const checkboxDiv = document.createElement('div');
+                checkboxDiv.innerHTML = `<input type="checkbox" id="${ingredient}"><label for="${ingredient}">${ingredient}</label>`;
+                ingredientList.appendChild(checkboxDiv);
+            });
+        }
+    }
+</script>
 
 </body>
 </html>

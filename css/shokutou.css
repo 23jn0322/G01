@@ -4,68 +4,74 @@ body {
     padding: 0;
     display: flex;
     height: 100vh;
+    background-color: #f7f7f7;
 }
 
-/* 左側メニュー */
-.sidebar {
+/* 左側の大カテゴリリスト */
+.category-list {
     width: 250px;
-    background-color: #333;
-    color: white;
-    padding-top: 20px;
-    height: 100%;
+    background-color: #fff;
+    border-right: 2px solid #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
-    position: fixed;
 }
 
-.sidebar a {
-    padding: 10px 15px;
-    text-decoration: none;
+.category-btn {
+    padding: 15px;
+    background-color: #4CAF50;
     color: white;
-    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
     transition: background-color 0.3s;
 }
 
-.sidebar a:hover {
-    background-color: #575757;
+.category-btn:hover {
+    background-color: #45a049;
 }
 
-/* 右側メニュー */
-.rightbar {
-    margin-left: 250px;
-    width: 250px;
-    background-color: #f4f4f4;
-    padding-top: 20px;
-    height: 100%;
+/* 右側の細かいカテゴリリスト */
+.subcategory-list {
+    width: 300px;
+    background-color: #fff;
+    border-left: 2px solid #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none; /* 初期状態で隠す */
     overflow-y: auto;
 }
 
-/* 右側のコンテンツエリア */
-.content {
-    margin-left: 250px;
-    padding: 20px;
-    width: 100%;
+.subcategory-item {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subcategory-item:hover {
+    background-color: #ddd;
+}
+
+/* 右側の食材リストエリア */
+.ingredient-list {
+    margin-top: 20px;
     display: none;
 }
 
-/* 初期で表示するコンテンツ */
-.content.active {
+.ingredient-list.active {
     display: block;
 }
 
-h2 {
-    margin-top: 0;
+.ingredient-list div {
+    margin-bottom: 10px;
 }
 
-/* チェックボックスのスタイル */
-.checkbox-group {
-    margin: 10px 0;
-}
-
-.checkbox-group label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-.nested {
-    margin-left: 20px;
+.ingredient-list div input {
+    margin-right: 10px;
 }
