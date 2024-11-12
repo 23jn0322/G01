@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link href="shokutou.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>細かいジャンル選択</title>
+</head>
+<body>
+    <!-- 左側のサイドメニュー -->
+    <div class="sidebar">
+        <a href="javascript:void(0);" onclick="showContent('vegetables')">野菜</a>
+        <a href="javascript:void(0);" onclick="showContent('fruits')">果物</a>
+        <a href="javascript:void(0);" onclick="showContent('meats')">肉類</a>
+    </div>
+    <!-- 右側のサイドメニュー -->
+    <div class="rightbar">
+        <!-- カテゴリ： 野菜 -->
+        <div class="content" id="vegetables">
+            <h2>野菜</h2>
+            <a href="javascript:void(0);" onclick="showSubCategory('leafy')">葉物野菜</a>
+            <a href="javascript:void(0);" onclick="showSubCategory('root')">根菜類</a>
+        </div>
+
+        <!-- カテゴリ： 果物 -->
+        <div class="content" id="fruits">
+            <h2>果物</h2>
+            <a href="javascript:void(0);" onclick="showSubCategory('citrus')">柑橘類</a>
+            <a href="javascript:void(0);" onclick="showSubCategory('berries')">ベリー類</a>
+        </div>
+
+        <!-- カテゴリ： 肉類 -->
+        <div class="content" id="meats">
+            <h2>肉類</h2>
+            <a href="javascript:void(0);" onclick="showSubCategory('poultry')">鶏肉</a>
+            <a href="javascript:void(0);" onclick="showSubCategory('pork')">豚肉</a>
+        </div>
+    </div>
+
+    <!-- 右側のサブカテゴリエリア -->
+    <!-- 野菜：葉物野菜 -->
+    <div class="content" id="leafy" style="display: none;">
+        <h3>葉物野菜</h3>
+        <label><input type="checkbox" name="leafy" value="ほうれん草"> ほうれん草</label>
+        <label><input type="checkbox" name="leafy" value="レタス"> レタス</label>
+        <label><input type="checkbox" name="leafy" value="キャベツ"> キャベツ</label>
+    </div>
+
+    <!-- 野菜：根菜類 -->
+    <div class="content" id="root" style="display: none;">
+        <h3>根菜類</h3>
+        <label><input type="checkbox" name="root" value="にんじん"> にんじん</label>
+        <label><input type="checkbox" name="root" value="大根"> 大根</label>
+        <label><input type="checkbox" name="root" value="じゃがいも"> じゃがいも</label>
+    </div>
+
+    <!-- 果物：柑橘類 -->
+    <div class="content" id="citrus" style="display: none;">
+        <h3>柑橘類</h3>
+        <label><input type="checkbox" name="citrus" value="オレンジ"> オレンジ</label>
+        <label><input type="checkbox" name="citrus" value="グレープフルーツ"> グレープフルーツ</label>
+        <label><input type="checkbox" name="citrus" value="レモン"> レモン</label>
+    </div>
+
+    <!-- 果物：ベリー類 -->
+    <div class="content" id="berries" style="display: none;">
+        <h3>ベリー類</h3>
+        <label><input type="checkbox" name="berries" value="いちご"> いちご</label>
+        <label><input type="checkbox" name="berries" value="ブルーベリー"> ブルーベリー</label>
+        <label><input type="checkbox" name="berries" value="ラズベリー"> ラズベリー</label>
+    </div>
+
+    <!-- 肉類：鶏肉 -->
+    <div class="content" id="poultry" style="display: none;">
+        <h3>鶏肉</h3>
+        <label><input type="checkbox" name="poultry" value="鶏むね肉"> 鶏むね肉</label>
+        <label><input type="checkbox" name="poultry" value="鶏もも肉"> 鶏もも肉</label>
+    </div>
+
+    <!-- 肉類：豚肉 -->
+    <div class="content" id="pork" style="display: none;">
+        <h3>豚肉</h3>
+        <label><input type="checkbox" name="pork" value="豚ロース"> 豚ロース</label>
+        <label><input type="checkbox" name="pork" value="豚ひれ肉"> 豚ひれ肉</label>
+    </div>
+
+    <script>
+        // カテゴリを表示
+        function showContent(category) {
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(function(content) {
+                content.style.display = 'none'; // 全て非表示にする
+            });
+
+            var activeContent = document.getElementById(category);
+            if (activeContent) {
+                activeContent.style.display = 'block'; // 選択されたカテゴリを表示
+            }
+        }
+
+        // サブカテゴリを表示
+        function showSubCategory(subCategory) {
+            var subCategories = document.querySelectorAll('.content');
+            subCategories.forEach(function(subCategoryElement) {
+                subCategoryElement.style.display = 'none'; // 全て非表示にする
+            });
+
+            var activeSubCategory = document.getElementById(subCategory);
+            if (activeSubCategory) {
+                activeSubCategory.style.display = 'block'; // 選択されたサブカテゴリを表示
+            }
+        }
+
+        // 初期表示は「野菜」カテゴリを表示
+        showContent('vegetables');
+    </script>
+
+</body>
+</html>
