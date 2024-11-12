@@ -1,0 +1,101 @@
+
+        /* 基本スタイル */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* ログインボタン */
+        .form-group input[type="submit"] {
+            background-color: #007BFF;  /* 青色 */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;  /* 小さめの文字 */
+            padding: 6px 12px;  /* 小さめのパディング */
+            border-radius: 5px;
+            width: auto;  /* ボタンの幅を自動に設定 */
+            margin-left: auto;  /* 右寄せ */
+            margin-right: 0; /* 右寄せ */
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        /* ログインボタンのホバー時 */
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;  /* ホバー時に少し暗くなる */
+        }
+
+        /* 新規登録ボタン */
+        .register-btn {
+            background-color: #007BFF;  /* 青色 */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;  /* 小さめの文字 */
+            padding: 6px 12px;  /* 小さめのパディング */
+            border-radius: 5px;
+            width: auto;  /* ボタンの幅を自動に設定 */
+            text-align: center;
+            margin-top: 20px;
+            margin-left: auto;  /* 右寄せ */
+            margin-right: 0; /* 右寄せ */
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        /* 新規登録ボタンのホバー時 */
+        .register-btn:hover {
+            background-color: #0056b3;  /* ホバー時に少し暗くなる */
+        }
+
+        /* 新規登録のテキスト */
+        .register-text {
+            font-size: 14px;
+            color: #333;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        /* 右寄せ用のラップコンテナ */
+        .right-align {
+            text-align: right;  /* ボタンを右寄せ */
+        }
