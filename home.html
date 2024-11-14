@@ -1,5 +1,5 @@
 <html>
-    <head>
+    <header>
         <link href="css/home.css" rel="stylesheet">
         <link href="css/header.css" rel="stylesheet">
         <script src="apexcharts.min.js"></script>
@@ -14,128 +14,138 @@
                 <th><a href="memberinfochange.html">会員情報変更</a></th>
             </tr>
         </table>
-    </head>
+    </header>
     <body>
         <h2>必要栄養類摂取比較グラフ</h2>
         <div class="chart-container">
-            <div class="chart" id="chart"></div>
-            <div class="chart" id="chart2"></div>
-            <div class="chart" id="chart3"></div>
+            <div class="chart-wrapper">
+                <div class="chart" id="chart"></div>
+                <p class="chart-label">タンパク質</p>
+            </div>
+            <div class="chart-wrapper">
+                <div class="chart" id="chart2"></div>
+                <p class="chart-label">栄養2</p>
+            </div>
+            <div class="chart-wrapper">
+                <div class="chart" id="chart3"></div>
+                <p class="chart-label">栄養3</p>
+            </div>
         </div>
         <div class="chart-container">
-            <div class="chart" id="chart4"></div>
-            <div class="chart" id="chart5"></div>
-            <div class="chart" id="chart6"></div>
+            <div class="chart-wrapper">
+                <div class="chart" id="chart4"></div>
+                <p class="chart-label">栄養4</p>
+            </div>
+            <div class="chart-wrapper">
+                <div class="chart" id="chart5"></div>
+                <p class="chart-label">栄養5</p>
+            </div>
+            <div class="chart-wrapper">
+                <div class="chart" id="chart6"></div>
+                <p class="chart-label">栄養6</p>
+            </div>
         </div>
         <div class="chart-container">
-            <div class="chart" id="chart7"></div>
-            <div class="chart" id="chart8"></div>
-            <div class="chart" id="chart9"></div>
+            <div class="chart-wrapper">
+                <div class="chart" id="chart7"></div>
+                <p class="chart-label">栄養7</p>
+            </div>
+            <div class="chart-wrapper">
+                <div class="chart" id="chart8"></div>
+                <p class="chart-label">栄養8</p>
+            </div>
+            <div class="chart-wrapper">
+                <div class="chart" id="chart9"></div>
+                <p class="chart-label">栄養9</p>
+            </div>
         </div>
-        </body>
-        <script>
-            let options = {
-                chart: {
-                    type: 'pie',
-                },
-                legend: {
-                    show: false
-                },
-                series: [60, 40],
-            }
-            let options2 = {
-                chart: {
-                    type: 'pie',
-                },
-                legend: {
-                    show: false
-                },
-                series: [100, 0],
-            }
-            let options3 = {
-                chart: {
-                    type: 'pie',
-                },
-                legend: {
-                    show: false
-                },
-                series: [90, 10],
-            }
-            let options4 = {
-                chart: {
-                    type: 'pie',
-                },
-                legend: {
-                    show: false
-                },
-                series: [75, 25],
-            }
-            let options5 = {
-                chart: {
-                    type: 'pie',
-                },
-                legend: {
-                    show: false
-                },
-                series: [30,70],
-            }
-            let options6 = {
-                chart: {
-                    type: 'pie',
-                },
-                legend: {
-                    show: false
-                },
-                series: [50, 50],
-            }
-            let options7 = {
-                chart: {
-                    type: 'pie',
-                },
-                legend: {
-                    show: false
-                },
-                series: [25,75],
-            }
-            let options8 = {
-                chart: {
-                    type: 'pie',
-                },
-                legend: {
-                    show: false
-                },
-                series: [64, 36],
-            }
-            let options9 = {
-                chart: {
-                    type: 'pie',
-                },
-                legend: {
-                    show: false
-                },
-                series: [82, 18],
-            }
-
-            let chart = new ApexCharts(document.querySelector("#chart"), options);
-            let chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
-            let chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
-            let chart4 = new ApexCharts(document.querySelector("#chart4"), options4);
-            let chart5 = new ApexCharts(document.querySelector("#chart5"), options5);
-            let chart6 = new ApexCharts(document.querySelector("#chart6"), options6);
-            let chart7 = new ApexCharts(document.querySelector("#chart7"), options7);
-            let chart8 = new ApexCharts(document.querySelector("#chart8"), options8);
-            let chart9 = new ApexCharts(document.querySelector("#chart9"), options9);
-
-            chart.render();
-            chart2.render();
-            chart3.render();
-            chart4.render();
-            chart5.render();
-            chart6.render();
-            chart7.render();
-            chart8.render();
-            chart9.render();
-        </script>
-        
     </body>
+    <footer>
+        <a href="login.html">ログアウト</a>
+    </footer>
+    <script>
+        // チャートの設定（既存のコードはそのまま）
+        let options = {
+            chart: { type: 'pie' },
+            legend: { show: false },
+            series: [60, 40],
+            tooltip: { enabled: false },  // ツールチップを無効化
+            colors: ['#33FF57', '#FF5733']
+        };
+
+        let options2 = {
+            chart: { type: 'pie' },
+            legend: { show: false },
+            series: [100, 0],
+            tooltip: { enabled: false },  // ツールチップを無効化
+            colors: ['#33FF57', '#FF5733']
+        };
+
+        let options3 = {
+            chart: { type: 'pie' },
+            legend: { show: false },
+            series: [90, 10],
+            tooltip: { enabled: false },  // ツールチップを無効化
+            colors: ['#33FF57', '#FF5733']
+        };
+
+        let options4 = {
+            chart: { type: 'pie' },
+            legend: { show: false },
+            series: [75, 25],
+            tooltip: { enabled: false },  // ツールチップを無効化
+            colors: ['#33FF57', '#FF5733']
+        };
+
+        let options5 = {
+            chart: { type: 'pie' },
+            legend: { show: false },
+            series: [30, 70],
+            tooltip: { enabled: false },  // ツールチップを無効化
+            colors: ['#33FF57', '#FF5733']
+        };
+
+        let options6 = {
+            chart: { type: 'pie' },
+            legend: { show: false },
+            series: [50, 50],
+            tooltip: { enabled: false },  // ツールチップを無効化
+            colors: ['#33FF57', '#FF5733']
+        };
+
+        let options7 = {
+            chart: { type: 'pie' },
+            legend: { show: false },
+            series: [25, 75],
+            tooltip: { enabled: false },  // ツールチップを無効化
+            colors: ['#33FF57', '#FF5733']
+        };
+
+        let options8 = {
+            chart: { type: 'pie' },
+            legend: { show: false },
+            series: [64, 36],
+            tooltip: { enabled: false },  // ツールチップを無効化
+            colors: ['#33FF57', '#FF5733']
+        };
+
+        let options9 = {
+            chart: { type: 'pie' },
+            legend: { show: false },
+            series: [82, 18],
+            tooltip: { enabled: false },  // ツールチップを無効化
+            colors: ['#33FF57', '#FF5733']
+        };
+
+        // チャートのレンダリング
+        new ApexCharts(document.querySelector("#chart"), options).render();
+        new ApexCharts(document.querySelector("#chart2"), options2).render();
+        new ApexCharts(document.querySelector("#chart3"), options3).render();
+        new ApexCharts(document.querySelector("#chart4"), options4).render();
+        new ApexCharts(document.querySelector("#chart5"), options5).render();
+        new ApexCharts(document.querySelector("#chart6"), options6).render();
+        new ApexCharts(document.querySelector("#chart7"), options7).render();
+        new ApexCharts(document.querySelector("#chart8"), options8).render();
+        new ApexCharts(document.querySelector("#chart9"), options9).render();
+    </script>
 </html>
