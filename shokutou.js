@@ -84,3 +84,17 @@ const backgroundFix = (bool) => {
   focusTrap.addEventListener("focus", (e) => {
     hamburger.focus();
   });
+
+  document.getElementById("veggiesLink").addEventListener("click", function(event) {
+    event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+    
+    // チェックボックスのコンテナを表示
+    var checkboxContainer = document.getElementById("checkbox-container");
+    
+    // 現在の表示状態を確認し、トグル（表示/非表示）する
+    if (checkboxContainer.style.display === "none") {
+        checkboxContainer.style.display = "block";
+    } else {
+        checkboxContainer.style.display = "none";
+    }
+});
