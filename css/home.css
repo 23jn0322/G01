@@ -1,6 +1,5 @@
 h2 {
     text-align: center;
-    padding-top: 110px;
 }
 
 .chart-container {
@@ -32,8 +31,4 @@ h2 {
     margin-top: 10px;  /* チャートとラベルの間のスペース */
     color: #333;  /* ラベルの文字色 */
     width: 100%; /* ラベルをチャートと同じ幅にする */
-}
-
-body {
-    padding-top: 250px; /* ヘッダーの高さ分の余白を追加 */
 }

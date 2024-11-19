@@ -70,3 +70,7 @@ a:hover {
 .active{
     background-color: rgb(229, 229, 229);
 }
+
+body {
+    padding-top: 250px; /* ヘッダーの高さ分の余白を追加 */
+}

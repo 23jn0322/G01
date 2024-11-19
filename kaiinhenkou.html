@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+<header>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>会員情報変更</title><!-- タイトルを変更 -->
-     <link rel="stylesheet" href="shinkitoroku.css"></head>
+    <title>会員情報変更</title><!-- タイトルを変更 -->
+    <link rel="stylesheet" href="shinkitoroku.css">
+    <link href="css/header.css" rel="stylesheet">
+    <div id="logo">
+        <img src="パン.png" width="200px" height="100px">
+    </div>
+    <div id="logout">
+        <a href="login.html">ログアウト</a>
+    </div>
+    <table class="link table">
+        <tr>
+            <th><a href="home.html">健康メーター</a></th>
+            <th><a href="shokutou.html">食材登録</a></th>
+            <th><a href="kaiinhenkou.html" class="active">会員情報変更</a></th>
+        </tr>
+    </table>
+</header>
 <body>
     <form action="your-server-endpoint" method="POST">
-        
-        <div>
-            <h1>メニュー</h1>
-            <p>下記のリンクをクリックして遷移してください:</p>
-    
-            <!-- ホーム画面へのリンク -->
-            <button onclick="navigateTo('home')">ホーム画面</button>
-            
-            <!-- 食材登録画面へのリンク -->
-            <button onclick="navigateTo('food-registration')">食材登録画面</button>
-    
-            <!-- 会員登録変更画面へのリンク -->
-            <button onclick="navigateTo('user-registration-edit')">会員登録変更画面</button>
-        </div>
     
         <script>
             function navigateTo(page) {
