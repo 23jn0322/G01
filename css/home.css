@@ -1,17 +1,47 @@
 h2 {
     text-align: center;
+    position: fixed;
+    top: 20px; /* 上からの距離を調整 */
+    left: 50%;
+    transform: translateX(-50%); /* 左右中央寄せ */
+    background-color: #fff; /* 背景色を設定して可読性を向上 */
+    padding: 10px 20px; /* 内側の余白 */
+    z-index: 1000; /* 他の要素よりも前面に表示 */
+    margin-top: 210px; /* ヘッダーの高さ分の余白を追加 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ヘッダーに影をつけて浮いているように */
 }
-
-
 
 .chart-container {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 20px;
     gap: 20px;
     width: 100%;
+    flex-wrap: wrap;  /* 横並びにならない場合に折り返しを許可 */
+}
+
+.chart-wrapper {
+    display: flex;
+    flex-direction: column; /* チャートとラベルを縦に並べる */
+    align-items: center; /* チャートとラベルを中央に配置 */
+    width: 30%; /* 各チャートの幅を指定 */
+    justify-content: flex-start; /* チャートとラベルを上に寄せる */
 }
 
 .chart {
-    width: 30%;
-    height: 300px;
+    width: 100%;
+    height: auto; /* チャートの高さを自動調整 */
+    max-height: 300px; /* チャートが大きすぎないように最大高さを設定 */
+}
+
+.chart-label {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;  /* チャートとラベルの間のスペース */
+    color: #333;  /* ラベルの文字色 */
+    width: 100%; /* ラベルをチャートと同じ幅にする */
+}
+
+body {
+    padding-top: 250px; /* ヘッダーの高さ分の余白を追加 */
 }
