@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+<header>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>会員登録</title><!-- タイトルを変更 -->
-    <link rel="stylesheet" href="shinkitoroku.css"> <!-- 外部CSSファイルのリンク -->
-</head>
+    <title>会員情報変更</title><!-- タイトルを変更 -->
+    <link rel="stylesheet" href="css/kaiinhenkou.css">
+    <link href="css/header.css" rel="stylesheet">
+    <div id="logo">
+        <img src="パン.png" width="200px" height="100px">
+    </div>
+    <div id="logout">
+        <a href="login.html">ログアウト</a>
+    </div>
+    <table class="link table">
+        <tr>
+            <th><a href="home.html">健康メーター</a></th>
+            <th><a href="shokutou.html">食材登録</a></th>
+            <th><a href="kaiinhenkou.html" class="active">会員情報変更</a></th>
+        </tr>
+    </table>
+</header>
 <body>
     <form action="your-server-endpoint" method="POST">
-        <div>
-            <p>会員登録</p>
-        </div>
-        
-        <div>
-            <h1>メニュー</h1>
-            <p>下記のリンクをクリックして遷移してください:</p>
-    
-            <!-- ホーム画面へのリンク -->
-            <button onclick="navigateTo('home')">ホーム画面</button>
-            
-            <!-- 食材登録画面へのリンク -->
-            <button onclick="navigateTo('food-registration')">食材登録画面</button>
-    
-            <!-- 会員登録変更画面へのリンク -->
-            <button onclick="navigateTo('user-registration-edit')">会員登録変更画面</button>
-        </div>
     
         <script>
             function navigateTo(page) {
@@ -56,7 +53,7 @@
 
         <!-- 生年月日 -->
         <div>
-            <label for="birth_year">生年月日</label>
+            <label for="birth_year">生年月日:</label>
             <input type="text" id="birth_year" name="birth_year" required>
             <label for="birth_year">年</label>
             <input type="text" id="birth_month" name="birth_month" required>
@@ -86,55 +83,92 @@
         </div>
         <br>
 
-        <!-- 家族の生年月日 (家族がいる場合に表示) -->
-        <div class="birth-date-group" id="birthdates" style="display:none;">
-            <div class="form-group">
-                <label for="family-member-1">生年月日 :</label>
-                <input type="text" name="birth_year1" min="1900" max="2100">
-                <label for="birth_year1">年</label>
-                <input type="text" name="birth_month1" min="1" max="12">
-                <label for="birth_month1">月</label>
-                <input type="text" name="birth_day1" min="1" max="31">
-                <label for="birth_day1">日</label>
-            </div>
-            <div class="form-group">
-                <label for="family-member-2">生年月日 :</label>
-                <input type="text" name="birth_year2" min="1900" max="2100">
-                <label for="birth_year2">年</label>
-                <input type="text" name="birth_month2" min="1" max="12">
-                <label for="birth_month2">月</label>
-                <input type="text" name="birth_day2" min="1" max="31">
-                <label for="birth_day2">日</label>
-            </div>
-            <div class="form-group">
-                <label for="family-member-3">生年月日 :</label>
-                <input type="text" name="birth_year3" min="190" max="210">
-                <label for="birth_year3">年</label>
-                <input type="text" name="birth_month3" min="1" max="12">
-                <label for="birth_month3">月</label>
-                <input type="text" name="birth_day3" min="1" max="31">
-                <label for="birth_day3">日</label>
-            </div>
-        </div>
-        <br>
-
         <!-- 登録ボタン -->
-        <div>
-            <button type="submit" name="btn">登録</button>
-        </div>
-    </form>
+        <form action="your-server-endpoint" method="POST">
+            <!-- 家族構成の選択 -->
+            <label for="family-structure">家族構成を選択:</label>
+            <select id="family-structure" name="family-structure" onchange="toggleFamilyFields()">
+                <option value="">選択してください</option>
+                <option value="single">一人暮らし</option>
+                <option value="with-family">家族と一緒に住んでいる</option>
+            </select>
+            <br><br>
+    
+            <!-- 家族構成の選択に応じて、生年月日入力欄と削除ボタンが表示される -->
+            <div id="family-fields-container" style="display: none;">
+                <div class="form-group">
+                    <label for="family-member-1">生年月日 :</label>
+                    <input type="text" name="birth_year1" min="190" max="210">
+                    <label for="birth_year1">年</label>
+                    <input type="text" name="birth_month1" min="1" max="12">
+                    <label for="birth_month1">月</label>
+                    <input type="text" name="birth_day1" min="1" max="31">
+                    <label for="birth_day1">日</label>
+                </div>
+                <div class="form-group">
+                    <label for="family-member-2">生年月日 :</label>
+                    <input type="text" name="birth_year2" min="190" max="210">
+                    <label for="birth_year2">年</label>
+                    <input type="text" name="birth_month2" min="1" max="12">
+                    <label for="birth_month2">月</label>
+                    <input type="text" name="birth_day2" min="1" max="31">
+                    <label for="birth_day2">日</label>
+                </div>
+                <div class="form-group">
+                    <label for="family-member-3">生年月日 :</label>
+                    <input type="text" name="birth_year3" min="190" max="210">
+                    <label for="birth_year3">年</label>
+                    <input type="text" name="birth_month3" min="1" max="12">
+                    <label for="birth_month3">月</label>
+                    <input type="text" name="birth_day3" min="1" max="31">
+                    <label for="birth_day3">日</label>
+                </div>
+                <div class="form-group">
+                    <label for="family-member-4">生年月日 :</label>
+                    <input type="text" name="birth_year4" min="190" max="210">
+                    <label for="birth_year4">年</label>
+                    <input type="text" name="birth_month4" min="1" max="12">
+                    <label for="birth_month4">月</label>
+                    <input type="text" name="birth_day4" min="1" max="31">
+                    <label for="birth_day4">日</label>
+                </div>
 
-    <script>
-        // 家族構成が「あり」の場合に家族の生年月日フィールドを表示
-        document.querySelectorAll('input[name="family"]').forEach((radio) => {
-            radio.addEventListener('change', function() {
-                if (this.value === 'あり') {
-                    document.getElementById('birthdates').style.display = 'block';
+                <div class="form-group">
+                    <label for="family-member-5">生年月日 :</label>
+                    <input type="text" name="birth_year5" min="190" max="210">
+                    <label for="birth_year5">年</label>
+                    <input type="text" name="birth_month5" min="1" max="12">
+                    <label for="birth_month5">月</label>
+                    <input type="text" name="birth_day5" min="1" max="31">
+                    <label for="birth_day5">日</label>
+                </div>
+            </div>
+    
+            <br>
+            <button type="submit name=change">変更</button>
+        </form>
+    
+        <script>
+            // 家族構成に応じて、生年月日入力欄を表示/非表示
+            function toggleFamilyFields() {
+                const familyStructure = document.getElementById('family-structure').value;
+                const familyFieldsContainer = document.getElementById('family-fields-container');
+    
+                // 家族と一緒に住んでいる場合は、生年月日入力欄を表示
+                if (familyStructure === 'with-family') {
+                    familyFieldsContainer.style.display = 'block';
                 } else {
-                    document.getElementById('birthdates').style.display = 'none';
+                    familyFieldsContainer.style.display = 'none';
                 }
-            });
-        });
-    </script>
+            }
+    
+            // 削除ボタンをクリックした際に該当の家族メンバー欄を削除する
+            function removeFamilyMember(memberId) {
+                const memberDiv = document.getElementById(memberId);
+                memberDiv.remove();
+            }
+        </script>
+    
+  </script>
 </body>
 </html>

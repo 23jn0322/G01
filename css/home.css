@@ -2,16 +2,33 @@ h2 {
     text-align: center;
 }
 
-
-
 .chart-container {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 20px;
     gap: 20px;
     width: 100%;
+    flex-wrap: wrap;  /* 横並びにならない場合に折り返しを許可 */
+}
+
+.chart-wrapper {
+    display: flex;
+    flex-direction: column; /* チャートとラベルを縦に並べる */
+    align-items: center; /* チャートとラベルを中央に配置 */
+    width: 30%; /* 各チャートの幅を指定 */
+    justify-content: flex-start; /* チャートとラベルを上に寄せる */
 }
 
 .chart {
-    width: 30%;
-    height: 300px;
+    width: 100%;
+    height: auto; /* チャートの高さを自動調整 */
+    max-height: 300px; /* チャートが大きすぎないように最大高さを設定 */
+}
+
+.chart-label {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;  /* チャートとラベルの間のスペース */
+    color: #333;  /* ラベルの文字色 */
+    width: 100%; /* ラベルをチャートと同じ幅にする */
 }
