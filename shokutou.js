@@ -89,7 +89,7 @@ const backgroundFix = (bool) => {
     event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
     
     // チェックボックスのコンテナを表示
-    var checkboxContainer = document.getElementById("checkbox-container");
+    var checkboxContainer = document.getElementById("chk-veggie1");
     
     // 現在の表示状態を確認し、トグル（表示/非表示）する
     if (checkboxContainer.style.display === "none") {
@@ -97,4 +97,363 @@ const backgroundFix = (bool) => {
     } else {
         checkboxContainer.style.display = "none";
     }
+});
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-veggie2");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-veggie3");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-veggie4");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-veggie5");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-veggie6");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-veggie7");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+
+
+
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fruits1");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fruits1");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fruits2");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fruits3");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fruits4");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+
+
+
+
+
+document.getElementById("fruitsLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-meat1");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("fruitsLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-meat2");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("fruitsLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-meat3");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("fruitsLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-meat4");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("fruitsLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-meat5");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+
+
+
+
+document.getElementById("meatLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fish1");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+document.getElementById("meatLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fish2");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+document.getElementById("meatLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fish3");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+document.getElementById("meatLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fish4");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+document.getElementById("meatLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fish5");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+document.getElementById("meatLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-fish6");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+document.getElementById("meatLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-carbohy1");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("meatLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-carbohy2");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("meatLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-carbohy3");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("meatLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-carbohy4");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
 });
