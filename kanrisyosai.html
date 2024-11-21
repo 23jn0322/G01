@@ -4,43 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理者食材詳細画面</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        .container {
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px; /* 各行の間隔を少し広げる */
-        }
-        .label {
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        .input-box, .dropdown {
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .input-box {
-            width: 150px;
-        }
-        .dropdown {
-            width: 160px; /* ドロップダウンリストの幅を設定 */
-        }
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-        }
-        .submit-container {
-            display: flex;
-            justify-content: center; /* 中央に配置 */
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/kanrisyokutou.css">
+   
 </head>
 <body>
     <h1>食材入力</h1>
@@ -48,7 +13,7 @@
     <!-- 食材名称 -->
     <div class="container">
         <label for="ingredient-name" class="label">名称</label>
-        <input type="text" id="ingredient-name" class="input-box" placeholder="">
+        <input type="text" id="ingredient-name" name="mei" class="input-box" placeholder="">
     </div>
 
     <!-- 中ジャンル -->
@@ -185,7 +150,7 @@
 
 
 <div class="submit-container">
-    <button class="submit-button" onclick="confirmRegistration()">更新</button>
+    <button class="submit-button" onclick="confirmRegistration()">登録</button>
 </div>
 
 <script>
@@ -196,7 +161,7 @@
         const usual = document.getElementById("usual").checked ? "はい" : "いいえ";
         
         // 確認メッセージを作成
-        const message = `この内容で更新しますか？\n\n名称: ${ingredientName}\n中ジャンル: ${category}\nいつもの: ${usual}`;
+        const message = `以下の内容で登録しますか？\n\n名称: ${ingredientName}\n中ジャンル: ${category}\nいつもの: ${usual}`;
 
         // 確認ダイアログを表示
         const userConfirmed = window.confirm(message);
