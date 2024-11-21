@@ -45,7 +45,7 @@ th {
     border: 1px solid black;
 }
 
-a {
+header a {
     display: block;
     padding: 2em;
     text-decoration: none;
