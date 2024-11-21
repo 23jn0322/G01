@@ -85,7 +85,7 @@ const backgroundFix = (bool) => {
     hamburger.focus();
   });
 
-  document.getElementById("veggiesLink").addEventListener("click", function(event) {
+  document.getElementById("veggiesLink1").addEventListener("click", function(event) {
     event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
     
     // チェックボックスのコンテナを表示
@@ -98,7 +98,7 @@ const backgroundFix = (bool) => {
         checkboxContainer.style.display = "none";
     }
 });
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
+document.getElementById("veggiesLink2").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -111,7 +111,7 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
+document.getElementById("veggiesLink3").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -124,7 +124,7 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
+document.getElementById("veggiesLink4").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -137,7 +137,7 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
+document.getElementById("veggiesLink5").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -150,7 +150,7 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
+document.getElementById("veggiesLink6").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -163,7 +163,7 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
+document.getElementById("veggiesLink7").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -180,7 +180,7 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
 
 
 
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
+document.getElementById("fruitsLink1").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -193,20 +193,7 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
-  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
-  
-  // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fruits1");
-  
-  // 現在の表示状態を確認し、トグル（表示/非表示）する
-  if (checkboxContainer.style.display === "none") {
-      checkboxContainer.style.display = "block";
-  } else {
-      checkboxContainer.style.display = "none";
-  }
-});
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
+document.getElementById("fruitsLink2").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -219,7 +206,7 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
+document.getElementById("fruitsLink3").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -232,7 +219,7 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("veggiesLink").addEventListener("click", function(event) {
+document.getElementById("fruitsLink4").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -251,7 +238,7 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
 
 
 
-document.getElementById("fruitsLink").addEventListener("click", function(event) {
+document.getElementById("meatLink1").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -264,7 +251,7 @@ document.getElementById("fruitsLink").addEventListener("click", function(event) 
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("fruitsLink").addEventListener("click", function(event) {
+document.getElementById("meatLink2").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -277,7 +264,7 @@ document.getElementById("fruitsLink").addEventListener("click", function(event) 
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("fruitsLink").addEventListener("click", function(event) {
+document.getElementById("meatLink3").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -290,7 +277,7 @@ document.getElementById("fruitsLink").addEventListener("click", function(event) 
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("fruitsLink").addEventListener("click", function(event) {
+document.getElementById("meatLink4").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -303,7 +290,7 @@ document.getElementById("fruitsLink").addEventListener("click", function(event) 
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("fruitsLink").addEventListener("click", function(event) {
+document.getElementById("meatLink5").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -321,7 +308,7 @@ document.getElementById("fruitsLink").addEventListener("click", function(event) 
 
 
 
-document.getElementById("meatLink").addEventListener("click", function(event) {
+document.getElementById("fishLink1").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -335,7 +322,7 @@ document.getElementById("meatLink").addEventListener("click", function(event) {
   }
 });
 
-document.getElementById("meatLink").addEventListener("click", function(event) {
+document.getElementById("fishLink2").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -349,7 +336,7 @@ document.getElementById("meatLink").addEventListener("click", function(event) {
   }
 });
 
-document.getElementById("meatLink").addEventListener("click", function(event) {
+document.getElementById("fishLink3").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -363,7 +350,7 @@ document.getElementById("meatLink").addEventListener("click", function(event) {
   }
 });
 
-document.getElementById("meatLink").addEventListener("click", function(event) {
+document.getElementById("fishLink4").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -377,7 +364,7 @@ document.getElementById("meatLink").addEventListener("click", function(event) {
   }
 });
 
-document.getElementById("meatLink").addEventListener("click", function(event) {
+document.getElementById("fishLink5").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -391,7 +378,7 @@ document.getElementById("meatLink").addEventListener("click", function(event) {
   }
 });
 
-document.getElementById("meatLink").addEventListener("click", function(event) {
+document.getElementById("fishLink6").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -405,7 +392,7 @@ document.getElementById("meatLink").addEventListener("click", function(event) {
   }
 });
 
-document.getElementById("meatLink").addEventListener("click", function(event) {
+document.getElementById("carbohyLink1").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -418,7 +405,7 @@ document.getElementById("meatLink").addEventListener("click", function(event) {
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("meatLink").addEventListener("click", function(event) {
+document.getElementById("carbohyLink2").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -431,7 +418,7 @@ document.getElementById("meatLink").addEventListener("click", function(event) {
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("meatLink").addEventListener("click", function(event) {
+document.getElementById("carbohyLink3").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
@@ -444,7 +431,7 @@ document.getElementById("meatLink").addEventListener("click", function(event) {
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("meatLink").addEventListener("click", function(event) {
+document.getElementById("carbohyLink4").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
