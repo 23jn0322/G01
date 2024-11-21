@@ -1,24 +1,14 @@
-table {
-    border-collapse: collapse;
-    border: 2px solid black;
-    width: 100%;
-    height: 10%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-th {
-    border: 1px solid black;
+body {
+    padding-top: 120px; /* ヘッダーの高さ分の余白を追加 */
 }
 
-a:hover {
-    background-color: rgb(229, 229, 229);
-}
-
-table th a {
-    display: block;
-    padding: 2em 1em;
-    text-decoration: none;
-}
-
+/* ヘッダー */
 header {
     position: fixed;
     top: 0;
@@ -28,12 +18,59 @@ header {
     z-index: 1000; /* 他の要素よりも前面に表示 */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ヘッダーに影をつけて浮いているように */
     padding: 10px 20px;
-}
-
-header a:hover {
-    color: #FF5733; /* ホバー時に色変更 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 #logout {
     text-align: right;
+}
+
+#logout a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* ナビゲーションテーブル */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%; /* 最大幅を設定 */
+    height: 60px; /* ヘッダーの高さを適切に設定 */
+}
+
+th {
+    border: 1px solid black;
+}
+
+a {
+    display: block;
+    padding: 2em;
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    background-color: rgb(229, 229, 229);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    th {
+        font-size: 14px; /* モバイル用にフォントサイズを小さく */
+    }
+}
+
+.active{
+    background-color: rgb(229, 229, 229);
+}
+
+body {
+    padding-top: 250px; /* ヘッダーの高さ分の余白を追加 */
 }

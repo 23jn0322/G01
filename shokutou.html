@@ -1,96 +1,466 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+<header>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/shokutou.css"> 
-    <title>食材カテゴリ選択</title>
-</head>
-<body>
-
-<!-- 左側の大カテゴリリスト -->
-<div class="category-list">
-    <button class="category-btn" onclick="showSubcategories('vegetables')">野菜</button>
-    <button class="category-btn" onclick="showSubcategories('fruits')">果物</button>
-    <button class="category-btn" onclick="showSubcategories('meats')">肉類</button>
+    <link rel="stylesheet" href="css/shokutou.css">
+    
+    <div id="logo">
+        <img src="パン.png" width="200px" height="100px">
+    </div>
+    <link href="css/header.css" rel="stylesheet">
+    <table class="link table">
+        <tr>
+            <th><a href="home.html">健康メーター</a></th>
+            <th><a href="shokutou.html" class="active">食材登録</a></th>
+            <th><a href="kaiinhenkou.html">会員情報変更</a></th>
+        </tr>
+    </table>
+</header>
+<div class="header__inner"></div>
+<button id="js-hamburger" type="button" class="hamburger" aria-controls="navigation" aria-expanded="false"
+    aria-label="メニューを開く">
+    <span class="hamburger__line"></span>
+    <span class="hamburger__text"></span>
+</button>
+<div class="header__nav-area js-nav-area" id="navigation">
+    <nav id="js-global-navigation" class="global-navigation">
+        <ul class="global-navigation__list">
+            <li>
+                <a href="rirekitouroku.html" class="global-navigation__link">
+                    履歴から登録する
+                </a>
+            </li>
+            <li>
+                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
+                    aria-expanded='false' aria-controls="accordion1">
+                    野菜
+                </button>
+                <div id="accordion1" class="accordion js-accordion">
+                    <table border="1" class="table">
+                        <tr>
+                            <td>
+                                <label>
+                                    <a  class="accordion__link" id="veggiesLink">いつもの野菜</a>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a  class="accordion__link" id="veggiesLink">葉物野菜</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="accordion__link" id="veggiesLink">根菜類</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="accordion__link" id="veggiesLink">キノコ類</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="accordion__link" id="veggiesLink">果実野菜</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a class="accordion__link" id="veggiesLink">豆類</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td><a class="accordion__link"id="veggiesLink">その他</a>
+                        </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
+                    aria-expanded='false' aria-controls="accordion1">
+                    果物
+                </button>
+                <div id="accordion1" class="accordion js-accordion">
+                    <table border="1" class="table">
+                        <tr>
+                            <td>
+                            <a  class="accordion__link" id="fruitsLink">いつもの果物</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a  class="accordion__link" id="fruitsLink">ドライフルーツ</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a class="accordion__link" id="fruitsLink">柑橘類</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a class="accordion__link" id="fruitsLink">ベリー類</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="accordion__link" id="fruitsLink">その他</a>
+                        </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
+                    aria-expanded='false' aria-controls="accordion1">
+                    お肉
+                </button>
+                <div id="accordion1" class="accordion js-accordion">
+                    <table border="1" class="table">
+                        <tr>
+                            <td>
+                            <a  class="accordion__link" id="meatLink">牛肉</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a  class="accordion__link" id="meatLink">豚肉</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="accordion__link" id="meatLinkk">鶏肉</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a class="accordion__link" id="meatLink"> 肉加工品</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a class="accordion__link" id="meatLink">その他</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
+                    aria-expanded='false' aria-controls="accordion1">
+                    お魚
+                </button>
+                <div id="accordion1" class="accordion js-accordion">
+                    <table border="1" class="table">
+                        <tr>
+                            <td>
+                                 <a  class="accordion__link" id="fishLink">青魚</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a  class="accordion__link" id="fishLink">赤身魚</a>
+                        </td>
+                        </tr>
+                        <tr></tr>
+                            <td>
+                            <a  class="accordion__link" id="fishLink">白身魚</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a class="accordion__link" id="fishLink">海藻類</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a class="accordion__link"id="fishLink">魚加工品</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a class="accordion__link" id="fishLink">その他</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
+                    aria-expanded='false' aria-controls="accordion1">
+                    炭水化物
+                </button>
+                <div id="accordion1" class="accordion js-accordion">
+                    <table border="1" class="table">
+                        <tr>
+                            <td>
+                            <a  class="accordion__link"id="carbohyLink">お米</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a  class="accordion__link"id="carbohyLink">パン</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td><a class="accordion__link"id="carbohyLink">麺</a>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a class="accordion__link"id="carbohyLink">その他</a>
+                        </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+        </ul>
+        <div id="js-focus-trap" tabindex="0"></div>
+    </nav>
+    
+</div>
+</div>
+<div id="chk-veggie1" style="display: none;">
+    <h3>いつもの野菜の選択:</h3>
+    <label><input type="checkbox" name="veggie" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="veggie" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="veggie" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="veggie" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="veggie" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-veggie2" style="display: none;">
+    <h3>いつもの野菜の選択:</h3>
+    <label><input type="checkbox" name="veggie" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="veggie" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="veggie" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="veggie" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="veggie" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-veggie3" style="display: none;">
+    <h3>いつもの野菜の選択:</h3>
+    <label><input type="checkbox" name="veggie" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="veggie" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="veggie" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="veggie" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="veggie" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-veggie4" style="display: none;">
+    <h3>いつもの野菜の選択:</h3>
+    <label><input type="checkbox" name="veggie" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="veggie" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="veggie" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="veggie" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="veggie" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-veggie5" style="display: none;">
+    <h3>いつもの野菜の選択:</h3>
+    <label><input type="checkbox" name="veggie" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="veggie" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="veggie" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="veggie" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="veggie" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-veggie6" style="display: none;">
+    <h3>いつもの野菜の選択:</h3>
+    <label><input type="checkbox" name="veggie" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="veggie" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="veggie" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="veggie" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="veggie" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-veggie7" style="display: none;">
+    <h3>いつもの野菜の選択:</h3>
+    <label><input type="checkbox" name="veggie" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="veggie" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="veggie" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="veggie" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="veggie" value="カボチャ"> カボチャ</label><br>
 </div>
 
-<!-- 右側の細かいカテゴリリスト -->
-<div class="subcategory-list" id="subcategoryList">
-    <!-- 細かいカテゴリのリストがここに表示されます -->
+
+
+
+<div id="chk-fruits1" style="display: none;">
+    <h3>いつもの果物の選択:</h3>
+    <label><input type="checkbox" name="fruits" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fruits" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fruits" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fruits" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fruits" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-fruits2" style="display: none;">
+    <h3>いつもの果物の選択:</h3>
+    <label><input type="checkbox" name="fruits" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fruits" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fruits" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fruits" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fruits" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-fruits3" style="display: none;">
+    <h3>いつもの果物の選択:</h3>
+    <label><input type="checkbox" name="fruits" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fruits" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fruits" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fruits" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fruits" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-fruits4" style="display: none;">
+    <h3>いつもの果物の選択:</h3>
+    <label><input type="checkbox" name="fruits" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fruits" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fruits" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fruits" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fruits" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-fruits5" style="display: none;">
+    <h3>いつもの果物の選択:</h3>
+    <label><input type="checkbox" name="fruits" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fruits" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fruits" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fruits" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fruits" value="カボチャ"> カボチャ</label><br>
 </div>
 
-<!-- 食材リストを表示するエリア -->
-<div class="ingredient-list" id="ingredientList"></div>
 
-<script>
-    // 各カテゴリに対応する細かいカテゴリと食材のデータ
-    const data = {
-        vegetables: {
-            leafy: ['レタス', 'ほうれん草'],
-            root: ['にんじん', '大根']
-        },
-        fruits: {
-            citrus: ['オレンジ', 'レモン'],
-            berry: ['いちご', 'ブルーベリー']
-        },
-        meats: {
-            poultry: ['鶏肉', '七面鳥'],
-            beef: ['ステーキ', 'ひき肉']
-        }
-    };
 
-    // カテゴリをクリックした時に細かいカテゴリを表示
-    function showSubcategories(category) {
-        const subcategoryList = document.getElementById('subcategoryList');
-        const ingredientList = document.getElementById('ingredientList');
 
-        // 細かいカテゴリリストをリセット
-        subcategoryList.innerHTML = '';
-        ingredientList.innerHTML = '';  // 食材リストをクリア
-        ingredientList.classList.remove('active'); // 食材リストを非表示
+<div id="chk-meat1" style="display: none;">
+    <h3>牛肉の選択:</h3>
+    <label><input type="checkbox" name="meat" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="meat" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="meat" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="meat" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="meat" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-meat2" style="display: none;">
+    <h3>牛肉の選択:</h3>
+    <label><input type="checkbox" name="meat" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="meat" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="meat" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="meat" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="meat" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-meat3" style="display: none;">
+    <h3>牛肉の選択:</h3>
+    <label><input type="checkbox" name="meat" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="meat" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="meat" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="meat" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="meat" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-meat4" style="display: none;">
+    <h3>牛肉の選択:</h3>
+    <label><input type="checkbox" name="meat" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="meat" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="meat" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="meat" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="meat" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-meat5" style="display: none;">
+    <h3>牛肉の選択:</h3>
+    <label><input type="checkbox" name="meat" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="meat" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="meat" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="meat" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="meat" value="カボチャ"> カボチャ</label><br>
+</div>
 
-        // 細かいカテゴリリストを表示
-        subcategoryList.style.display = 'block';
 
-        // 選択したカテゴリに基づいて細かいカテゴリを生成
-        if (category) {
-            const subcategories = Object.keys(data[category]);
-            subcategories.forEach(subcategory => {
-                const item = document.createElement('div');
-                item.classList.add('subcategory-item');
-                item.textContent = subcategory === 'leafy' ? '葉物' :
-                                   subcategory === 'root' ? '根菜' :
-                                   subcategory === 'citrus' ? '柑橘類' :
-                                   subcategory === 'berry' ? 'ベリー類' :
-                                   subcategory === 'poultry' ? '鶏肉' : '牛肉';
-                item.setAttribute('data-subcategory', subcategory);
-                item.onclick = function () {
-                    showIngredients(category, subcategory);
-                };
-                subcategoryList.appendChild(item);
-            });
-        }
-    }
 
-    // 細かいカテゴリ選択時に食材を表示
-    function showIngredients(category, subcategory) {
-        const ingredientList = document.getElementById('ingredientList');
 
-        // 食材リストをリセット
-        ingredientList.innerHTML = '';
 
-        if (category && subcategory) {
-            const ingredients = data[category][subcategory];
-            ingredientList.classList.add('active'); // 食材リストを表示
-            ingredients.forEach(ingredient => {
-                const checkboxDiv = document.createElement('div');
-                checkboxDiv.innerHTML = `<input type="checkbox" id="${ingredient}"><label for="${ingredient}">${ingredient}</label>`;
-                ingredientList.appendChild(checkboxDiv);
-            });
-        }
-    }
-</script>
 
-</body>
+
+
+<div id="chk-fish1" style="display: none;">
+    <h3>青魚の選択:</h3>
+    <label><input type="checkbox" name="fish" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fish" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fish" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fish" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fish" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-fish1" style="display: none;">
+    <h3>赤身魚の選択:</h3>
+    <label><input type="checkbox" name="fish" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fish" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fish" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fish" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fish" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-fish1" style="display: none;">
+    <h3>白身魚の選択:</h3>
+    <label><input type="checkbox" name="fish" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fish" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fish" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fish" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fish" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-fish1" style="display: none;">
+    <h3>海藻類の選択:</h3>
+    <label><input type="checkbox" name="fish" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fish" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fish" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fish" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fish" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-fish1" style="display: none;">
+    <h3>魚加工品の選択:</h3>
+    <label><input type="checkbox" name="fish" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fish" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fish" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fish" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fish" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-fish1" style="display: none;">
+    <h3>その他の選択:</h3>
+    <label><input type="checkbox" name="fish" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="fish" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="fish" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="fish" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="fish" value="カボチャ"> カボチャ</label><br>
+</div>
+
+
+
+
+
+<div id="chk-carbohy1" style="display: none;">
+    <h3>お米の選択:</h3>
+    <label><input type="checkbox" name="carbohy" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="carbohy" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="carbohy" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="carbohy" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="carbohy" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-carbohy2" style="display: none;">
+    <h3>パンの選択:</h3>
+    <label><input type="checkbox" name="carbohy" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="carbohy" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="carbohy" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="carbohy" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="carbohy" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-carbohy3" style="display: none;">
+    <h3>麺の選択:</h3>
+    <label><input type="checkbox" name="carbohy" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="carbohy" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="carbohy" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="carbohy" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="carbohy" value="カボチャ"> カボチャ</label><br>
+</div>
+<div id="chk-carbohy4" style="display: none;">
+    <h3>その他の選択:</h3>
+    <label><input type="checkbox" name="carbohy" value="トマト"> トマト</label><br>
+    <label><input type="checkbox" name="carbohy" value="キュウリ"> キュウリ</label><br>
+    <label><input type="checkbox" name="carbohy" value="ナス"> ナス</label><br>
+    <label><input type="checkbox" name="carbohy" value="ジャガイモ"> ジャガイモ</label><br>
+    <label><input type="checkbox" name="carbohy" value="カボチャ"> カボチャ</label><br>
+</div>
+
+
+
+
+<script src="shokutou.js"></script>
 </html>
