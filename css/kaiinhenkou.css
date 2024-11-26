@@ -41,6 +41,8 @@ label {
     width: 120px;
     margin-bottom: 5px;
     font-weight: bold;
+    font-size: 16px;  /* ラベルのフォントサイズを少し小さくする */
+    margin: 0;  /* ラベルの余白をなくす */
 }
 
 input[type="text"], input[type="password"] {
@@ -51,10 +53,74 @@ input[type="text"], input[type="password"] {
     border: 1px solid #ccc;
 }
 
+input[type="radio"] {
+    margin: 0 5px 0 0;  /* ラジオボタンの右側に少し間隔を空ける */
+    gap: 5px;
+}
+
 .info-message, .info-message2 {
     font-size: 11px;
     color: #666;
 }
+
+/*生年月日欄を短くするcss*/
+.form-group {
+    width: 200px;
+    }
+
+#nickname {
+    width: 200px;
+
+    }
+
+    #birthdate-henko {
+        margin-bottom: 10px; /* Adds space below the whole birthdate section */
+    }
+    
+    #form-group {
+        margin-bottom: 10px; /* Adds space below the whole birthdate section */
+    }
+
+    .date-inputs {
+        display: flex;
+        align-items: center; /* Align items vertically centered */
+        margin-top: 5px; /* Adds space above the date inputs */
+    }
+    
+    .date-inputs input {
+        width: 50px;  /* Set a fixed width for the input boxes */
+        margin-right: 10px; /* Space between each input */
+        padding: 5px;  /* Add padding for better input appearance */
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+    
+    .date-inputs label {
+        margin-right: 5px; /* Adds space between the label and input */
+        font-weight: normal; /* Make the label font lighter */
+    }
+    
+    /* Optional: Adjust input width on smaller screens */
+    @media (max-width: 600px) {
+        .date-inputs {
+            flex-direction: column;  /* Stack the inputs vertically on small screens */
+        }
+    
+        .date-inputs input {
+            width: 100%;  /* Allow inputs to take full width on smaller screens */
+            margin-bottom: 10px; /* Adds space between inputs when stacked */
+        }
+    
+        .date-inputs label {
+            margin-bottom: 5px;  /* Space between label and input when stacked */
+        }
+    }
+    
+
+    
+    
+    
+    
 
 /* 新規登録ボタン */
 .register-btn {

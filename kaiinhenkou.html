@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
-<header>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>会員情報変更</title><!-- タイトルを変更 -->
+    <title>会員情報変更</title>
     <link rel="stylesheet" href="css/kaiinhenkou.css">
     <link href="css/header.css" rel="stylesheet">
+</head>
+<body>
+<header>
     <div id="logo">
         <img src="パン.png" width="200px" height="100px">
     </div>
@@ -20,155 +23,136 @@
         </tr>
     </table>
 </header>
-<body>
-    <form action="" method="POST">
-    
-        <script>
-            function navigateTo(page) {
-                switch(page) {
-                    case 'home':
-                        window.location.href = 'home.html';  // ホーム画面
-                        break;
-                    case 'food-registration':
-                        window.location.href = 'food-registration.html';  // 食材登録画面
-                        break;
-                    case 'user-registration-edit':
-                        window.location.href = 'user-registration-edit.html';  // 会員登録変更画面
-                        break;
-                    default:
-                        console.log("Invalid page");
-                }
-            }
-        </script>
 
-        
+<form action="" method="POST">
+    <!-- ニックネーム -->
+    <div>
+        <label for="nickname">ニックネーム:</label>
+        <input type="text" id="nickname" name="nickname" required>
+    </div>
+    <br>
 
-
-        <!-- ニックネーム -->
-        <div>
-            <label for="nickname">ニックネーム:</label>
-            <input type="text" id="nickname" name="nickname" required>
-        </div>
-        <br>
-
-        <!-- 生年月日 -->
-        <div>
-            <label for="birth_year">生年月日:</label>
+    <!-- 生年月日 -->
+    <div class="birth-henko" id="birthdate-henko">
+        <label for="birth_year">生年月日</label>
+        <div class="date-inputs">
             <input type="text" id="birth_year" name="birth_year" required>
             <label for="birth_year">年</label>
+            
             <input type="text" id="birth_month" name="birth_month" required>
             <label for="birth_month">月</label>
+            
             <input type="text" id="birth_day" name="birth_day" required>
             <label for="birth_day">日</label>
         </div>
-        <br>
-
-        <!-- 性別 -->
-        <div>
-            <label>性別</label>
-            <input type="radio" id="sex-male" name="sex" value="男" required>
-            <label for="sex-male">男</label>
-            <input type="radio" id="sex-female" name="sex" value="女" required>
-            <label for="sex-female">女</label>
-        </div>
-        <br>
-
-        <!-- 家族構成 -->
-        <div>
-            <label>家族構成</label>
-            <input type="radio" id="family-yes" name="family" value="あり" required>
-            <label for="family-yes">あり</label>
-            <input type="radio" id="family-no" name="family" value="なし" required>
-            <label for="family-no">なし</label>
-        </div>
-        <br>
-
-        <!-- 登録ボタン -->
-        <form method="POST">
-            <!-- 家族構成の選択 -->
-            <label for="family-structure">家族構成を選択:</label>
-            <select id="family-structure" name="family-structure" onchange="toggleFamilyFields()">
-                <option value="">選択してください</option>
-                <option value="single">一人暮らし</option>
-                <option value="with-family">家族と一緒に住んでいる</option>
-            </select>
-            <br><br>
+    </div>
     
-            <!-- 家族構成の選択に応じて、生年月日入力欄と削除ボタンが表示される -->
-            <div id="family-fields-container" style="display: none;">
-                <div class="form-group">
-                    <label for="family-member-1">生年月日 :</label>
-                    <input type="text" name="birth_year1" min="190" max="210">
+    <br>
+
+    <!-- 性別 -->
+    <div>
+        <label>性別</label>
+        <input type="radio" id="sex-male" name="sex" value="男" required>
+        <label for="sex-male">男</label>
+        <input type="radio" id="sex-female" name="sex" value="女" required>
+        <label for="sex-female">女</label>
+    </div>
+    <br>
+
+    <!-- 家族構成の選択 -->
+    <label>家族構成:</label>
+    <input type="radio" name="family-structure" value="あり" required onclick="toggleFamilyFields()">
+    <label for="family-yes">あり</label>
+    <input type="radio" name="family-structure" value="なし" required onclick="toggleFamilyFields()">
+    <label for="family-no">なし</label>
+    <br><br>
+
+    <!-- 家族構成の選択に応じて、生年月日入力欄が表示される -->
+    <div id="family-fields-container" style="display: none;">
+        <div class="birth-date-group">
+            <div class="form-group">
+                <label for="family-member-1">生年月日</label>
+                <div class="date-inputs">
+                    <input type="text" id="birth_year1" name="birth_year1" required>
                     <label for="birth_year1">年</label>
-                    <input type="text" name="birth_month1" min="1" max="12">
+                    
+                    <input type="text" id="birth_month1" name="birth_month1" required>
                     <label for="birth_month1">月</label>
-                    <input type="text" name="birth_day1" min="1" max="31">
+                    
+                    <input type="text" id="birth_day1" name="birth_day1" required>
                     <label for="birth_day1">日</label>
                 </div>
-                <div class="form-group">
-                    <label for="family-member-2">生年月日 :</label>
-                    <input type="text" name="birth_year2" min="190" max="210">
-                    <label for="birth_year2">年</label>
-                    <input type="text" name="birth_month2" min="1" max="12">
-                    <label for="birth_month2">月</label>
-                    <input type="text" name="birth_day2" min="1" max="31">
-                    <label for="birth_day2">日</label>
-                </div>
-                <div class="form-group">
-                    <label for="family-member-3">生年月日 :</label>
-                    <input type="text" name="birth_year3" min="190" max="210">
-                    <label for="birth_year3">年</label>
-                    <input type="text" name="birth_month3" min="1" max="12">
-                    <label for="birth_month3">月</label>
-                    <input type="text" name="birth_day3" min="1" max="31">
-                    <label for="birth_day3">日</label>
-                </div>
-                <div class="form-group">
-                    <label for="family-member-4">生年月日 :</label>
-                    <input type="text" name="birth_year4" min="190" max="210">
-                    <label for="birth_year4">年</label>
-                    <input type="text" name="birth_month4" min="1" max="12">
-                    <label for="birth_month4">月</label>
-                    <input type="text" name="birth_day4" min="1" max="31">
-                    <label for="birth_day4">日</label>
+                <div>
+                    <label>性別</label><br>
+                    <input type="radio" id="sex-male" name="sex" value="男" required>
+                    <label for="sex-male">男</label>
+                    <input type="radio" id="sex-female" name="sex" value="女" required>
+                    <label for="sex-female">女</label>
                 </div>
 
                 <div class="form-group">
-                    <label for="family-member-5">生年月日 :</label>
-                    <input type="text" name="birth_year5" min="190" max="210">
-                    <label for="birth_year5">年</label>
-                    <input type="text" name="birth_month5" min="1" max="12">
-                    <label for="birth_month5">月</label>
-                    <input type="text" name="birth_day5" min="1" max="31">
-                    <label for="birth_day5">日</label>
-                </div>
+                    <label for="family-member-2">生年月日</label>
+                    <div class="date-inputs">
+                        <input type="text" id="birth_year2" name="birth_year2" required>
+                        <label for="birth_year2">年</label>
+                        
+                        <input type="text" id="birth_month2" name="birth_month2" required>
+                        <label for="birth_month2">月</label>
+                        
+                        <input type="text" id="birth_day2" name="birth_day2" required>
+                        <label for="birth_day2">日</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="family-member-3">生年月日</label>
+                        <div class="date-inputs">
+                            <input type="text" id="birth_year3" name="birth_year3" required>
+                            <label for="birth_year3">年</label>
+                            
+                            <input type="text" id="birth_month3" name="birth_month3" required>
+                            <label for="birth_month3">月</label>
+                            
+                            <input type="text" id="birth_day3" name="birth_day3" required>
+                            <label for="birth_day3">日</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="family-member-4">生年月日</label>
+                            <div class="date-inputs">
+                                <input type="text" id="birth_year4" name="birth_year4" required>
+                                <label for="birth_year4">年</label>
+                                
+                                <input type="text" id="birth_month4" name="birth_month4" required>
+                                <label for="birth_month4">月</label>
+                                
+                                <input type="text" id="birth_day4" name="birth_day4" required>
+                                <label for="birth_day4">日</label>
+                            </div>
             </div>
+        </div>
+        <!-- Repeat for other family members -->
+    </div>
     
-            <br>
-            <button type="submit name=change">変更</button>
-        </form>
-    
-        <script>
-            // 家族構成に応じて、生年月日入力欄を表示/非表示
-            function toggleFamilyFields() {
-                const familyStructure = document.getElementById('family-structure').value;
-                const familyFieldsContainer = document.getElementById('family-fields-container');
-    
-                // 家族と一緒に住んでいる場合は、生年月日入力欄を表示
-                if (familyStructure === 'with-family') {
-                    familyFieldsContainer.style.display = 'block';
-                } else {
-                    familyFieldsContainer.style.display = 'none';
-                }
-            }
-    
-            // 削除ボタンをクリックした際に該当の家族メンバー欄を削除する
-            function removeFamilyMember(memberId) {
-                const memberDiv = document.getElementById(memberId);
-                memberDiv.remove();
-            }
-        </script>
-    
-  </script>
+
+    <br>
+    <button type="submit" name="change">変更</button>
+</form>
+
+<script>
+    // 家族構成に応じて、生年月日入力欄を表示/非表示
+    function toggleFamilyFields() {
+        const familyStructure = document.querySelector('input[name="family-structure"]:checked');
+        const familyFieldsContainer = document.getElementById('family-fields-container');
+        
+        // "あり"が選択された場合は生年月日入力欄を表示
+        if (familyStructure && familyStructure.value === 'あり') {
+            familyFieldsContainer.style.display = 'block';
+        } else {
+            familyFieldsContainer.style.display = 'none';
+        }
+    }
+</script>
 </body>
 </html>
+
+
