@@ -90,7 +90,6 @@ const backgroundFix = (bool) => {
     
     // チェックボックスのコンテナを表示
     var checkboxContainer = document.getElementById("link-veggie1");
-    link
     // 現在の表示状態を確認し、トグル（表示/非表示）する
     if (checkboxContainer.style.display === "none") {
         checkboxContainer.style.display = "block";
