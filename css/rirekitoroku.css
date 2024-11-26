@@ -35,39 +35,62 @@ body {
   }
   
   .item-input {
-    width: 100%;
-    padding: 8px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+    width: 100%; /* テキストボックスの幅を保つ */
+    height: 40px; /* 数値入力欄と同じ高さに設定 */
+    padding: 8px; /* 内側の余白を調整 */
+    font-size: 1em; /* フォントサイズはそのまま */
+    border: 1px solid #ccc; /* 枠線を統一 */
+    border-radius: 4px; /* 角を丸く統一 */
+    margin-bottom: 10px; /* ボックス間の余白を保持 */
+}
+
+
   
   .quantities {
     width: 45%;
   }
   
-  .row {
+/* 数量入力欄と単位選択ドロップダウンリストを右側に寄せる */
+/* 数量入力欄と単位選択ドロップダウンリストを少しだけ左に寄せる */
+/* 数量入力欄と単位選択ドロップダウンリストを少しだけ左に寄せる */
+/* 数量入力欄と単位選択ドロップダウンリストを少しだけ左に寄せる */
+/* 数量入力欄と単位選択ドロップダウンリストを少しだけ左に寄せる */
+/* 数量入力欄と単位選択ドロップダウンリストを少しだけ右に寄せる */
+/* 数量入力欄と単位選択ドロップダウンリストを少しだけ右に寄せる */
+/* 数量入力欄と単位選択ドロップダウンリストをさらに右に寄せる */
+.row {
     display: flex;
     align-items: center;
     margin: 10px 0;
-  }
-  
-  .quantity-input {
-    width: 50px; /* 数値入力欄の幅を狭くする */
-    margin-right: 10px;
-    padding: 5px;
-    font-size: 1em;
-  }
-  
-  select {
-    padding: 2px 4px; /* 内側の余白を小さくする */
-    font-size: 0.8em; /* フォントサイズをさらに小さくする */
+}
+
+/* 数量入力欄のテキストの上下間隔をさらに広げる */
+.quantity-input {
+    width: 70px; /* 数値入力欄の幅 */
+    margin-right: 5px; /* 数量入力欄と選択ボックスの間隔 */
+    margin-left: 15px; /* 右寄せ調整 */
+    padding: 12px 8px;  /* 上下の余白をさらに広げる */
+    font-size: 1.2em;
+    height: 40px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 45px; /* セレクトボタンの幅を狭くする */
-    text-align: center; /* テキストを中央揃え */
-  }
-  
+}
+
+
+select {
+    padding: 2px 4px;
+    font-size: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 45px;
+    text-align: center;
+    margin-left: 15px; /* select要素もさらに右に寄せる */
+}
+
+
+
+
+
   .footer {
     text-align: center;
     margin-top: 20px;
@@ -116,4 +139,21 @@ body {
     padding: 5px; /* 内側の余白 */
     font-size: 14px; /* フォントサイズ */
     display: block; /* テキストボックスをブロック要素として表示 */
+}
+.item-row, .row {
+    margin-bottom: 10px; /* 上下の余白を統一 */
+}
+
+.quantity-input, select {
+    margin-right: 5px; /* 数値入力欄と選択ボックスの間隔を設定 */
+}
+
+.quantity-input {
+    height: 40px; /* 高さを統一 */
+    font-size: 1em; /* フォントサイズを統一 */
+}
+
+select {
+    height: 40px; /* 高さを統一 */
+    font-size: 1em; /* フォントサイズを統一 */
 }
