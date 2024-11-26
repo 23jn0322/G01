@@ -89,8 +89,8 @@ const backgroundFix = (bool) => {
     event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
     
     // チェックボックスのコンテナを表示
-    var checkboxContainer = document.getElementById("chk-veggie1");
-    
+    var checkboxContainer = document.getElementById("link-veggie1");
+    link
     // 現在の表示状態を確認し、トグル（表示/非表示）する
     if (checkboxContainer.style.display === "none") {
         checkboxContainer.style.display = "block";
@@ -102,7 +102,7 @@ document.getElementById("veggiesLink2").addEventListener("click", function(event
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-veggie2");
+  var checkboxContainer = document.getElementById("link-veggie2");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -115,7 +115,7 @@ document.getElementById("veggiesLink3").addEventListener("click", function(event
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-veggie3");
+  var checkboxContainer = document.getElementById("link-veggie3");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -128,7 +128,7 @@ document.getElementById("veggiesLink4").addEventListener("click", function(event
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-veggie4");
+  var checkboxContainer = document.getElementById("link-veggie4");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -141,7 +141,7 @@ document.getElementById("veggiesLink5").addEventListener("click", function(event
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-veggie5");
+  var checkboxContainer = document.getElementById("link-veggie5");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -154,7 +154,7 @@ document.getElementById("veggiesLink6").addEventListener("click", function(event
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-veggie6");
+  var checkboxContainer = document.getElementById("link-veggie6");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -167,7 +167,7 @@ document.getElementById("veggiesLink7").addEventListener("click", function(event
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-veggie7");
+  var checkboxContainer = document.getElementById("link-veggie7");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -184,7 +184,7 @@ document.getElementById("fruitsLink1").addEventListener("click", function(event)
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fruits1");
+  var checkboxContainer = document.getElementById("link-fruits1");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -197,7 +197,7 @@ document.getElementById("fruitsLink2").addEventListener("click", function(event)
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fruits2");
+  var checkboxContainer = document.getElementById("link-fruits2");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -210,7 +210,7 @@ document.getElementById("fruitsLink3").addEventListener("click", function(event)
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fruits3");
+  var checkboxContainer = document.getElementById("link-fruits3");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -223,7 +223,7 @@ document.getElementById("fruitsLink4").addEventListener("click", function(event)
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fruits4");
+  var checkboxContainer = document.getElementById("link-fruits4");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -236,7 +236,7 @@ document.getElementById("fruitsLink5").addEventListener("click", function(event)
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fruits5");
+  var checkboxContainer = document.getElementById("link-fruits5");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -255,7 +255,7 @@ document.getElementById("meatLink1").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-meat1");
+  var checkboxContainer = document.getElementById("link-meat1");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -268,7 +268,7 @@ document.getElementById("meatLink2").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-meat2");
+  var checkboxContainer = document.getElementById("link-meat2");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -281,7 +281,7 @@ document.getElementById("meatLink3").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-meat3");
+  var checkboxContainer = document.getElementById("link-meat3");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -294,7 +294,7 @@ document.getElementById("meatLink4").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-meat4");
+  var checkboxContainer = document.getElementById("link-meat4");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -307,7 +307,7 @@ document.getElementById("meatLink5").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-meat5");
+  var checkboxContainer = document.getElementById("link-meat5");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -325,7 +325,7 @@ document.getElementById("fishLink1").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fish1");
+  var checkboxContainer = document.getElementById("link-fish1");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -339,7 +339,7 @@ document.getElementById("fishLink2").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fish2");
+  var checkboxContainer = document.getElementById("link-fish2");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -353,7 +353,7 @@ document.getElementById("fishLink3").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fish3");
+  var checkboxContainer = document.getElementById("link-fish3");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -367,7 +367,7 @@ document.getElementById("fishLink4").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fish4");
+  var checkboxContainer = document.getElementById("link-fish4");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -381,7 +381,7 @@ document.getElementById("fishLink5").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fish5");
+  var checkboxContainer = document.getElementById("link-fish5");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -395,7 +395,7 @@ document.getElementById("fishLink6").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fish6");
+  var checkboxContainer = document.getElementById("link-fish6");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -409,7 +409,7 @@ document.getElementById("carbohyLink1").addEventListener("click", function(event
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-carbohy1");
+  var checkboxContainer = document.getElementById("link-carbohy1");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -422,7 +422,7 @@ document.getElementById("carbohyLink2").addEventListener("click", function(event
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-carbohy2");
+  var checkboxContainer = document.getElementById("link-carbohy2");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -435,7 +435,7 @@ document.getElementById("carbohyLink3").addEventListener("click", function(event
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-carbohy3");
+  var checkboxContainer = document.getElementById("link-carbohy3");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
@@ -448,7 +448,7 @@ document.getElementById("carbohyLink4").addEventListener("click", function(event
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
   // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-carbohy4");
+  var checkboxContainer = document.getElementById("link-carbohy4");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
