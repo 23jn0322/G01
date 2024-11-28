@@ -47,9 +47,11 @@ document.getElementById("veggiesLink").addEventListener("click", function(event)
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
       checkboxContainer.style.display = "block";
-  } else {
-      checkboxContainer.style.display = "none";
-  }
+      document.getElementById("link-fruits").style.display = "none";
+      document.getElementById("link-meat").style.display = "none";
+      document.getElementById("link-fish").style.display = "none";
+      document.getElementById("link-carbohy").style.display = "none";
+  };
 });
 
 document.getElementById("fruitsLink").addEventListener("click", function(event) {
@@ -60,8 +62,10 @@ document.getElementById("fruitsLink").addEventListener("click", function(event) 
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
       checkboxContainer.style.display = "block";
-  } else {
-      checkboxContainer.style.display = "none";
+      document.getElementById("link-veggie").style.display = "none";
+      document.getElementById("link-meat").style.display = "none";
+      document.getElementById("link-fish").style.display = "none";
+      document.getElementById("link-carbohy").style.display = "none";
   }
 });
 document.getElementById("meatLink").addEventListener("click", function(event) {
@@ -72,8 +76,10 @@ document.getElementById("meatLink").addEventListener("click", function(event) {
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
       checkboxContainer.style.display = "block";
-  } else {
-      checkboxContainer.style.display = "none";
+      document.getElementById("link-veggie").style.display = "none";
+      document.getElementById("link-fruits").style.display = "none";
+      document.getElementById("link-fish").style.display = "none";
+      document.getElementById("link-carbohy").style.display = "none";
   }
 });
 document.getElementById("fishLink").addEventListener("click", function(event) {
@@ -84,8 +90,10 @@ document.getElementById("fishLink").addEventListener("click", function(event) {
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
       checkboxContainer.style.display = "block";
-  } else {
-      checkboxContainer.style.display = "none";
+      document.getElementById("link-veggie").style.display = "none";
+      document.getElementById("link-meat").style.display = "none";
+      document.getElementById("link-fruits").style.display = "none";
+      document.getElementById("link-carbohy").style.display = "none";
   }
 });
 document.getElementById("carbohyLink").addEventListener("click", function(event) {
@@ -96,7 +104,9 @@ document.getElementById("carbohyLink").addEventListener("click", function(event)
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
       checkboxContainer.style.display = "block";
-  } else {
-      checkboxContainer.style.display = "none";
+      document.getElementById("link-veggie").style.display = "none";
+      document.getElementById("link-meat").style.display = "none";
+      document.getElementById("link-fish").style.display = "none";
+      document.getElementById("link-fruits").style.display = "none";
   }
 });
