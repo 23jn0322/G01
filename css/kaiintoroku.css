@@ -71,6 +71,9 @@ input[type="text"], input[type="password"] {
     color: #666;
 }
   
+#birth-date {
+    margin-bottom: 10px; /* Adds space below the whole birthdate section */
+}
 
 
 /*生年月日欄を短くするcss*/
@@ -78,6 +81,15 @@ input[type="text"], input[type="password"] {
     width: 200px;
     }
 
+
+
+
+
+
+
+
+    
+    
 /*生年月日欄を短くするcss*/
 .birth-date-group {
     width: 200px;
