@@ -14,12 +14,21 @@ body {
     margin-bottom: 20px; /* スペースを少し広げる */
 }
 
-.label {
-    margin-right: 10px; /* ラベルと入力欄の間にスペースを追加 */
-    font-weight: bold;
-    text-align: center;
+/* ラベルの共通スタイル */
+label {
     font-size: 16px; /* ラベルのフォントサイズ */
+    font-weight: normal; /* 太さを通常に設定 */
+    margin-right: 10px; /* ラベルと入力欄の間にスペースを追加 */
 }
+
+/* 横並びのラベルと入力欄のスタイル */
+.inline-container {
+    display: flex; /* 横並びにするための設定 */
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    margin-bottom: 20px; /* 下にスペースを追加 */
+}
+
 
 .input-box, .dropdown {
     padding: 8px;
@@ -32,16 +41,6 @@ body {
     box-sizing: border-box;
 }
 
-.checkbox-container {
-    display: flex;
-    justify-content: center; /* チェックボックスを中央寄せ */
-    align-items: center;
-    margin-top: 10px;
-}
-
-.checkbox-container label {
-    margin-left: 5px; /* チェックボックスとラベルの間にスペースを追加 */
-}
 
 .submit-container {
     display: flex;
@@ -81,21 +80,26 @@ body {
     align-items: center; /* 縦方向中央揃え */
     margin-bottom: 20px;
 }
-
-/* 戻るボタンを左端に配置 */
 .back-button {
-    position: fixed; /* 画面に固定 */
-    top: 20px; /* 上から20pxの位置に配置 */
-    left: 20px; /* 画面の左端から20pxの位置に配置 */
-    background-color: #f71a81;
+    position: absolute; /* 画面全体に対して位置を固定 */
+    top: 20px; /* 上からの余白 */
+    left: 20px; /* 左端からの余白 */
+    background-color: #f71a81; /* ボタンの色 */
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
-    z-index: 1000; /* 他のコンテンツより前面に表示 */
+    z-index: 1000; /* 他の要素より前面に表示 */
 }
+
+h1 {
+    text-align: center; /* タイトルを画面中央に配置 */
+    margin-top: 60px; /* 戻るボタンと被らないよう余白を調整 */
+    font-size: 24px; /* タイトルのサイズ */
+}
+
 
 .back-button:hover {
     background-color: #d0146c; /* ホバー時の色 */
@@ -125,4 +129,26 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
+/* 名称、中ジャンル、いつものを中央揃え */
+.input-section {
+    display: flex; /* フレックスボックスを使用 */
+    flex-direction: column; /* 縦方向に配置 */
+    align-items: center; /* 水平方向の中央揃え */
+    margin-bottom: 20px; /* 下に余白を追加 */
+}
+
+/* ラベルと入力欄の共通スタイル */
+.input-section label {
+    margin-bottom: 5px; /* ラベルと入力欄の間にスペースを追加 */
+    font-size: 16px;
+}
+
+.input-section select, 
+.input-section input, 
+.input-section .checkbox-container {
+    margin-bottom: 10px; /* 各要素の間にスペースを追加 */
+}
+
+
 

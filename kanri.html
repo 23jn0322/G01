@@ -6,297 +6,114 @@
     <link rel="stylesheet" href="css/kanri.css">
     <h1>管理者画面</h1>
 </header>
-<a href="kanrisyokutou.html"><button>登録</button></a>
-<div class="header__inner"></div>
-<button id="js-hamburger" type="button" class="hamburger" aria-controls="navigation" aria-expanded="false"
-    aria-label="メニューを開く">
-    <span class="hamburger__line"></span>
-    <span class="hamburger__text"></span>
-</button>
-<div class="header__nav-area js-nav-area" id="navigation">
-    <nav id="js-global-navigation" class="global-navigation">
-        <ul class="global-navigation__list">
-            <li>
-                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
-                    aria-expanded='false' aria-controls="accordion1">
-                    野菜
-                </button>
-                <div id="accordion1" class="accordion js-accordion">
-                    <table border="1" class="table">
-                        <tr>
-                            <td>
-                                <a class="accordion__link" id="veggiesLink1">いつもの野菜</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="accordion__link" id="veggiesLink2">葉物野菜</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="accordion__link" id="veggiesLink3">根菜類</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="accordion__link" id="veggiesLink4">キノコ類</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="accordion__link" id="veggiesLink5">果実野菜</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><a class="accordion__link" id="veggiesLink6">豆類</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td><a class="accordion__link"id="veggiesLink7">その他</a>
-                        </td>
-                        </tr>
-                    </table>
-                </div>
-            </li>
-            <li>
-                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
-                    aria-expanded='false' aria-controls="accordion1">
-                    果物
-                </button>
-                <div id="accordion1" class="accordion js-accordion">
-                    <table border="1" class="table">
-                        <tr>
-                            <td>
-                            <a  class="accordion__link" id="fruitsLink1">いつもの果物</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a  class="accordion__link" id="fruitsLink2">ドライフルーツ</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a class="accordion__link" id="fruitsLink3">柑橘類</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a class="accordion__link" id="fruitsLink4">ベリー類</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="accordion__link" id="fruitsLink5">その他</a>
-                        </td>
-                        </tr>
-                    </table>
-                </div>
-            </li>
-            <li>
-                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
-                    aria-expanded='false' aria-controls="accordion1">
-                    お肉
-                </button>
-                <div id="accordion1" class="accordion js-accordion">
-                    <table border="1" class="table">
-                        <tr>
-                            <td>
-                            <a  class="accordion__link" id="meatLink1">牛肉</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a  class="accordion__link" id="meatLink2">豚肉</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="accordion__link" id="meatLink3">鶏肉</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a class="accordion__link" id="meatLink4"> 肉加工品</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a class="accordion__link" id="meatLink5">その他</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </li>
-            <li>
-                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
-                    aria-expanded='false' aria-controls="accordion1">
-                    お魚
-                </button>
-                <div id="accordion1" class="accordion js-accordion">
-                    <table border="1" class="table">
-                        <tr>
-                            <td>
-                                 <a  class="accordion__link" id="fishLink1">青魚</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a  class="accordion__link" id="fishLink2">赤身魚</a>
-                        </td>
-                        </tr>
-                        <tr></tr>
-                            <td>
-                            <a  class="accordion__link" id="fishLink3">白身魚</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a class="accordion__link" id="fishLink4">海藻類</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a class="accordion__link"id="fishLink5">魚加工品</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a class="accordion__link" id="fishLink6">その他</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </li>
-            <li>
-                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
-                    aria-expanded='false' aria-controls="accordion1">
-                    炭水化物
-                </button>
-                <div id="accordion1" class="accordion js-accordion">
-                    <table border="1" class="table">
-                        <tr>
-                            <td>
-                            <a  class="accordion__link"id="carbohyLink1">お米</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a  class="accordion__link"id="carbohyLink2">パン</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td><a class="accordion__link"id="carbohyLink3">麺</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <a class="accordion__link"id="carbohyLink4">その他</a>
-                        </td>
-                        </tr>
-                    </table>
-                </div>
-            </li>
-        </ul>
-        <div id="js-focus-trap" tabindex="0"></div>
+<body>
+<a href="kanrisyokutou.html"><button>登録</button></a><br>
+<div class="container">
+    <nav class="nav1">
+        <table border="1" class="table">
+            <tr>
+                <td>
+                    <a class="accordion__link" id="veggiesLink">野菜</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="accordion__link" id="fruitsLink">果物</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="accordion__link" id="meatLink">お肉</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="accordion__link" id="fishLink">お魚</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="accordion__link" id="carbohyLink">炭水化物</a>
+                </td>
+            </tr>
+        </table>
+
     </nav>  
-</div>
 
-<div class="choice">
-    <div id="link-veggie1" style="display: none;">
-        <h3>いつもの野菜：</h3>
-        <a href="kanrisyosai.html"> いつもの野菜</a><br>
-        <a href="kanrisyosai.html"> いつもの野菜</a><br>
-    </div>
-    <div id="link-veggie2" style="display: none;">
-        <h3>葉物野菜：</h3>
-        <a href="kanrisyosai.html"> 葉物野菜</a><br>
-        <a href="kanrisyosai.html"> 葉物野菜</a><br>
-    </div>
-    <div id="link-veggie3" style="display: none;">
-        <h3>根菜類：</h3>
-        <a href="kanrisyosai.html"> 根菜類</a><br>
-        <a href="kanrisyosai.html"> 根菜類</a><br>
-    </div>
-    <div id="link-veggie4" style="display: none;">
-        <h3>キノコ類：</h3>
-        <a href="kanrisyosai.html"> キノコ類</a><br>
-        <a href="kanrisyosai.html"> キノコ類</a><br>
-    </div>
-    <div id="link-veggie5" style="display: none;">
-        <h3>果実野菜：</h3>
-        <a href="kanrisyosai.html"> 果実野菜</a><br>
-        <a href="kanrisyosai.html"> 果実野菜</a><br>
-    </div>
-    <div id="link-veggie6" style="display: none;">
-        <h3>豆類：</h3>
-        <a href="kanrisyosai.html"> 豆類</a><br>
-        <a href="kanrisyosai.html"> 豆類</a><br>
-    </div>
-    <div id="link-veggie7" style="display: none;">
-        <h3>その他：</h3>
-        <a href="kanrisyosai.html"> その他</a><br>
-        <a href="kanrisyosai.html"> その他</a><br>
-    </div>
+    <div class="choice">
+        <div id="link-veggie"  style="display: none;">
+            <h3>いつもの野菜：</h3>
+            <a href="kanrisyosai.html"> いつもの野菜</a><br>
+            <a href="kanrisyosai.html"> いつもの野菜</a><br>
+            <h3>葉物野菜：</h3>
+            <a href="kanrisyosai.html"> 葉物野菜</a><br>
+            <a href="kanrisyosai.html"> 葉物野菜</a><br>
+            <h3>根菜類：</h3>
+            <a href="kanrisyosai.html"> 根菜類</a><br>
+            <a href="kanrisyosai.html"> 根菜類</a><br>
+            <h3>キノコ類：</h3>
+            <a href="kanrisyosai.html"> キノコ類</a><br>
+            <a href="kanrisyosai.html"> キノコ類</a><br>
+            <h3>果実野菜：</h3>
+            <a href="kanrisyosai.html"> 果実野菜</a><br>
+            <a href="kanrisyosai.html"> 果実野菜</a><br>
+            <h3>豆類：</h3>
+            <a href="kanrisyosai.html"> 豆類</a><br>
+            <a href="kanrisyosai.html"> 豆類</a><br>
+            <h3>その他：</h3>
+            <a href="kanrisyosai.html"> その他</a><br>
+            <a href="kanrisyosai.html"> その他</a><br>
+        </div>
 
 
 
 
-    <div id="link-fruits1" style="display: none;">
-        <h3>いつもの果物：</h3>
-        <a href="kanrisyosai.html"> いつもの果物</a><br>
-        <a href="kanrisyosai.html"> いつもの果物</a><br>
-    </div>
-    <div id="link-fruits2" style="display: none;">
-        <h3>ドライフルーツ：</h3>
-        <a href="kanrisyosai.html"> ドライフルーツ</a><br>
-        <a href="kanrisyosai.html"> ドライフルーツ</a><br>
-    </div>
-    <div id="link-fruits3" style="display: none;">
-        <h3>柑橘類：</h3>
-        <a href="kanrisyosai.html"> 柑橘類</a><br>
-        <a href="kanrisyosai.html"> 柑橘類</a><br>
-    </div>
-    <div id="link-fruits4" style="display: none;">
-        <h3>ベリー類：</h3>
-        <a href="kanrisyosai.html"> ベリー類</a><br>
-        <a href="kanrisyosai.html"> ベリー類</a><br>
-    </div>
-    <div id="link-fruits5" style="display: none;">
-        <h3>その他：</h3>
-        <a href="kanrisyosai.html"> その他</a><br>
-        <a href="kanrisyosai.html"> その他</a><br>
-    </div>
+        <div id="link-fruits" style="display: none;">
+            <h3>いつもの果物：</h3>
+            <a href="kanrisyosai.html"> いつもの果物</a><br>
+            <a href="kanrisyosai.html"> いつもの果物</a><br>
+
+            <h3>ドライフルーツ：</h3>
+            <a href="kanrisyosai.html"> ドライフルーツ</a><br>
+            <a href="kanrisyosai.html"> ドライフルーツ</a><br>
+
+            <h3>柑橘類：</h3>
+            <a href="kanrisyosai.html"> 柑橘類</a><br>
+            <a href="kanrisyosai.html"> 柑橘類</a><br>
+
+            <h3>ベリー類：</h3>
+            <a href="kanrisyosai.html"> ベリー類</a><br>
+            <a href="kanrisyosai.html"> ベリー類</a><br>
+            
+            <h3>その他：</h3>
+            <a href="kanrisyosai.html"> その他</a><br>
+            <a href="kanrisyosai.html"> その他</a><br>
+        </div>
 
 
 
 
-    <div id="link-meat1" style="display: none;">
-        <h3>牛肉：</h3>
-        <a href="kanrisyosai.html"> 牛肉</a><br>
-        <a href="kanrisyosai.html"> 牛肉</a><br>
-    </div>
-    <div id="link-meat2" style="display: none;">
-        <h3>豚肉：</h3>
-        <a href="kanrisyosai.html"> 豚肉</a><br>
-        <a href="kanrisyosai.html"> 豚肉</a><br>
-    </div>
-    <div id="link-meat3" style="display: none;">
-        <h3>鶏肉：</h3>
-        <a href="kanrisyosai.html"> 鶏肉</a><br>
-        <a href="kanrisyosai.html"> 鶏肉</a><br>
-    </div>
-    <div id="link-meat4" style="display: none;">
-        <h3>肉加工品：</h3>
-        <a href="kanrisyosai.html"> 肉加工品</a><br>
-        <a href="kanrisyosai.html"> 肉加工品</a><br>
-    </div>
-    <div id="link-meat5" style="display: none;">
-        <h3>その他：</h3>
-        <a href="kanrisyosai.html"> その他</a><br>
-        <a href="kanrisyosai.html"> その他</a><br>
-    </div>
+        <div id="link-meat" style="display: none;">
+            <h3>牛肉：</h3>
+            <a href="kanrisyosai.html"> 牛肉</a><br>
+            <a href="kanrisyosai.html"> 牛肉</a><br>
+
+            <h3>豚肉：</h3>
+            <a href="kanrisyosai.html"> 豚肉</a><br>
+            <a href="kanrisyosai.html"> 豚肉</a><br>
+
+            <h3>鶏肉：</h3>
+            <a href="kanrisyosai.html"> 鶏肉</a><br>
+            <a href="kanrisyosai.html"> 鶏肉</a><br>
+
+            <h3>肉加工品：</h3>
+            <a href="kanrisyosai.html"> 肉加工品</a><br>
+            <a href="kanrisyosai.html"> 肉加工品</a><br>
+
+            <h3>その他：</h3>
+            <a href="kanrisyosai.html"> その他</a><br>
+            <a href="kanrisyosai.html"> その他</a><br>
+        </div>
 
 
 
@@ -305,62 +122,56 @@
 
 
 
-    <div id="link-fish1" style="display: none;">
-        <h3>青魚:</h3>
-        <a href="kanrisyosai.html"> 青魚</a><br>
-        <a href="kanrisyosai.html"> 青魚</a><br>
-    </div>
-    <div id="link-fish2" style="display: none;">
-        <h3>赤身魚:</h3>
-        <a href="kanrisyosai.html"> 赤身魚</a><br>
-        <a href="kanrisyosai.html"> 赤身魚</a><br>
-    </div>
-    <div id="link-fish3" style="display: none;">
-        <h3>白身魚:</h3>
-        <a href="kanrisyosai.html"> 白身魚</a><br>
-        <a href="kanrisyosai.html"> 白身魚</a><br>
-    </div>
-    <div id="link-fish4" style="display: none;">
-        <h3>海藻類:</h3>
-        <a href="kanrisyosai.html"> 海藻類</a><br>
-        <a href="kanrisyosai.html"> 海藻類</a><br>
-    </div>
-    <div id="link-fish5" style="display: none;">
-        <h3>魚加工品:</h3>
-        <a href="kanrisyosai.html"> 魚加工品</a><br>
-        <a href="kanrisyosai.html"> 魚加工品</a><br>
-    </div>
-    <div id="link-fish6" style="display: none;">
-        <h3>その他:</h3>
-        <a href="kanrisyosai.html"> その他</a><br>
-        <a href="kanrisyosai.html"> その他</a><br>
-    </div>
+        <div id="link-fish" style="display: none;">
+            <h3>青魚:</h3>
+            <a href="kanrisyosai.html"> 青魚</a><br>
+            <a href="kanrisyosai.html"> 青魚</a><br>
+
+            <h3>赤身魚:</h3>
+            <a href="kanrisyosai.html"> 赤身魚</a><br>
+            <a href="kanrisyosai.html"> 赤身魚</a><br>
+
+            <h3>白身魚:</h3>
+            <a href="kanrisyosai.html"> 白身魚</a><br>
+            <a href="kanrisyosai.html"> 白身魚</a><br>
+
+            <h3>海藻類:</h3>
+            <a href="kanrisyosai.html"> 海藻類</a><br>
+            <a href="kanrisyosai.html"> 海藻類</a><br>
+
+            <h3>魚加工品:</h3>
+            <a href="kanrisyosai.html"> 魚加工品</a><br>
+            <a href="kanrisyosai.html"> 魚加工品</a><br>
+
+            <h3>その他:</h3>
+            <a href="kanrisyosai.html"> その他</a><br>
+            <a href="kanrisyosai.html"> その他</a><br>
+
+        </div>
 
 
 
 
 
-    <div id="link-carbohy1" style="display: none;">
-        <h3>お米:</h3>
-        <a href="kanrisyosai.html"> お米</a><br>
-        <a href="kanrisyosai.html"> お米</a><br>
-    </div>
-    <div id="link-carbohy2" style="display: none;">
-        <h3>パン</h3>
-        <a href="kanrisyosai.html"> パン</a><br>
-        <a href="kanrisyosai.html"> パン</a><br>
-    </div>
-    <div id="link-carbohy3" style="display: none;">
-        <h3>麺:</h3>
-        <a href="kanrisyosai.html"> 麺</a><br>
-        <a href="kanrisyosai.html"> 麺</a><br>
-    </div>
-    <div id="link-carbohy4" style="display: none;">
-        <h3>その他の選択:</h3>
-        <a href="kanrisyosai.html"> その他</a><br>
-        <a href="kanrisyosai.html"> その他</a><br>
+        <div id="link-carbohy" style="display: none;">
+            <h3>お米:</h3>
+            <a href="kanrisyosai.html"> お米</a><br>
+            <a href="kanrisyosai.html"> お米</a><br>
+
+            <h3>パン</h3>
+            <a href="kanrisyosai.html"> パン</a><br>
+            <a href="kanrisyosai.html"> パン</a><br>
+
+            <h3>麺:</h3>
+            <a href="kanrisyosai.html"> 麺</a><br>
+            <a href="kanrisyosai.html"> 麺</a><br>
+
+            <h3>その他の選択:</h3>
+            <a href="kanrisyosai.html"> その他</a><br>
+            <a href="kanrisyosai.html"> その他</a><br>
+        </div>
     </div>
 </div>
-
+</body>
 <script src="kanri.js"></script>
 </html>
