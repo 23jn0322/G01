@@ -20,12 +20,12 @@
 </header>
 <body>
 <div class="header__inner"></div>
-<button id="js-hamburger" type="button" class="hamburger" aria-controls="navigation" aria-expanded="false"
-    aria-label="メニューを開く">
+<button id="js-hamburger" type="button" class="hamburger -active" aria-controls="navigation" aria-expanded="true"
+    aria-label="">
     <span class="hamburger__line"></span>
     <span class="hamburger__text"></span>
 </button>
-<div class="header__nav-area js-nav-area" id="navigation">
+<div class="header__nav-area js-nav-area -active" id="navigation">
     <nav id="js-global-navigation" class="global-navigation">
         <ul class="global-navigation__list">
             <li>
@@ -69,10 +69,6 @@
                             <td><a class="accordion__link" id="veggiesLink6">豆類</a>
                         </td>
                         </tr>
-                        <tr>
-                            <td><a class="accordion__link"id="veggiesLink7">その他</a>
-                        </td>
-                        </tr>
                     </table>
                 </div>
             </li>
@@ -101,11 +97,6 @@
                         <tr>
                             <td>
                             <a class="accordion__link" id="fruitsLink4">ベリー類</a>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a class="accordion__link" id="fruitsLink5">その他</a>
                         </td>
                         </tr>
                     </table>
@@ -178,11 +169,6 @@
                             <a class="accordion__link"id="fishLink5">魚加工品</a>
                         </td>
                         </tr>
-                        <tr>
-                            <td>
-                            <a class="accordion__link" id="fishLink6">その他</a>
-                            </td>
-                        </tr>
                     </table>
                 </div>
             </li>
@@ -211,6 +197,41 @@
                             <td>
                             <a class="accordion__link"id="carbohyLink4">その他</a>
                         </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
+                    aria-expanded='false' aria-controls="accordion1">
+                    卵・牛乳
+                </button>
+                <div id="accordion1" class="accordion js-accordion">
+                    <table border="1" class="table">
+                        <tr>
+                            <td>
+                                 <a  class="accordion__link" id="eggLink1">卵</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <a  class="accordion__link" id="eggLink2">牛乳・乳製品</a>
+                        </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="global-navigation__link -accordion js-sp-accordion-trigger"
+                    aria-expanded='false' aria-controls="accordion1">
+                    大豆
+                </button>
+                <div id="accordion1" class="accordion js-accordion">
+                    <table border="1" class="table">
+                        <tr>
+                            <td>
+                                 <a  class="accordion__link" id="soyLink">大豆製品</a>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -375,6 +396,24 @@
     <h3>その他:</h3>
     <label><input type="checkbox" name="carbohy" value=""> その他１</label><br>
     <label><input type="checkbox" name="carbohy" value="キュウリ"> その他２</label><br>
+</div>
+
+
+<div id="chk-egg1" style="display: none;">
+    <h3>卵:</h3>
+    <label><input type="checkbox" name="fish" value="トマト"> 卵１</label><br>
+    <label><input type="checkbox" name="fish" value="キュウリ"> 卵２</label><br>
+</div>
+<div id="chk-egg2" style="display: none;">
+    <h3>牛乳:</h3>
+    <label><input type="checkbox" name="fish" value="トマト">乳製品１</label><br>
+    <label><input type="checkbox" name="fish" value="キュウリ"> 乳製品２</label><br>
+</div>
+
+<div id="chk-soy" style="display: none;">
+    <h3>大豆製品:</h3>
+    <label><input type="checkbox" name="fish" value="トマト"> 大豆製品１</label><br>
+    <label><input type="checkbox" name="fish" value="キュウリ"> 大豆製品２</label><br>
 </div>
 </div>
 
