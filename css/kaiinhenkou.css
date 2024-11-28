@@ -153,3 +153,20 @@ input[type="radio"] {
 .info-message2 {
     color: #fc0505;
 }
+
+/* Align the "変更" button to the right */
+.change-button {
+    float: right; /* This will push the button to the right side */
+    margin-top: 10px; /* Add space on top */
+    padding: 10px 20px; /* Optional: Add some padding to the button */
+    background-color: #35dfd0; /* Optional: Green background */
+    color: white; /* White text */
+    border: none; /* Remove the default border */
+    border-radius: 5px; /* Optional: Rounded corners */
+    cursor: pointer; /* Optional: Add a pointer cursor */
+}
+
+.change-button:hover {
+    background-color: #45a049; /* Darker green when hovered */
+}
+

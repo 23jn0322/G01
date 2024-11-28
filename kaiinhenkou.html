@@ -6,6 +6,12 @@
     <title>会員情報変更</title>
     <link rel="stylesheet" href="css/kaiinhenkou.css">
     <link href="css/header.css" rel="stylesheet">
+    <script>
+        // 家族構成「あり」のボタンを押した時にページ遷移
+        function redirectToKazokuKousei() {
+            window.location.href = "kazokukousei.html";  // kazokukousei.html に遷移
+        }
+    </script>
 </head>
 <body>
 <header>
@@ -61,11 +67,13 @@
 
     <!-- 家族構成の選択 -->
     <label>家族構成:</label>
-    <input type="radio" name="family-structure" value="あり" required onclick="toggleFamilyFields()">
+    <input type="radio" name="family-structure" value="あり" required onclick="redirectToKazokuKousei()">
     <label for="family-yes">あり</label>
-    <input type="radio" name="family-structure" value="なし" required onclick="toggleFamilyFields()">
+    <input type="radio" name="family-structure" value="なし" required>
     <label for="family-no">なし</label>
 
+    <br>
+    <button type="button" name="henkou" class="change-button">変更</button>
 
 </body>
 </html>
