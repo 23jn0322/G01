@@ -312,21 +312,22 @@
 
     <script>
         // 家族構成が「あり」の場合に家族の生年月日フィールドを表示
-        document.querySelectorAll('input[name="family"]').forEach((radio) => {
+        document.querySelectorAll('input[name="family-status"]').forEach((radio) => {
             radio.addEventListener('change', function() {
-                if (this.value === 'あり') {
-                    document.getElementById('birthdates').style.display = 'block';
+                if (this.value === 'yes') { // "あり"が選択された場合
+                    document.getElementById('form-group').style.display = 'block';  // 「家族情報」のform-groupを表示
                 } else {
-                    document.getElementById('birthdates').style.display = 'none';
+                    document.getElementById('form-group').style.display = 'none';  // 「家族情報」のform-groupを非表示
                 }
             });
         });
-
+        
         // 初期状態で「なし」が選択されているので、最初は非表示
-        document.getElementById('birthdates').style.display = 'none';
-        document.getElementById('toroku').addEventListener('click', function() {
-
-        })
+        document.getElementById('form-group').style.display = 'none';
     </script>
+    
+    
 </body>
 </html>
+
+
