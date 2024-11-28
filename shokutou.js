@@ -163,19 +163,7 @@ document.getElementById("veggiesLink6").addEventListener("click", function(event
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("veggiesLink7").addEventListener("click", function(event) {
-  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
-  
-  // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-veggie7");
-  
-  // 現在の表示状態を確認し、トグル（表示/非表示）する
-  if (checkboxContainer.style.display === "none") {
-      checkboxContainer.style.display = "block";
-  } else {
-      checkboxContainer.style.display = "none";
-  }
-});
+
 
 
 
@@ -232,19 +220,7 @@ document.getElementById("fruitsLink4").addEventListener("click", function(event)
       checkboxContainer.style.display = "none";
   }
 });
-document.getElementById("fruitsLink5").addEventListener("click", function(event) {
-  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
-  
-  // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fruits5");
-  
-  // 現在の表示状態を確認し、トグル（表示/非表示）する
-  if (checkboxContainer.style.display === "none") {
-      checkboxContainer.style.display = "block";
-  } else {
-      checkboxContainer.style.display = "none";
-  }
-});
+
 
 
 
@@ -391,20 +367,6 @@ document.getElementById("fishLink5").addEventListener("click", function(event) {
   }
 });
 
-document.getElementById("fishLink6").addEventListener("click", function(event) {
-  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
-  
-  // チェックボックスのコンテナを表示
-  var checkboxContainer = document.getElementById("chk-fish6");
-  
-  // 現在の表示状態を確認し、トグル（表示/非表示）する
-  if (checkboxContainer.style.display === "none") {
-      checkboxContainer.style.display = "block";
-  } else {
-      checkboxContainer.style.display = "none";
-  }
-});
-
 document.getElementById("carbohyLink1").addEventListener("click", function(event) {
   event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
   
@@ -449,6 +411,47 @@ document.getElementById("carbohyLink4").addEventListener("click", function(event
   
   // チェックボックスのコンテナを表示
   var checkboxContainer = document.getElementById("chk-carbohy4");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+document.getElementById("eggLink1").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-egg1");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+document.getElementById("eggLink2").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-egg2");
+  
+  // 現在の表示状態を確認し、トグル（表示/非表示）する
+  if (checkboxContainer.style.display === "none") {
+      checkboxContainer.style.display = "block";
+  } else {
+      checkboxContainer.style.display = "none";
+  }
+});
+
+document.getElementById("soyLink").addEventListener("click", function(event) {
+  event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
+  
+  // チェックボックスのコンテナを表示
+  var checkboxContainer = document.getElementById("chk-soy");
   
   // 現在の表示状態を確認し、トグル（表示/非表示）する
   if (checkboxContainer.style.display === "none") {
