@@ -70,7 +70,8 @@ input[type="text"], input[type="password"] {
     font-size: 11px;
     color: #666;
 }
-  
+
+
 #birth-date {
     margin-bottom: 10px; /* Adds space below the whole birthdate section */
 }
@@ -82,16 +83,12 @@ input[type="text"], input[type="password"] {
 
 /*生年月日欄を短くするcss*/
 .birth-date {
-    width: 150px;
+    white-space: nowrap;
+        display: flex;
+        align-items: center; /* Align items vertically centered */
+        margin-top: 5px;
+        width: 350px;
     }
-
-
-
-
-
-
-
-
 
     
 /*生年月日欄を短くするcss*/
@@ -184,3 +181,11 @@ input[type="text"], input[type="password"] {
             margin-bottom: 5px;  /* Space between label and input when stacked */
         }
     }
+    .form-group {
+        display: none;
+      }
+      
+      /* ラジオボタン「あり」が選ばれた場合に表示 */
+      #option-あり:checked ~ .form-group {
+        display: block;
+      }
