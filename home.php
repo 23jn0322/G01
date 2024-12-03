@@ -8,7 +8,7 @@
         <meta charset="utf-8">
     </header>
     <body>
-        <?php include "header.html" ?>
+        <?php include "header.php" ?>
         <h2>必要栄養類摂取比較グラフ</h2>
         <h3 id="month">今月分</h3>
         <input type="button" id="monthA" value="今月分はこちら">
