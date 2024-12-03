@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/shokutou.css">
     <link rel="stylesheet" href="css/rirekitoroku.css">
     
-    <?php include "header.html" ?>
+    <?php include "header.php" ?>
 </header>
 <body>
 <div class="header__inner"></div>
