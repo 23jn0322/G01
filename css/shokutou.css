@@ -2,52 +2,31 @@ a {
     font-family: sans-serif;
     text-decoration: none;
     }
-.hamburger {
-    display: block;
-    height: 60px;
-    margin-left: 0;
-    margin-right: auto;
-    position: relative;
-    z-index: 10;
-    width: 60px;
-    border: none;
-    background-color: transparent;
-}
-.hamburger.-active .hamburger__line {
-    background-color: transparent;
-}
-.hamburger.-active .hamburger__line::before {
-    top: 0;
-    transform: rotate(45deg);
-}
-.hamburger.-active .hamburger__line::after {
-    top: 0;
-    transform: rotate(-45deg);
-}
+
 
 .header {
       width: 300px;
 }
 .header__nav-area {
-    position: fixed;
     top: 210px;
     left: -100%;
-    z-index: 9;
     width: 300px;
     visibility: hidden;
     padding-top: 10px;
     background-color: white;
-    transition: 0.4s;
 }
 .header__nav-area.-active {
     left: 0;
     visibility: visible;
+    background-color: white;
 }
 .global-navigation {
     padding-top: 40px;
     padding-right: 25px;
     padding-bottom: 120px;
     padding-left: 25px;
+    background-color: white;
+    float: left;
 }
 .global-navigation__list > li {
     padding-bottom: 20px;
@@ -176,11 +155,15 @@ body {
 
 .choice {
     margin-left: 400px;
-    height: 400px;
-    width: 500px;
     overflow-y: auto;
+    position: absolute;
+    right: auto;
+    margin-top: 0;
+    float: right;
 }
-
+.toroku{
+    padding-top: 500px;
+}
 
 
 
