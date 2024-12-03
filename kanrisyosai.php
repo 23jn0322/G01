@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>管理者食材登録画面</title>
-    <link rel="stylesheet" href="css/kanrisyokutou.css">
-   
+    <title>管理者食材詳細画面</title>
+    <link rel="stylesheet" href="css/kanrisyosai.css">
 </head>
 <body>
-    <button onclick="window.location.href='kanri.html'" class="back-button">← 戻る</button>
-    <h1>食材入力</h1>
+        <!-- 戻るボタン -->
+      <!-- 戻るボタン -->
+<button onclick="window.location.href='kanri.php'" class="back-button">← 戻る</button>
 
-    <!-- 食材名称 -->
-    <div class="container">
-        <label for="ingredient-name" class="label">名称</label>
-        <input type="text" id="ingredient-name" name="mei" class="input-box" placeholder="">
-    </div>
+        <h1>食材入力</h1>
+    
+        <div class="input-section">
+            <label for="ingredient-name">名称</label>
+            <input type="text" id="ingredient-name" name="mei" class="input-box" placeholder="">
+        
+            <label for="category">中ジャンル</label>
+            <select id="category" class="dropdown">
+                <option value="">選択してください</option>
+                <option value="leafvegetable">葉物野菜</option>
+                <option value="mushroom">キノコ類</option>
+                <option value="rootvegetable">根菜類</option>
+                <option value="other">その他</option>
+            </select>
 
-    <!-- 中ジャンル -->
-    <div class="container">
-        <label for="category" class="label">中ジャンル</label>
-        <select id="category" class="dropdown">
-            <option value="">選択してください</option>
-            <option value="leafvegetable">葉物野菜</option>
-            <option value="mushroom">キノコ類</option>
-            <option value="rootvegetable">根菜類</option>
-            <option value="other">その他</option>
-        </select>
-    </div>
-
-    <!-- いつもの -->
-    <div class="container">
-        <label for="usual" class="label">いつもの</label>
-        <input type="checkbox" id="usual">
-    </div>
+<div class="checkbox-container">
+    <label for="usual">
+        <input type="checkbox" id="usual"> いつもの
+    </label>
+</div>
+</div>
 
     <div class="container"></div>
         <label for="ingredient-name" class="label">購入単位</label>
@@ -151,6 +149,7 @@
 
 
 <div class="submit-container">
+
     <button class="submit-button" onclick="confirmRegistration()">登録</button>
 </div>
 
@@ -170,7 +169,7 @@
         if (userConfirmed) {
             // ユーザーがOKを押した場合、登録処理を実行（ここでは単にログに出力するだけ）
             alert("登録が完了しました！");
-            window.location.href = 'kanri.html';
+            window.location.href = 'kanri.php';
         } else {
             // ユーザーがキャンセルを押した場合
             alert("登録をキャンセルしました。");

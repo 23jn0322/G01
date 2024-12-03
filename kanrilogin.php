@@ -11,7 +11,7 @@
     <!-- ログインフォームのモックアップ -->
     <div class="login-container">
         <h2>管理者ログイン</h2>
-        <form action="kanri.html" method="POST">
+        <form action="kanri.php" method="POST">
             <!-- ユーザー名 -->
             <div class="form-group">
                 <label for="username">管理者ID</label>

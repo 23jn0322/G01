@@ -22,7 +22,7 @@
        
         </div>
         <div class="controls">
-            <button class="shutter-button" onclick="window.location.href='yomitori.html'"></button>
+            <button class="shutter-button" onclick="window.location.href='yomitori.php'"></button>
         </div>
     </div>
 

@@ -20,8 +20,8 @@
 
         <!-- ボタンをテキストボックスの下に配置 -->
         <div class="button-container">
-            <button class="reset-button" onclick="window.location.href='satsuei.html'">撮り直し</button>
-            <button class="reset-button" onclick="window.location.href='shokutou.html'">登録</button>
+            <button class="reset-button" onclick="window.location.href='satsuei.php'">撮り直し</button>
+            <button class="reset-button" onclick="window.location.href='shokutou.php'">登録</button>
         </div>
     </div>
 </body>

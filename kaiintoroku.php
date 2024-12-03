@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-    <form action="home.html" method="POST">
+    <form action="home.php" method="POST">
         <div>
             <p>会員登録</p>
         </div>

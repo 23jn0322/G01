@@ -132,7 +132,7 @@
     
 
     <br>
-    <button type="button" onclick="window.location.href='kaiinhenkou.html'">戻る</button>
+    <button type="button" onclick="window.location.href='kaiinhenkou.php'">戻る</button>
 
     <button type="submit" name="change">変更</button>
 
