@@ -9,6 +9,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f4f4f9;
+    flex-direction: column;
 }
 
 /* ユーザIDの上に表示されるpタグ */
@@ -26,6 +27,13 @@ form {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* 登録ボタンは常にページ下部に表示 */
+#toroku {
+    margin-top: 20px;
 }
 
 /* ユーザIDなどのラベル、入力欄 */
@@ -142,6 +150,8 @@ input[type="text"], input[type="password"] {
         margin-bottom: 19px; /* Adds space below the whole birthdate section */
     }
 
+   
+
     .date-inputs {
         display: flex;
         align-items: center; /* Align items vertically centered */
@@ -189,3 +199,4 @@ input[type="text"], input[type="password"] {
       #option-あり:checked ~ .form-group {
         display: block;
       }
+
