@@ -13,7 +13,7 @@
 
 <body>
 <?php include "header.php" ?>
-    <a href="rirekitoroku.php" class="global-navigation__link">
+    <a href="rirekitoroku.php" class="rireki">
         履歴から登録する
     </a>
     <div class="genre">
