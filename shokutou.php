@@ -1,3 +1,10 @@
+<?php
+    require_once './helpers/GenreDAO.php';
+
+    //DBから大ジャンルを取得する
+    $genreDAO = new GenreDAO();
+    $genre_list = $genreDAO->get_genre();
+?>
 <!DOCTYPE html>
 <html lang="ja">
     <meta charset="UTF-8">
