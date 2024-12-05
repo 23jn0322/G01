@@ -1,12 +1,3 @@
-// 変数定義
-  const CLASS = "-active";
-  let flg = true;
-  let accordionFlg = true;
-
-  let focusTrap = document.getElementById("js-focus-trap");
-  let menu = document.querySelector(".js-nav-area");
-  let accordionTrigger = document.querySelectorAll(".js-sp-accordion-trigger");
-  let accordion = document.querySelectorAll(".js-sp-accordion");
   
 
   document.getElementById("veggiesLink1").addEventListener("click", function(event) {
