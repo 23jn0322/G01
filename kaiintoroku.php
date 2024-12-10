@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +14,19 @@
             height: 100vh;
             margin: 0;
         }
+
         form {
             flex-grow: 1;
             overflow-y: auto;
         }
+
         /* 登録ボタンは常にページ下部に表示 */
         #toroku {
             margin-top: 20px;
         }
     </style>
 </head>
+
 <body>
     <form action="home.php" method="POST">
         <div>
@@ -35,13 +39,6 @@
             <input type="text" id="user_id" name="user_id">
             <br><span class="info-message">ユーザーIDはログインにて利用するため変更できません。</span>
             <br><span class="info-message2">※8～16文字で入力してください。</span>
-        </div>
-        <br>
-
-        <!-- ニックネーム -->
-        <div>
-            <label for="nickname">ニックネーム:</label>
-            <input type="text" id="nickname" name="nickname">
         </div>
         <br>
 
@@ -107,16 +104,15 @@
                 <input type="number" id="birth_day1" name="birth_day1" min="1" max="31">
                 <label for="birth_day1">日</label>
             </div>
-            <div>
-                <label>性別</label>
-                <div class="date-inputs">
-                    <input type="radio" id="sex-male-1" name="sex1" value="男" >
-                    <label for="sex-male-1">男</label>
-                    <input type="radio" id="sex-female-1" name="sex1" value="女" >
-                    <label for="sex-female-1">女</label>
-                </div>
+            <label>性別</label>
+            <div class="date-inputs">
+                <input type="radio" id="sex-male-1" name="sex1" value="男">
+                <label for="sex-male-1">男</label>
+                <input type="radio" id="sex-female-1" name="sex1" value="女">
+                <label for="sex-female-1">女</label>
+            </div>
 
-                <label for="family-member-2">生年月日</label>
+            <label for="family-member-2">生年月日</label>
             <div class="date-inputs">
                 <input type="number" id="birth_year2" name="birth_year2" min="1900">
                 <label for="birth_year2">年</label>
@@ -125,16 +121,15 @@
                 <input type="number" id="birth_day2" name="birth_day2" min="1" max="31">
                 <label for="birth_day2">日</label>
             </div>
-            <div>
-                <label>性別</label>
-                <div class="date-inputs">
-                    <input type="radio" id="sex-male-2" name="sex2" value="男" >
-                    <label for="sex-male-2">男</label>
-                    <input type="radio" id="sex-female-2" name="sex2" value="女" >
-                    <label for="sex-female-2">女</label>
-                </div>
+            <label>性別</label>
+            <div class="date-inputs">
+                <input type="radio" id="sex-male-2" name="sex2" value="男">
+                <label for="sex-male-2">男</label>
+                <input type="radio" id="sex-female-2" name="sex2" value="女">
+                <label for="sex-female-2">女</label>
+            </div>
 
-                <label for="family-member-3">生年月日</label>
+            <label for="family-member-3">生年月日</label>
             <div class="date-inputs">
                 <input type="number" id="birth_year3" name="birth_year3" min="1900">
                 <label for="birth_year3">年</label>
@@ -143,16 +138,16 @@
                 <input type="number" id="birth_day3" name="birth_day3" min="1" max="31">
                 <label for="birth_day3">日</label>
             </div>
-            <div>
-                <label>性別</label>
-                <div class="date-inputs">
-                    <input type="radio" id="sex-male-3" name="sex3" value="男" >
-                    <label for="sex-male-3">男</label>
-                    <input type="radio" id="sex-female-3" name="sex3" value="女" >
-                    <label for="sex-female-3">女</label>
-                </div>
 
-                <label for="family-member-4">生年月日</label>
+            <label>性別</label>
+            <div class="date-inputs">
+                <input type="radio" id="sex-male-3" name="sex3" value="男">
+                <label for="sex-male-3">男</label>
+                <input type="radio" id="sex-female-3" name="sex3" value="女">
+                <label for="sex-female-3">女</label>
+            </div>
+
+            <label for="family-member-4">生年月日</label>
             <div class="date-inputs">
                 <input type="number" id="birth_year4" name="birth_year4" min="1900">
                 <label for="birth_year4">年</label>
@@ -161,16 +156,16 @@
                 <input type="number" id="birth_day4" name="birth_day4" min="1" max="31">
                 <label for="birth_day4">日</label>
             </div>
-            <div>
-                <label>性別</label>
-                <div class="date-inputs">
-                    <input type="radio" id="sex-male-4" name="sex4" value="男" >
-                    <label for="sex-male-4">男</label>
-                    <input type="radio" id="sex-female-4" name="sex4" value="女" >
-                    <label for="sex-female-4">女</label>
-                </div>
 
-                <label for="family-member-1">生年月日</label>
+            <label>性別</label>
+            <div class="date-inputs">
+                <input type="radio" id="sex-male-4" name="sex4" value="男">
+                <label for="sex-male-4">男</label>
+                <input type="radio" id="sex-female-4" name="sex4" value="女">
+                <label for="sex-female-4">女</label>
+            </div>
+
+            <label for="family-member-1">生年月日</label>
             <div class="date-inputs">
                 <input type="number" id="birth_year5" name="birth_year5" min="1900">
                 <label for="birth_year5">年</label>
@@ -179,28 +174,24 @@
                 <input type="number" id="birth_day5" name="birth_day5" min="1" max="31">
                 <label for="birth_day5">日</label>
             </div>
-            <div>
-                <label>性別</label>
-                <div class="date-inputs">
-                    <input type="radio" id="sex-male-5" name="sex5" value="男" >
-                    <label for="sex-male-5">男</label>
-                    <input type="radio" id="sex-female-5" name="sex5" value="女" >
-                    <label for="sex-female-5">女</label>
-                </div>
 
-            <!-- その他の家族メンバーのフィールドが続きます -->
+            <label>性別</label>
+            <div class="date-inputs">
+                <input type="radio" id="sex-male-5" name="sex5" value="男">
+                <label for="sex-male-5">男</label>
+                <input type="radio" id="sex-female-5" name="sex5" value="女">
+                <label for="sex-female-5">女</label>
+            </div>
         </div>
 
         <!-- 登録ボタン -->
-        <div>
-            <button id="toroku" type="submit" name="btn">登録</button>
-        </div>
+        <input type="submit" value="登録">
     </form>
 
     <script>
         // 現在の年を取得
         const currentYear = new Date().getFullYear();
-    
+
         // 年入力フィールドのmax属性を現在の年に設定
         document.getElementById('birth_year').setAttribute('max', currentYear);
         document.getElementById('birth_year1').setAttribute('max', currentYear);
@@ -215,9 +206,9 @@
         document.querySelectorAll('input[name="family"]').forEach((radio) => {
             radio.addEventListener('change', function() {
                 if (this.value === 'あり') { // "あり"が選択された場合
-                    document.getElementById('family-group').style.display = 'block';  // 「家族情報」のform-groupを表示
+                    document.getElementById('family-group').style.display = 'block'; // 「家族情報」のform-groupを表示
                 } else {
-                    document.getElementById('family-group').style.display = 'none';  // 「家族情報」のform-groupを非表示
+                    document.getElementById('family-group').style.display = 'none'; // 「家族情報」のform-groupを非表示
                 }
             });
         });
@@ -226,4 +217,5 @@
         document.getElementById('family-group').style.display = 'none';
     </script>
 </body>
+
 </html>
