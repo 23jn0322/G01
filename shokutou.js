@@ -1,4 +1,4 @@
-  
+
 
   document.getElementById("veggiesLink1").addEventListener("click", function(event) {
     event.preventDefault(); // リンクのデフォルト動作をキャンセル（ページ遷移防止）
