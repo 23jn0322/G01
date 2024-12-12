@@ -106,6 +106,8 @@ body {
 
 .genre {
     float: left;
+    overflow-y: auto;
+    height: auto;
 }
 
 .toroku {
