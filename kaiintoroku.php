@@ -8,20 +8,25 @@
         $Password2 = $_POST['Password2'];
         $DOB = $_POST['DOB'];
         $Sex = $_POST['Sex'];
-        $Kazoku = $_POST['Kazoku'];
+        $Fami = $_POST['Fami'];
+       
+        if($Password === $Password2){
 
-        $MemberDAO = new MemberDAO();
+            $MemberDAO = new MemberDAO();
 
-        $member = new Member();
-        $member->MID = $MID; 
-        $member->Name = $Name;
-        $member->Password = $Password;
-        $member->DOB = $DOB;
+            $member = new Member();
+            $member->MID = $MID; 
+            $member->Name = $Name;
+            $member->Password = $Password;
+            $member->DOB = $DOB;
+    
+            $MemberDAO->insert($Member);
+    
+            header('Location:home.php');
+            exit;
+        }
 
-        $MemberDAO->insert($member);
-
-        header('Location:home.php');
-        exit;
+        
     }
 
 ?>
