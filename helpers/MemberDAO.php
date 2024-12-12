@@ -8,6 +8,8 @@ class Member
     public string $Name;
     public string $DOB;
     public bool $Sex;
+    public bool $Fami;
+    public string $Password2;
 }    
 
 class Family
@@ -48,7 +50,7 @@ class MemberDAO
     {
         $dbh = DAO::get_db_connect();
 
-        $sql = "INSERT INTO Member(MID,Password,Name,DOB,Sex) VALUES (:MID,:Password, :Name, :DOB, :Sex)";
+        $sql = "INSERT INTO Members(MID,Password,Name,DOB,Sex) VALUES (:MID,:Password, :Name, :DOB, :Sex)";
 
         $stmt = $dbh->prepare($sql);
 

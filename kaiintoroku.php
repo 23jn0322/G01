@@ -1,27 +1,32 @@
 <?php 
     require_once './helpers/MemberDAO.php';
 
-    if($_SERVER['REQUEST_METHOD'] !== 'POST'){
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $MID = $_POST['MID'];
         $Name = $_POST['Name'];
         $Password = $_POST['Password'];
         $Password2 = $_POST['Password2'];
         $DOB = $_POST['DOB'];
         $Sex = $_POST['Sex'];
-        $Kazoku = $_POST['Kazoku'];
+        $Fami = $_POST['Fami'];
+       
+        if($Password === $Password2){
 
-        $MemberDAO = new MemberDAO();
+            $MemberDAO = new MemberDAO();
 
-        $member = new Member();
-        $member->MID = $MID; 
-        $member->MID = $Name;
-        $member->MID = $Password;
-        $member->MID = $DOB;
+            $member = new Member();
+            $member->MID = $MID; 
+            $member->Name = $Name;
+            $member->Password = $Password;
+            $member->DOB = $DOB;
+    
+            $MemberDAO->insert($Member);
+    
+            header('Location:home.php');
+            exit;
+        }
 
-        $MemberDAO->insert($member)
-
-        header('Location:home.php');
-        exit;
+        
     }
 
 ?>
@@ -68,7 +73,11 @@
             <br><span class="info-message2">※8～16文字で入力してください。</span>
         </div>
         <br>
-
+        <div>
+        <label for="nickname">名前:</label>
+        <input type="text" id="nickname" name="nickname" required>
+    </div>
+    <br>
         <!-- パスワード -->
         <div>
             <label for="password">パスワード:</label>
