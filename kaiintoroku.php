@@ -18,7 +18,7 @@
         $member->MID = $Password;
         $member->MID = $DOB;
 
-        $MemberDAO->insert($member)
+        $MemberDAO->insert($member);
 
         header('Location:home.php');
         exit;
