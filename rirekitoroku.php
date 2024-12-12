@@ -1,3 +1,11 @@
+<?php 
+  require_once './helpers/RirekiDAO.php';
+  require_once './helpers/MemberDAO.php';
+
+  SESSHON
+
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>

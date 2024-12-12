@@ -7,12 +7,23 @@
     session_start();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $MID      = $_POST['UID'];
+        $MID      = $_POST['MID'];
         $Password = $_POST['Password'];
 
         $MemberDAO = new MemberDAO();
         $Member = $MemberDAO->get_member($MID, $Password);
-        //続き
+        
+        if ($Member !== false) {
+            session_regenerate_id(true);
+
+            $_SESSION['Member'] = $Member;
+
+            header('Location: home.php');
+            exit;
+        }
+    }
+    else {
+        $errs[] = 'ユーザー名またはパスワードに誤りがあります。';
     }
 ?>
 <!DOCTYPE html>
@@ -45,6 +56,10 @@
             <div class="form-group right-align">
                 <input type="submit" value="ログイン">
             </div>
+            <?php foreach($errs as $e) : ?>
+                <span style="color:red"><?= $e ?></span>
+                <br>
+            <?php endforeach ?>
         </form>
 
         <!-- 新規登録のテキスト -->
