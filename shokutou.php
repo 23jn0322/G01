@@ -481,7 +481,7 @@ $Foods_list = $FoodsDAO->get_foods();
         <p>↑撮影はこちら</p>
     </div>
 
-    <div class="title">履歴から買い物登録</div>
+    <div class="title">買い物登録</div>
     <div class="container">
         <div class="content">
             <div class="item-row">
