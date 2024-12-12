@@ -10,6 +10,15 @@ class Member
     public bool $Sex;
 }    
 
+class Family
+{
+    public string $MID;
+    public string $FID;
+    public string $Age;
+    public bool $Sex;
+    public bool $DeleteF;
+}
+
 class MemberDAO
 {
     public function get_member(string $MID , string $Password)
@@ -34,6 +43,45 @@ class MemberDAO
 
         return false;
     }
+
+    public function insert(Member $member)
+    {
+        $dbh = DAO::get_db_connect();
+
+        $sql = "INSERT INTO Member(MID,Password,Name,DOB,Sex) VALUES (:MID,:Password, :Name, :DOB, :Sex)";
+
+        $stmt = $dbh->prepare($sql);
+
+        //パスワードをハッシュ化
+        $password=password_hash($Member->Password, PASSWORD_DEFAULT);
+
+        $stmt->bindValue(':MID', $Member->MID, PDO::PARAM_STR);
+        $stmt->bindValue(':Password', $Password, PDO::PARAM_STR);
+        $stmt->bindValue(':Name', $Member->Name, PDO::PARAM_STR);
+        $stmt->bindValue(':DOB', $Member->DOB, PDO::PARAM_STR);
+        $stmt->bindValue(':Sex', $Member->Sex, PDO::PARAM_BOOL);
+
+        $stmt->execute();
+
+
+
+        $sql = "INSERT INTO Family(MID,FID,Age,Sex, DeleteF) VALUES (:MID,:FID, :Age, :Sex, :DeleteF)";
+
+        $stmt = $dbh->prepare($sql);
+
+        
+        $stmt->bindValue(':MID', $Family->MID, PDO::PARAM_STR);
+        $stmt->bindValue(':FID', $FID, PDO::PARAM_STR);
+        $stmt->bindValue(':Age', $Family->Age, PDO::PARAM_STR);
+        $stmt->bindValue(':Sex', $Family->Sex, PDO::PARAM_BOOL);
+        $stmt->bindValue(':DeleteF', $Family->DeleteF, PDO::PARAM_BOOL);
+
+        $stmt->execute();
+
+
+    }
+
+    
 
     public function update(Member $member)
     {
