@@ -1,3 +1,30 @@
+<?php 
+    require_once './helpers/MemberDAO.php';
+
+    if($_SERVER['REQUEST_METHOD'] !== 'POST'){
+        $MID = $_POST['MID'];
+        $Name = $_POST['Name'];
+        $Password = $_POST['Password'];
+        $Password2 = $_POST['Password2'];
+        $DOB = $_POST['DOB'];
+        $Sex = $_POST['Sex'];
+        $Kazoku = $_POST['Kazoku'];
+
+        $MemberDAO = new MemberDAO();
+
+        $member = new Member();
+        $member->MID = $MID; 
+        $member->MID = $Name;
+        $member->MID = $Password;
+        $member->MID = $DOB;
+
+        $MemberDAO->insert($member)
+
+        header('Location:home.php');
+        exit;
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
