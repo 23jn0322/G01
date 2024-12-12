@@ -1,7 +1,7 @@
 <?php 
     require_once './helpers/MemberDAO.php';
 
-    if($_SERVER['REQUEST_METHOD'] !== 'POST'){
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $MID = $_POST['MID'];
         $Name = $_POST['Name'];
         $Password = $_POST['Password'];
