@@ -73,7 +73,11 @@
             <br><span class="info-message2">※8～16文字で入力してください。</span>
         </div>
         <br>
-
+        <div>
+        <label for="nickname">名前:</label>
+        <input type="text" id="nickname" name="nickname" required>
+    </div>
+    <br>
         <!-- パスワード -->
         <div>
             <label for="password">パスワード:</label>
