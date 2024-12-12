@@ -14,9 +14,9 @@
 
         $member = new Member();
         $member->MID = $MID; 
-        $member->MID = $Name;
-        $member->MID = $Password;
-        $member->MID = $DOB;
+        $member->Name = $Name;
+        $member->Password = $Password;
+        $member->DOB = $DOB;
 
         $MemberDAO->insert($member);
 
