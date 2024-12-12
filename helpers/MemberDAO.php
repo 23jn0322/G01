@@ -25,7 +25,7 @@ class MemberDAO
     {
         $dbh = DAO::get_db_connect();
 
-        $sql = "SELECT * From Member WHERE MID = :MID";
+        $sql = "SELECT * From Members WHERE MID = :MID";
 
         $stmt = $dbh->prepare($sql);
 
