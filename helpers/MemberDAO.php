@@ -16,7 +16,7 @@ class MemberDAO
     {
         $dbh = DAO::get_db_connect();
 
-        $sql = "SELECT * From Member WHERE MID = :MID";
+        $sql = "SELECT * From Members WHERE MID = :MID";
 
         $stmt = $dbh->prepare($sql);
 
@@ -33,6 +33,22 @@ class MemberDAO
         }
 
         return false;
+    }
+
+    public function update(Member $member)
+    {
+        $dbh = DAO::get_db_connect();
+
+        $sql = "UPDATE Members SET Name = :Name, DOB = :DOB, Sex = :Sex WHERE MID = :MID";
+
+        $stmt = $dbh->prepare($sql);
+
+           $stmt->bindvalue(':Name', $member->Name, PDO::PARAM_STR);
+           $stmt->bindvalue(':DOB',$member-> $DOB, PDO::PARAM_STR);
+           $stmt->bindvalue(':Sex', $member->$Sex, PDO::PARAM_INT);
+
+           $stmt->execute();
+           $member = $stmt->fetchObject('Member');
     }
 }
 ?>
