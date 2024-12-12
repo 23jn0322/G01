@@ -2,7 +2,15 @@
   require_once './helpers/RirekiDAO.php';
   require_once './helpers/MemberDAO.php';
 
-  SESSHON
+  SESSION_start();
+
+  if(!empty($SESSION['member'])){
+    header('Location:Login.php');
+    exit;
+  }
+
+  $member = $SESSION['member'];
+
 
 
 ?>
