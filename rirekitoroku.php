@@ -11,7 +11,8 @@ if (!empty($_SESSION['Member'])) {
 }
 
 $RirekiDAO = new RirekiDAO();
-$rireki_list = $RirekiDAO->get_rireki_by_syokuID($Member->MID);
+$rireki_list = $RirekiDAO->get_rireki_by_MID($Member->MID);
+$unit_list = $RirekiDAO->get_rireki_by_UID();
 ?>
 
 <!DOCTYPE html>
@@ -32,15 +33,13 @@ $rireki_list = $RirekiDAO->get_rireki_by_syokuID($Member->MID);
                 <?php foreach ($rireki_list as $rireki) : ?>
                     <input type="text" class="item-input" value="<?= $rireki->SyokuName ?>">
                     <div class="row">
-                        <input type="number" value="100" class="quantity-input">
+                        <input type="number" value="0" class="quantity-input">
                         <select>
-                            <option value="g">g</option>
-                            <option value="kg">kg</option>
-                            <option value="本">本</option>
-                            <option value="玉">玉</option>
-                            <option value="個">個</option>
-                            <option value="束">束</option>
-                            <option value="袋">袋</option>
+                        <?php foreach ($unit_list as $unit) : ?>
+                            <?php if ($rireki->SyokuID === $unit->SyokuID): ?>
+                            <option value=<?=$unit->UnitName?>><?=$unit->UnitName?></option>
+                            <?php endif ?>
+                        <?php endforeach ?>   
                         </select>
                     </div>
                 <?php endforeach ?>
