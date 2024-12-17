@@ -2,14 +2,14 @@
   require_once './helpers/SyokutouDAO.php';
   require_once './helpers/MemberDAO.php';
 
-if(session_status() === PHP_SESSION_NONE){
-  session_start();
-}
 
-  $Member = $_SESSION['Member'];
+  session_start();
+
+
+  $Members = $_SESSION['members'];
 
   $SyokutouDAO = new SyokutouDAO();
-  $rireki_list = $SyokutouDAO->get_syokutou_by_MID($Member->MID);
+  $rireki_list = $SyokutouDAO->get_syokutou_by_MID($Members->MID);
 ?>
 
 <!DOCTYPE html>
