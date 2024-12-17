@@ -7,9 +7,8 @@ class Member
     public string $Password;
     public string $Name;
     public string $DOB;
-    public bool $Sex;
+    public int $Sex;
     public bool $Fami;
-    public string $Password2;
 }    
 
 class Family
@@ -46,43 +45,32 @@ class MemberDAO
         return false;
     }
 
-    public function insert(Member $member)
-    {
+    public function insert(Member $member) {
         $dbh = DAO::get_db_connect();
-
-        $sql = "INSERT INTO Members(MID,Password,Name,DOB,Sex) VALUES (:MID,:Password, :Name, :DOB, :Sex)";
-
+        // SQL文の準備
+        $sql = "INSERT INTO Members (MID, Password, Name, DOB, Sex) VALUES (:MID, :Password, :Name, :DOB, :Sex)";
         $stmt = $dbh->prepare($sql);
-
-        //パスワードをハッシュ化
-        $password=password_hash($Member->Password, PASSWORD_DEFAULT);
-
-        $stmt->bindValue(':MID', $Member->MID, PDO::PARAM_STR);
-        $stmt->bindValue(':Password', $Password, PDO::PARAM_STR);
-        $stmt->bindValue(':Name', $Member->Name, PDO::PARAM_STR);
-        $stmt->bindValue(':DOB', $Member->DOB, PDO::PARAM_STR);
-        $stmt->bindValue(':Sex', $Member->Sex, PDO::PARAM_BOOL);
-
-        $stmt->execute();
-
-
-
-        $sql = "INSERT INTO Family(MID,FID,Age,Sex, DeleteF) VALUES (:MID,:FID, :Age, :Sex, :DeleteF)";
-
-        $stmt = $dbh->prepare($sql);
-
-        
-        $stmt->bindValue(':MID', $Family->MID, PDO::PARAM_STR);
-        $stmt->bindValue(':FID', $FID, PDO::PARAM_STR);
-        $stmt->bindValue(':Age', $Family->Age, PDO::PARAM_STR);
-        $stmt->bindValue(':Sex', $Family->Sex, PDO::PARAM_BOOL);
-        $stmt->bindValue(':DeleteF', $Family->DeleteF, PDO::PARAM_BOOL);
-
-        $stmt->execute();
-
-
+    
+        try {
+            // パラメータをバインド（Sexは整数、Passwordはハッシュ化）
+            $stmt->bindValue(':MID', $member->MID, PDO::PARAM_STR);
+            $stmt->bindValue(':Password', password_hash($member->Password, PASSWORD_DEFAULT), PDO::PARAM_STR);  // パスワードのハッシュ化
+            $stmt->bindValue(':Name', $member->Name, PDO::PARAM_STR);
+            $stmt->bindValue(':DOB', $member->DOB, PDO::PARAM_STR);
+            $stmt->bindValue(':Sex', $member->Sex, PDO::PARAM_INT);  // 性別は整数（1または0）として扱う
+    
+            // SQLの実行
+            $stmt->execute();
+            
+            return true;  // 成功した場合はtrueを返す
+        } catch (PDOException $e) {
+            // エラーが発生した場合の処理
+            error_log('Error inserting member: ' . $e->getMessage());  // エラーログに記録
+            return false;  // 失敗した場合はfalseを返す
+        }
     }
-
+    
+    
     
 
     public function update(Member $member)
