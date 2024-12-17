@@ -21,8 +21,8 @@
 <form action="" method="POST">
     <!-- ニックネーム -->
     <div>
-        <label for="nickname">ニックネーム:</label>
-        <input type="text" id="nickname" name="nickname" required>
+        <label for="name">名前:</label>
+        <input type="text" id="name" name="name" required>
     </div>
     <br>
 
