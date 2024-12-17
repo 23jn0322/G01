@@ -8,6 +8,10 @@
     if (!empty($_SESSION['Member'])) {
         $Member = $_SESSION['Member'];
     }
+    else {
+        header('Location: login.php');
+        exit;
+    }
 ?>
 <header>
     <link href="css/header.css" rel="stylesheet">
