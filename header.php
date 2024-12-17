@@ -18,7 +18,7 @@
             <?= $Member->Name ?>さん
         <?php endif; ?>
     <div id="logout">
-        <a href="login.php">ログアウト</a>
+        <a href="logout.php">ログアウト</a>
     </div>
     <table class="link table">
         <tr>
