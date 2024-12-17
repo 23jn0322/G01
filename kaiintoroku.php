@@ -26,15 +26,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // データベースに登録
         $MemberDAO->insert($member);
 
-        // 登録後にリダイレクト
+        // 家族情報が入力されている場合は、Familyテーブルに家族情報を追加
+        if (isset($_POST['family']) && $_POST['family'] === 'あり') {
+            $familyMembers = [];
+            for ($i = 1; $i <= 5; $i++) {
+                if (!empty($_POST["birth_year$i"])) {
+                    $family = [
+                        'DOB' => $_POST["birth_year$i"] . '-' . $_POST["birth_month$i"] . '-' . $_POST["birth_day$i"],
+                        'Sex' => ($_POST["sex$i"] === '男') ? 1 : 0
+                    ];
+                    $familyMembers[] = $family;
+                }
+            }
+
+            // 家族メンバーの情報を追加
+            $MemberDAO->addFamily($MID, $familyMembers);
+        }
+
+        // ここでリダイレクト
         header('Location: home.php');  
-        exit;
+        exit;  // 必ずここで終了してその後のコードを実行しないようにする
     } else {
         // パスワードが一致しない場合はエラーメッセージを表示
         echo "パスワードが一致しません。再度入力してください。";
     }
 }
-?>
 
     
 ?>

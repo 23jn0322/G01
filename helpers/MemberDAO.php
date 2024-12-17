@@ -68,9 +68,44 @@ class MemberDAO
             error_log('Error inserting member: ' . $e->getMessage());  // エラーログに記録
             return false;  // 失敗した場合はfalseを返す
         }
+        
     }
     
+    // MemberDAOクラスに追加するメソッド
+public function addFamily($MID, $familyMembers) {
+    $dbh = DAO::get_db_connect();
     
+    // トランザクション開始
+    $dbh->beginTransaction();
+
+    try {
+        // 家族メンバーの情報を挿入
+        $familyStmt = $dbh->prepare("INSERT INTO Family (FID, MID, Age, Sex) VALUES (:FID, :MID, :Age, :Sex)");
+
+        foreach ($familyMembers as $index => $family) {
+            // 家族のユーザーID（MID-1, MID-2...）
+            $familyMID = $MID . '-' . ($index + 1);
+            
+            // 家族の生年月日と性別をバインド
+            $familyStmt->bindValue(':FID', $familyMID, PDO::PARAM_STR); // 家族のユーザーID（例: MID-1）
+            $familyStmt->bindValue(':MID', $MID, PDO::PARAM_STR); // 親のMID
+            $familyStmt->bindValue(':Age', $family['DOB'], PDO::PARAM_STR); // 家族の生年月日
+            $familyStmt->bindValue(':Sex', $family['Sex'], PDO::PARAM_INT); // 性別
+            
+            // SQLの実行（Familyテーブル）
+            $familyStmt->execute();
+        }
+
+        // コミット
+        $dbh->commit();
+    } catch (PDOException $e) {
+        // エラーが発生した場合の処理
+        $dbh->rollBack();  // ロールバック
+        error_log('Error inserting family: ' . $e->getMessage());  // エラーログに記録
+        return false;  // 失敗した場合はfalseを返す
+    }
+}
+
     
 
     public function update(Member $member)
