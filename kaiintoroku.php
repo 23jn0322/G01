@@ -1,34 +1,42 @@
 <?php 
-    require_once './helpers/MemberDAO.php';
+require_once './helpers/MemberDAO.php';
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $MID = $_POST['MID'];
-        $Name = $_POST['Name'];
-        $Password = $_POST['Password'];
-        $Password2 = $_POST['Password2'];
-        $DOB = $_POST['DOB'];
-        $Sex = $_POST['Sex'];
-        $Fami = $_POST['Fami'];
-       
-        if($Password === $Password2){
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // フォームデータを取得
+    $MID = $_POST['user_id'] ?? '';  // ユーザID
+    $Name = $_POST['name'] ?? '';  // 名前
+    $Password = $_POST['password'] ?? '';  // パスワード
+    $Password2 = $_POST['re-password'] ?? '';  // パスワード再入力
+    $DOB = $_POST['birth_year'] . '-' . $_POST['birth_month'] . '-' . $_POST['birth_day'];  // 生年月日
+    $Sex = $_POST['sex'] ?? '';  // 性別
 
-            $MemberDAO = new MemberDAO();
-
-            $member = new Member();
-            $member->MID = $MID; 
-            $member->Name = $Name;
-            $member->Password = $Password;
-            $member->DOB = $DOB;
-    
-            $MemberDAO->insert($Member);
-    
-            header('Location:home.php');
-            exit;
-        }
-
+    // パスワード一致確認
+    if ($Password === $Password2) {
+        // MemberDAOのインスタンス作成
+        $MemberDAO = new MemberDAO();
         
-    }
+        // Memberオブジェクト作成
+        $member = new Member();
+        $member->MID = $MID; 
+        $member->Name = $Name;
+        $member->Password = password_hash($Password, PASSWORD_DEFAULT);  // パスワードをハッシュ化
+        $member->DOB = $DOB;
+        $member->Sex = ($Sex === '男') ? 1 : 0;  // 性別: 男なら1、女なら0 に変換
+        
+        // データベースに登録
+        $MemberDAO->insert($member);
 
+        // 登録後にリダイレクト
+        header('Location: home.php');  
+        exit;
+    } else {
+        // パスワードが一致しない場合はエラーメッセージを表示
+        echo "パスワードが一致しません。再度入力してください。";
+    }
+}
+?>
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -60,7 +68,7 @@
 </head>
 
 <body>
-    <form action="home.php" method="POST">
+    <form action="" method="POST">
         <div>
             <p>会員登録</p>
         </div>
