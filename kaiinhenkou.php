@@ -24,8 +24,8 @@ require_once './helpers/MemberDAO.php';
 <form action="" method="POST">
     <!-- ニックネーム -->
     <div>
-        <label for="nickname">名前:</label>
-        <input type="text" id="nickname" name="nickname" required>
+        <label for="name">名前:</label>
+        <input type="text" id="name" name="name" required>
     </div>
     <br>
 
