@@ -1,6 +1,8 @@
 <?php 
 require_once './helpers/MemberDAO.php';
-
+if(session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // フォームデータを取得
     $MID = $_POST['user_id'] ?? '';  // ユーザID
@@ -19,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $member = new Member();
         $member->MID = $MID; 
         $member->Name = $Name;
-        $member->Password = password_hash($Password, PASSWORD_DEFAULT);  // パスワードをハッシュ化
+        $member->Password = $Password;  // パスワードをハッシュ化
         $member->DOB = $DOB;
         $member->Sex = ($Sex === '男') ? 1 : 0;  // 性別: 男なら1、女なら0 に変換
         
@@ -42,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // 家族メンバーの情報を追加
             $MemberDAO->addFamily($MID, $familyMembers);
         }
-
+        $_SESSION['Member'] = $MemberDAO->get_member($MID, $Password);
         // ここでリダイレクト
         header('Location: home.php');  
         exit;  // 必ずここで終了してその後のコードを実行しないようにする
