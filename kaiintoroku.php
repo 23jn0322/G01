@@ -1,6 +1,8 @@
 <?php 
 require_once './helpers/MemberDAO.php';
-
+if(session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // フォームデータを取得
     $MID = $_POST['user_id'] ?? '';  // ユーザID
@@ -19,22 +21,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $member = new Member();
         $member->MID = $MID; 
         $member->Name = $Name;
-        $member->Password = password_hash($Password, PASSWORD_DEFAULT);  // パスワードをハッシュ化
+        $member->Password = $Password;  // パスワードをハッシュ化
         $member->DOB = $DOB;
         $member->Sex = ($Sex === '男') ? 1 : 0;  // 性別: 男なら1、女なら0 に変換
         
         // データベースに登録
         $MemberDAO->insert($member);
 
-        // 登録後にリダイレクト
+        // 家族情報が入力されている場合は、Familyテーブルに家族情報を追加
+        if (isset($_POST['family']) && $_POST['family'] === 'あり') {
+            $familyMembers = [];
+            for ($i = 1; $i <= 5; $i++) {
+                if (!empty($_POST["birth_year$i"])) {
+                    $family = [
+                        'DOB' => $_POST["birth_year$i"] . '-' . $_POST["birth_month$i"] . '-' . $_POST["birth_day$i"],
+                        'Sex' => ($_POST["sex$i"] === '男') ? 1 : 0
+                    ];
+                    $familyMembers[] = $family;
+                }
+            }
+
+            // 家族メンバーの情報を追加
+            $MemberDAO->addFamily($MID, $familyMembers);
+        }
+        $_SESSION['Member'] = $MemberDAO->get_member($MID, $Password);
+        // ここでリダイレクト
         header('Location: home.php');  
-        exit;
+        exit;  // 必ずここで終了してその後のコードを実行しないようにする
     } else {
         // パスワードが一致しない場合はエラーメッセージを表示
         echo "パスワードが一致しません。再度入力してください。";
     }
 }
-?>
 
     
 ?>
