@@ -1,15 +1,14 @@
 <?php 
   require_once './helpers/SyokutouDAO.php';
   require_once './helpers/MemberDAO.php';
+  require_once './helpers/RirekiDAO.php';
 
 
   session_start();
 
 
-  $Members = $_SESSION['members'];
-
-  $SyokutouDAO = new SyokutouDAO();
-  $rireki_list = $SyokutouDAO->get_syokutou_by_MID($Members->MID);
+  $RirekiDAO = new RirekiDAO();
+  $rireki_list = $RirekiDAO->get_rireki_by_syokuID($syokutou->syokuID);
 ?>
 
 <!DOCTYPE html>
@@ -25,67 +24,8 @@
     <div class="container">
         <div class="content">
             <div class="item-row">
-                <input type="text" class="item-input" placeholder="例: 牛肉" value="牛肉">
-                <div class="row">
-                    <input type="number" value="100" class="quantity-input">
-                    <select>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                        <option value="本">本</option>
-                        <option value="玉">玉</option>
-                        <option value="個">個</option>
-                        <option value="束">束</option>
-                        <option value="袋">袋</option>
-                    </select>
-                </div>
-            </div>
-            <div class="item-row">
-                <input type="text" class="item-input" placeholder="例: ほうれん草" value="ほうれん草">
-                <div class="row">
-                    <input type="number" value="100" class="quantity-input">
-                    <select>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                        <option value="本">本</option>
-                        <option value="玉">玉</option>
-                        <option value="個">個</option>
-                        <option value="束">束</option>
-                        <option value="袋">袋</option>
-                    </select>
-                </div>
-            </div>
-            <div class="item-row">
-                <input type="text" class="item-input" placeholder="例: にんじん" value="にんじん">
-                <div class="row">
-                    <input type="number" value="100" class="quantity-input">
-                    <select>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                        <option value="本">本</option>
-                        <option value="玉">玉</option>
-                        <option value="個">個</option>
-                        <option value="束">束</option>
-                        <option value="袋">袋</option>
-                    </select>
-                </div>
-            </div>
-            <div class="item-row">
-                <input type="text" class="item-input" placeholder="例: 大根" value="大根">
-                <div class="row">
-                    <input type="number" value="100" class="quantity-input">
-                    <select>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                        <option value="本">本</option>
-                        <option value="玉">玉</option>
-                        <option value="個">個</option>
-                        <option value="束">束</option>
-                        <option value="袋">袋</option>
-                    </select>
-                </div>
-            </div>
-            <div class="item-row">
-                <input type="text" class="item-input" placeholder="例: りんご" value="りんご">
+                <?php foreach($rireki_list as $MID) : ?>
+                <input type="text" class="item-input" value="<?=$Foods->SyokuName?>">
                 <div class="row">
                     <input type="number" value="100" class="quantity-input">
                     <select>
@@ -101,6 +41,7 @@
             </div>
         </div>
     </div>
+    <?php endforeach?>
     <!-- フッター部分 -->
     <div class="footer">
       <a href="home.php" class="small-button">冷蔵庫in</a>
