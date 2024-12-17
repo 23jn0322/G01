@@ -1,16 +1,4 @@
-<?php
-    if ( session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
 
-    if (!empty($_SESSION['member'])) {
-        $Member = $_SESSION['member'];
-    }
-    else {
-        header('Location: login.php');
-        exit;
-    }
-?>
 <html>
     <link href="css/home.css" rel="stylesheet">
     <script src="apexcharts.min.js"></script>
