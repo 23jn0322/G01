@@ -21,9 +21,9 @@
             header('Location: home.php');
             exit;
         }
-    }
-    else {
-        $errs[] = 'ユーザー名またはパスワードに誤りがあります。';
+        else {
+            $errs[] = 'ユーザー名またはパスワードに誤りがあります。';
+        }
     }
 ?>
 <!DOCTYPE html>

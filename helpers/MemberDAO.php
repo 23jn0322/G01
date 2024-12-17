@@ -88,5 +88,7 @@ class MemberDAO
            $stmt->execute();
            $member = $stmt->fetchObject('Member');
     }
+
+    
 }
 ?>
