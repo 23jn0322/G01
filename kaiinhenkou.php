@@ -1,3 +1,6 @@
+<?php
+require_once './helpers/MemberDAO.php';
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -61,7 +64,7 @@
     <label for="family-no">なし</label>
 
     <br>
-    <button type="button" name="henkou" class="change-button">変更</button>
+    <button type="submit" name="henkou" class="change-button">変更</button>
 
 </body>
 </html>

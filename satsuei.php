@@ -11,14 +11,14 @@
 </head>
 <body>
     <!-- 戻るボタン（リンクとして遷移） -->
-    <a href="shokutou.html">
+    <a href="shokutou.php">
         <button class="button1">
             ← 戻る
         </button>
     </a>
     <div class="camera-container">
         <div class="camera-preview">
-            <img src="\\10.32.97.1\ProfilesRedirect$\23jn0327\Documents\My Pictures\Screenshots\スクリーンショット 2024-11-19 104837.png" alt="サンプル画像" />
+            <img src="スクリーンショット 2024-11-19 104837.png" alt="サンプル画像" />
        
         </div>
         <div class="controls">

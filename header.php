@@ -1,10 +1,24 @@
+<?php
+    require_once './helpers/MemberDAO.php';
+
+    if(session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (!empty($_SESSION['Member'])) {
+        $Member = $_SESSION['Member'];
+    }
+?>
 <header>
     <link href="css/header.css" rel="stylesheet">
     <div id="logo">
         <img src="パン.png" width="200px" height="100px">
     </div>
+    <?php if (isset($Member)) : ?>
+            <?= $Member->Name ?>さん
+        <?php endif; ?>
     <div id="logout">
-        <a href="login.php">ログアウト</a>
+        <a href="logout.php">ログアウト</a>
     </div>
     <table class="link table">
         <tr>
