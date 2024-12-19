@@ -108,22 +108,47 @@ public function addFamily($MID, $familyMembers) {
 
     
 
-    public function update(Member $member)
-    {
-        $dbh = DAO::get_db_connect();
+public function update(Member $member) {
+    $dbh = DAO::get_db_connect();
+    // SQL文の準備
+    $sql =   $sql = "UPDATE Members SET Name = :Name, DOB = :DOB, Sex = :Sex WHERE MID = :MID";
 
-        $sql = "UPDATE Members SET Name = :Name, DOB = :DOB, Sex = :Sex WHERE MID = :MID";
+    $stmt = $dbh->prepare($sql);
+
+
+    try {
+        // パラメータをバインド（Sexは整数）
+        $stmt->bindValue(':MID', $member->MID, PDO::PARAM_STR);
+        $stmt->bindValue(':Name', $member->Name, PDO::PARAM_STR);
+        $stmt->bindValue(':DOB', $member->DOB, PDO::PARAM_STR);
+        $stmt->bindValue(':Sex', $member->Sex, PDO::PARAM_INT);  // 性別は整数（1または0）として扱う
+
+        // SQLの実行
+        $stmt->execute();
+        
+        return true;  // 成功した場合はtrueを返す
+    } catch (PDOException $e) {
+        // エラーが発生した場合の処理
+        error_log('Error inserting member: ' . $e->getMessage());  // エラーログに記録
+        return false;  // 失敗した場合はfalseを返す
+    }
+    
+}
+    public function getFamily(string $MID) {
+
+    $dbh = DAO::get_db_connect();
+
+        $sql = "SELECT * From Members  INNER JOIN  Family ON Members.MID = Family.MID where Members.MID=:MID";
 
         $stmt = $dbh->prepare($sql);
 
-           $stmt->bindvalue(':Name', $member->Name, PDO::PARAM_STR);
-           $stmt->bindvalue(':DOB',$member-> $DOB, PDO::PARAM_STR);
-           $stmt->bindvalue(':Sex', $member->$Sex, PDO::PARAM_INT);
+        $stmt->bindvalue(':MID', $MID, PDO::PARAM_STR);
 
-           $stmt->execute();
-           $member = $stmt->fetchObject('Member');
+        $stmt->execute();
+
+        $memberAndFamily = $stmt->fetchAll();
+
+        return $memberAndFamily;
     }
-
-    
 }
 ?>
