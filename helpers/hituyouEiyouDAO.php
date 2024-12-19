@@ -9,15 +9,15 @@ class Nenrei
 
 class HituyouEiyou
 {
+    public float $tanpaku;
+    public float $tansui;
+    public float $syokumotu;
+    public float $tetu;
+    public float $karu;
+    public float $zn;
     public float $bitaA;
     public float $bitaC;
     public float $bitaD;
-    public float $karu;
-    public float $syokumotu;
-    public float $tanpaku;
-    public float $tansui;
-    public float $tetu;
-    public float $zn;
 }
 
 class HituyouEiyouDAO
@@ -85,6 +85,6 @@ class HituyouEiyouDAO
 
         return $member_age_sex;
     }
-    //続き
+    
 }
 ?>
