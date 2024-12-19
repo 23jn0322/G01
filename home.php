@@ -1,4 +1,22 @@
 
+<?php
+    require_once './helpers/EiyouDAO.php';
+    require_once './helpers/MemberDAO.php';
+
+    if(session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (!empty($_SESSION['Member'])) {
+        $Member = $_SESSION['Member'];
+    }
+
+    $hituyouDAO = new HituyouEiyouDAO();
+    $eiyouDAO = new EiyouDAO();
+    $Hituyou = $hituyouDAO->get_hituyou_natrients($Member->MID);
+    $FHituyou = $hituyouDAO->get_family_hituyou_natrients($Member->MID);
+    $Eiyou = $eiyouDAO->get_nutrients($Member->MID);
+?>
 <html>
     <link href="css/home.css" rel="stylesheet">
     <script src="apexcharts.min.js"></script>
@@ -11,6 +29,7 @@
     <body>
         <?php include "header.php" ?>
         <h2>必要栄養類摂取比較グラフ</h2>
+        <?= $Eiyou->tanpaku ?>
         <h3 id="month">今月分</h3>
         <input type="button" id="monthA" value="今月分はこちら">
         <input type="button" id="monthB" value="来月分はこちら">
@@ -64,7 +83,7 @@
         let options = {
             chart: { type: 'pie' },
             legend: { show: false },
-            series: [60, 40],
+            series: [<?= $Eiyou->tanpaku ?>, <?= ($Hituyou->tanpaku + $FHituyou->tanpaku) - $Eiyou->tanpaku ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
             colors: ['#33FF57', '#ffffff']
         };
