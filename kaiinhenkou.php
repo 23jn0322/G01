@@ -9,6 +9,7 @@ if(session_status() === PHP_SESSION_NONE) {
 if (isset($_SESSION['Member'])) {
     $user = $_SESSION['Member']; // セッションからログインしたユーザーの情報を取得
 
+
     $memberAndFamily = $MemberDAO->getFamily($user->MID);
 } else {
     // セッションに情報がない場合はリダイレクトなどを検討
@@ -26,21 +27,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $Sex = $_POST['sex'] ?? '';  // 性別
 
     // 家族構成の追加処理
-    if (isset($_POST['family']) && $_POST['family'] === 'あり') {
+    //if (isset($_POST['family']) && $_POST['family'] === 'あり') {
         $familyMembers = [];
         for ($i = 1; $i <= 5; $i++) {
-            if (!empty($_POST["birth_year$i"])) {
+            if (!empty($_POST["family_birth_year$i"])) {
                 $family = [
-                    'DOB' => $_POST["birth_year$i"] . '-' . $_POST["birth_month$i"] . '-' . $_POST["birth_day$i"],
-                    'Sex' => ($_POST["sex$i"] === '男') ? 1 : 0
+                    'DOB' => $_POST["family_birth_year$i"] . '-' . $_POST["family_birth_month$i"] . '-' . $_POST["family_birth_day$i"],
+                    
                 ];
                 $familyMembers[] = $family;
             }
         }
+         // 家族メンバーの情報を更新
+         $MemberDAO->updateFamily($MID, $ $familyMembers);
 
-        // 家族メンバーの情報を追加
-        $MemberDAO->addFamily($MID, $familyMembers);
-    }
+
+        $new_family_familyMembers = [];
+        for ($i = 1; $i <= 5; $i++) {
+            if (!empty($_POST["new_family_birth_year$i"])) {
+                $family = [
+                    'DOB' => $_POST["new_family_birth_year$i"] . '-' . $_POST["new_family_birth_month$i"] . '-' . $_POST["new_family_birth_day$i"],
+                    'Sex' => ($_POST["new_family_family_sex$i"] === '男') ? 1 : 0
+                ];
+                $new_family_familyMembers[] = $family;
+            }
+        }
+        if(empty($new_family_familyMembers) == false){
+            // 家族メンバーの情報を追加
+            $MemberDAO->addFamily($MID,  $new_family_familyMembers);
+        }
+
+    //}
     // メンバー情報をセッションに保存
     $_SESSION['Member'] = $MemberDAO->get_member($MID,  $Password);
 
@@ -62,9 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="css/header.css" rel="stylesheet">
 </head>
 <body>
-<header>
+
     <?php include "header.php" ?>
-</header>
+
 
 <form action="" method="POST">
     <div>
@@ -74,12 +91,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <br>
 
-   
-    
-  
+
     <label>家族構成:</label>
     <?php
-    foreach($memberAndFamily as $family) {
+        $i = 1;
+        foreach($memberAndFamily as $family) {
+            
     ?>
 
             <!-- 生年月日 -->
@@ -87,25 +104,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="birth_year">生年月日</label>
                 <div class="date-inputs">
                     <!-- 生年月日の各部分（年、月、日）をセッションから取得して表示 -->
-                    <input type="text" readonly id="birth_year" name="birth_year" value="<?php echo htmlspecialchars(explode('-', $family['DOB'])[0] ?? ''); ?>" >
+                    <input type="text"  id="birth_year" name="family_birth_year<?= $i?>" value="<?php echo htmlspecialchars(explode('-', $family['Age'])[0] ?? ''); ?>" >
                     <label for="birth_year">年</label>
                     
-                    <input type="text" readonly id="birth_month" name="birth_month" value="<?php echo htmlspecialchars(explode('-',  $family['DOB'])[1] ?? ''); ?>" >
+                    <input type="text"  id="birth_month" name="family_birth_month<?= $i?>" value="<?php echo htmlspecialchars(explode('-',  $family['Age'])[1] ?? ''); ?>" >
                     <label for="birth_month">月</label>
                     
-                    <input type="text" readonly id="birth_day" name="birth_day" value="<?php echo htmlspecialchars(explode('-',  $family['DOB'])[2] ?? ''); ?>" required>
+                    <input type="text"  id="birth_day" name="family_birth_day<?= $i?>" value="<?php echo htmlspecialchars(explode('-',  $family['Age'])[2] ?? ''); ?>" required>
                     <label for="birth_day">日</label>
         
                 </div>
             </div>
         
-            <br>
+     
         
             <!-- 性別 -->
             <div>
                 <label>性別</label>
                 <?php
-                    if($family->Sex == 1) {
+                    if($family['Sex'] == 1) {
                 ?>
                     <label for="sex-male">男</label>
                 <?php
@@ -118,86 +135,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>                
 
     <?php
+            $i +=1;
         }
     ?>
-    
-    <!-- 家族構成の選択 
-
-    <input type="radio" name="family-structure" value="あり" required>
-    <label for="family-yes">あり</label>
+    <br>
+    <br>
+    <label>家族を増やす:</label>
+    <!--<input type="radio" name="family-structure" value="あり" required>
+    <label for="family-yes">増やす</label>
     <input type="radio" name="family-structure" value="なし" required>
-    <label for="family-no">なし</label>-->
+    <label for="family-no">このまま</label>-->
+    
     <!-- 家族メンバーの入力 -->
-        <div id="family-group" class="form-group" style="display: none;">
+        <div id="family-group" class="form-group" >
             <label for="family-member-1">生年月日</label>
             <div class="date-inputs">
-                <input type="number" id="birth_year1" name="birth_year1" min="1900">
+                <input type="number" id="birth_year1" name="new_family_birth_year1" min="1900">
                 <label for="birth_year1">年</label>
-                <input type="number" id="birth_month1" name="birth_month1" min="1" max="12">
+                <input type="number" id="birth_month1" name="new_family_birth_month1" min="1" max="12">
                 <label for="birth_month1">月</label>
-                <input type="number" id="birth_day1" name="birth_day1" min="1" max="31">
+                <input type="number" id="birth_day1" name="new_family_birth_day1" min="1" max="31">
                 <label for="birth_day1">日</label>
             </div>
             <label>性別</label>
             <div class="date-inputs">
-                <input type="radio" id="sex-male-1" name="sex1" value="男">
+                <input type="radio" id="sex-male-1" name="new_family_sex1" value="男">
                 <label for="sex-male-1">男</label>
-                <input type="radio" id="sex-female-1" name="sex1" value="女">
+                <input type="radio" id="sex-female-1" name="new_family_sex1" value="女">
                 <label for="sex-female-1">女</label>
             </div>
 
             <label for="family-member-2">生年月日</label>
             <div class="date-inputs">
-                <input type="number" id="birth_year2" name="birth_year2" min="1900">
+                <input type="number" id="birth_year2" name="new_family_birth_year2" min="1900">
                 <label for="birth_year2">年</label>
-                <input type="number" id="birth_month2" name="birth_month2" min="1" max="12">
+                <input type="number" id="birth_month2" name="new_family_birth_month2" min="1" max="12">
                 <label for="birth_month2">月</label>
-                <input type="number" id="birth_day2" name="birth_day2" min="1" max="31">
+                <input type="number" id="birth_day2" name="new_family_birth_day2" min="1" max="31">
                 <label for="birth_day2">日</label>
             </div>
             <label>性別</label>
             <div class="date-inputs">
-                <input type="radio" id="sex-male-2" name="sex2" value="男">
+                <input type="radio" id="sex-male-2" name="new_family_sex2" value="男">
                 <label for="sex-male-2">男</label>
-                <input type="radio" id="sex-female-2" name="sex2" value="女">
+                <input type="radio" id="sex-female-2" name="new_family_sex2" value="女">
                 <label for="sex-female-2">女</label>
             </div>
-
+            <br>
             <label for="family-member-3">生年月日</label>
             <div class="date-inputs">
-                <input type="number" id="birth_year3" name="birth_year3" min="1900">
+                <input type="number" id="birth_year3" name="new_family_birth_year3" min="1900">
                 <label for="birth_year3">年</label>
-                <input type="number" id="birth_month3" name="birth_month3" min="1" max="12">
+                <input type="number" id="birth_month3" name="new_family_birth_month3" min="1" max="12">
                 <label for="birth_month3">月</label>
-                <input type="number" id="birth_day3" name="birth_day3" min="1" max="31">
+                <input type="number" id="birth_day3" name="new_family_birth_day3" min="1" max="31">
                 <label for="birth_day3">日</label>
             </div>
 
             <label>性別</label>
             <div class="date-inputs">
-                <input type="radio" id="sex-male-3" name="sex3" value="男">
+                <input type="radio" id="sex-male-3" name="new_family_sex3" value="男">
                 <label for="sex-male-3">男</label>
-                <input type="radio" id="sex-female-3" name="sex3" value="女">
+                <input type="radio" id="sex-female-3" name="new_family_sex3" value="女">
                 <label for="sex-female-3">女</label>
             </div>
-
-            <label for="family-member-4">生年月日</label>
-            <div class="date-inputs">
-                <input type="number" id="birth_year4" name="birth_year4" min="1900">
-                <label for="birth_year4">年</label>
-                <input type="number" id="birth_month4" name="birth_month4" min="1" max="12">
-                <label for="birth_month4">月</label>
-                <input type="number" id="birth_day4" name="birth_day4" min="1" max="31">
-                <label for="birth_day4">日</label>
-            </div>
-
-            <label>性別</label>
-            <div class="date-inputs">
-                <input type="radio" id="sex-male-4" name="sex4" value="男">
-                <label for="sex-male-4">男</label>
-                <input type="radio" id="sex-female-4" name="sex4" value="女">
-                <label for="sex-female-4">女</label>
-            </div>
+            <br>
+            
         </div>
     <br>
     <button type="submit" name="henkou" class="change-button">変更</button>
