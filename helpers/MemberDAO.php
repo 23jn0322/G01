@@ -138,7 +138,7 @@ public function update(Member $member) {
 
     $dbh = DAO::get_db_connect();
 
-        $sql = "SELECT * From Members  INNER JOIN  Family ON Members.MID = Family.MID where Members.MID=:MID";
+        $sql = "SELECT * From Members  Left outer JOIN  Family ON Members.MID = Family.MID where Members.MID=:MID";
 
         $stmt = $dbh->prepare($sql);
 
@@ -150,5 +150,29 @@ public function update(Member $member) {
 
         return $memberAndFamily;
     }
+    public function updateFamily(Family $Age) {
+        $dbh = DAO::get_db_connect();
+        // SQL文の準備
+            $sql =   $sql = "UPDATE Family SET Age =:Age WHERE FID = :FID";
+    
+            $stmt = $dbh->prepare($sql);
+    
+            try {
+            // パラメータをバインド（Sexは整数）
+               
+            $stmt->bindValue(':Age', $family['DOB'], PDO::PARAM_STR); // 家族の生年月日
+    
+    
+            // SQLの実行
+            $stmt->execute();
+            
+            return true;  // 成功した場合はtrueを返す
+        } catch (PDOException $e) {
+            // エラーが発生した場合の処理
+            error_log('Error inserting member: ' . $e->getMessage());  // エラーログに記録
+            return false;  // 失敗した場合はfalseを返す
+        }
+    }
 }
+
 ?>
