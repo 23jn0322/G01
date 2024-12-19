@@ -10,19 +10,19 @@
         $AID      = $_POST['AID'];
         $APassword = $_POST['APassword'];
 
-        $KanriDAO = new KanriDAO();
-        $Kanri = $KanriDAO->get_kanri($AID, $APassword);
+        $kanriDAO = new KanriDAO();
+        $Admin = $kanriDAO->get_admin($AID, $APassword);
         
-        if ($Kanri !== false) {
+        if ($Admin !== false) {
             session_regenerate_id(true);
 
-            $_SESSION['Kanri'] = $Kanri;
+            $_SESSION['Admin'] = $Admin;
 
             header('Location: kanri.php');
             exit;
         }
         else {
-            $errs[] = 'ユーザー名またはパスワードに誤りがあります。';
+            $errs[] = '管理者IDまたはパスワードに誤りがあります。';
         }
     }
 ?>
@@ -52,14 +52,14 @@
         <form action="" method="POST">
             <!-- ユーザー名 -->
             <div class="form-group">
-                <label for="username">管理者ID</label>
+                <label for="kanriid">管理者ID</label>
                 <input type="text" id="kanriid" name="AID" placeholder="管理者IDを入力" required>
             </div>
 
             <!-- パスワード -->
             <div class="form-group">
                 <label for="password">パスワード</label>
-                <input type="password" id="password" name="Password" placeholder="パスワードを入力" required>
+                <input type="password" id="password" name="APassword" placeholder="パスワードを入力" required>
             </div>
 
             <!-- ログインボタン -->
