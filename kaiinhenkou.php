@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div>
                 <label>性別</label>
                 <?php
-                    if($family->Sex == 1) {
+                    if($family['Sex'] == 1) {
                 ?>
                     <label for="sex-male">男</label>
                 <?php
