@@ -138,7 +138,7 @@ public function update(Member $member) {
 
     $dbh = DAO::get_db_connect();
 
-        $sql = "SELECT * From Members  INNER JOIN  Family ON Members.MID = Family.MID where Members.MID=:MID";
+        $sql = "SELECT * From Members  Left outer JOIN  Family ON Members.MID = Family.MID where Members.MID=:MID";
 
         $stmt = $dbh->prepare($sql);
 
