@@ -75,12 +75,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <br>
 
    
-    </div>
-    <br>
+    
+  
     <label>家族構成:</label>
     <?php
-        foreach($memberAndFamily as $family){
+    foreach($memberAndFamily as $family) {
     ?>
+
             <!-- 生年月日 -->
             <div class="birth-henko" id="birthdate-henko">
                 <label for="birth_year">生年月日</label>
@@ -97,22 +98,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
                 </div>
             </div>
-            
+        
             <br>
         
             <!-- 性別 -->
             <div>
                 <label>性別</label>
                 <?php
-                    if($family->Sex == 1){
+                    if($family->Sex == 1) {
                 ?>
                     <label for="sex-male">男</label>
                 <?php
-                    }else {
+                    } else {
                 ?>                
                         <label for="sex-female">女</label>
-                <? } ?>
-                    
+                <?php 
+                } 
+                ?>
+            </div>                
 
     <?php
         }
@@ -125,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="radio" name="family-structure" value="なし" required>
     <label for="family-no">なし</label>-->
     <!-- 家族メンバーの入力 -->
-<   div id="family-group" class="form-group" style="display: none;">
+        <div id="family-group" class="form-group" style="display: none;">
             <label for="family-member-1">生年月日</label>
             <div class="date-inputs">
                 <input type="number" id="birth_year1" name="birth_year1" min="1900">
@@ -195,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="radio" id="sex-female-4" name="sex4" value="女">
                 <label for="sex-female-4">女</label>
             </div>
-
+        </div>
     <br>
     <button type="submit" name="henkou" class="change-button">変更</button>
 
