@@ -173,7 +173,7 @@
         if (userConfirmed) {
             // ユーザーがOKを押した場合、登録処理を実行（ここでは単にログに出力するだけ）
             alert("登録が完了しました！");
-            window.location.href = 'kanri.html';
+            window.location.href = 'kanri.php';
         } else {
             // ユーザーがキャンセルを押した場合
             alert("登録をキャンセルしました。");
