@@ -1,4 +1,27 @@
 
+<?php
+    require_once './helpers/EiyouDAO.php';
+    require_once './helpers/MemberDAO.php';
+
+    if(session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (!empty($_SESSION['Member'])) {
+        $Member = $_SESSION['Member'];
+    }
+    else{
+        header('Location: login.php');
+        exit;
+    }
+
+    $hituyouDAO = new HituyouEiyouDAO();
+    $eiyouDAO = new EiyouDAO();
+    $Hituyou = $hituyouDAO->get_hituyou_natrients($Member->MID);
+    $FHituyou = $hituyouDAO->get_family_hituyou_natrients($Member->MID);
+    $nowEiyou = $eiyouDAO->get_nowmonth_nutrients($Member->MID);
+    $nextEiyou = $eiyouDAO->get_nextmonth_nutrients($Member->MID);
+?>
 <html>
     <link href="css/home.css" rel="stylesheet">
     <script src="apexcharts.min.js"></script>
@@ -64,7 +87,7 @@
         let options = {
             chart: { type: 'pie' },
             legend: { show: false },
-            series: [60, 40],
+            series: [<?= $nowEiyou->tanpaku ?>, <?= ($Hituyou->tanpaku + $FHituyou->tanpaku) - $nowEiyou->tanpaku ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
             colors: ['#33FF57', '#ffffff']
         };
@@ -72,7 +95,7 @@
         let options2 = {
             chart: { type: 'pie' },
             legend: { show: false },
-            series: [100, 0],
+            series: [<?= $nowEiyou->tansui ?>, <?= ($Hituyou->tansui + $FHituyou->tansui) - $nowEiyou->tansui ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
             colors: ['#33FF57', '#ffffff']
         };
@@ -80,7 +103,7 @@
         let options3 = {
             chart: { type: 'pie' },
             legend: { show: false },
-            series: [90, 10],
+            series: [<?= $nowEiyou->syokumotu ?>, <?= ($Hituyou->syokumotu + $FHituyou->syokumotu) - $nowEiyou->syokumotu ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
             colors: ['#33FF57', '#ffffff']
         };
@@ -88,7 +111,7 @@
         let options4 = {
             chart: { type: 'pie' },
             legend: { show: false },
-            series: [75, 25],
+            series: [<?= $nowEiyou->tetu ?>, <?= ($Hituyou->tetu + $FHituyou->tetu) - $nowEiyou->tetu ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
             colors: ['#33FF57', '#ffffff']
         };
@@ -96,7 +119,7 @@
         let options5 = {
             chart: { type: 'pie' },
             legend: { show: false },
-            series: [30, 70],
+            series: [<?= $nowEiyou->karu ?>, <?= ($Hituyou->karu + $FHituyou->karu) - $nowEiyou->karu ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
             colors: ['#33FF57', '#ffffff']
         };
@@ -104,7 +127,7 @@
         let options6 = {
             chart: { type: 'pie' },
             legend: { show: false },
-            series: [50, 50],
+            series: [<?= $nowEiyou->zn ?>, <?= ($Hituyou->zn + $FHituyou->zn) - $nowEiyou->zn ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
             colors: ['#33FF57', '#ffffff']
         };
@@ -112,7 +135,7 @@
         let options7 = {
             chart: { type: 'pie' },
             legend: { show: false },
-            series: [25, 75],
+            series: [<?= $nowEiyou->bitaA ?>, <?= ($Hituyou->bitaA + $FHituyou->bitaA) - $nowEiyou->bitaA ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
             colors: ['#33FF57', '#ffffff']
         };
@@ -120,7 +143,7 @@
         let options8 = {
             chart: { type: 'pie' },
             legend: { show: false },
-            series: [64, 36],
+            series: [<?= $nowEiyou->bitaC ?>, <?= ($Hituyou->bitaC + $FHituyou->bitaC) - $nowEiyou->bitaC ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
             colors: ['#33FF57', '#ffffff']
         };
@@ -128,7 +151,7 @@
         let options9 = {
             chart: { type: 'pie' },
             legend: { show: false },
-            series: [82, 18],
+            series: [<?= $nowEiyou->bitaD ?>, <?= ($Hituyou->bitaD + $FHituyou->bitaD) - $nowEiyou->bitaD ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
             colors: ['#33FF57', '#ffffff']
         };
@@ -151,7 +174,7 @@
                 let options = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [20, 80],
+                    series: [<?= $nextEiyou->tanpaku ?>, <?= ($Hituyou->tanpaku + $FHituyou->tanpaku) - $nextEiyou->tanpaku ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -159,7 +182,7 @@
                 let options2 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [10, 90],
+                    series: [<?= $nextEiyou->tansui ?>, <?= ($Hituyou->tansui + $FHituyou->tansui) - $nextEiyou->tansui ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -167,7 +190,7 @@
                 let options3 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [10, 90],
+                    series: [<?= $nextEiyou->syokumotu ?>, <?= ($Hituyou->syokumotu + $FHituyou->syokumotu) - $nextEiyou->syokumotu ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -175,7 +198,7 @@
                 let options4 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [25, 75],
+                    series: [<?= $nextEiyou->tetu ?>, <?= ($Hituyou->tetu + $FHituyou->tetu) - $nextEiyou->tetu ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -183,7 +206,7 @@
                 let options5 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [35, 65],
+                    series: [<?= $nextEiyou->karu ?>, <?= ($Hituyou->karu + $FHituyou->karu) - $nextEiyou->karu ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -191,7 +214,7 @@
                 let options6 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [30, 70],
+                    series: [<?= $nextEiyou->zn ?>, <?= ($Hituyou->zn + $FHituyou->zn) - $nextEiyou->zn ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -199,7 +222,7 @@
                 let options7 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [20, 80],
+                    series: [<?= $nextEiyou->bitaA ?>, <?= ($Hituyou->bitaA + $FHituyou->bitaA) - $nextEiyou->bitaA ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -207,7 +230,7 @@
                 let options8 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [10, 90],
+                    series: [<?= $nextEiyou->bitaC ?>, <?= ($Hituyou->bitaC + $FHituyou->bitaC) - $nextEiyou->bitaC ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -215,7 +238,7 @@
                 let options9 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [18, 82],
+                    series: [<?= $nextEiyou->bitaD ?>, <?= ($Hituyou->bitaD + $FHituyou->bitaD) - $nextEiyou->bitaD ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -237,7 +260,7 @@
                 let options = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [60, 40],
+                    series: [<?= $nowEiyou->tanpaku ?>, <?= ($Hituyou->tanpaku + $FHituyou->tanpaku) - $nowEiyou->tanpaku ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -245,7 +268,7 @@
                 let options2 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [100, 0],
+                    series: [<?= $nowEiyou->tansui ?>, <?= ($Hituyou->tansui + $FHituyou->tansui) - $nowEiyou->tansui ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -253,7 +276,7 @@
                 let options3 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [90, 10],
+                    series: [<?= $nowEiyou->syokumotu ?>, <?= ($Hituyou->syokumotu + $FHituyou->syokumotu) - $nowEiyou->syokumotu ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -261,7 +284,7 @@
                 let options4 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [75, 25],
+                    series: [<?= $nowEiyou->tetu ?>, <?= ($Hituyou->tetu + $FHituyou->tetu) - $nowEiyou->tetu ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -269,7 +292,7 @@
                 let options5 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [30, 70],
+                    series: [<?= $nowEiyou->karu ?>, <?= ($Hituyou->karu + $FHituyou->karu) - $nowEiyou->karu ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -277,7 +300,7 @@
                 let options6 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [50, 50],
+                    series: [<?= $nowEiyou->zn ?>, <?= ($Hituyou->zn + $FHituyou->zn) - $nowEiyou->zn ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -285,7 +308,7 @@
                 let options7 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [25, 75],
+                    series: [<?= $nowEiyou->bitaA ?>, <?= ($Hituyou->bitaA + $FHituyou->bitaA) - $nowEiyou->bitaA ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -293,7 +316,7 @@
                 let options8 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [64, 36],
+                    series: [<?= $nowEiyou->bitaC ?>, <?= ($Hituyou->bitaC + $FHituyou->bitaC) - $nowEiyou->bitaC ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };
@@ -301,7 +324,7 @@
                 let options9 = {
                     chart: { type: 'pie' },
                     legend: { show: false },
-                    series: [82, 18],
+                    series: [<?= $nowEiyou->bitaD ?>, <?= ($Hituyou->bitaD + $FHituyou->bitaD) - $nowEiyou->bitaD ?>],
                     tooltip: { enabled: false },  // ツールチップを無効化
                     colors: ['#33FF57', '#ffffff']
                 };

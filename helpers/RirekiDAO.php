@@ -31,9 +31,9 @@ class rirekiDAO{
 
         $data = [];
         while($row = $stmt->fetchObject('Rireki')){
-        $data[] = $row;
-    }
-    return $data;
+            $data[] = $row;
+        }
+        return $data;
     }
     public function get_rireki_by_UID()
     {
