@@ -74,3 +74,9 @@ a:hover {
 body {
     padding-top: 250px; /* ヘッダーの高さ分の余白を追加 */
 }
+
+img {
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+}

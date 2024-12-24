@@ -16,7 +16,7 @@
 <header>
     <link href="css/header.css" rel="stylesheet">
     <div id="logo">
-        <img src="パン.png" width="200px" height="100px">
+        <img src="ロゴ.png">
     </div>
     <?php if (isset($Member)) : ?>
             <?= $Member->Name ?>さん
