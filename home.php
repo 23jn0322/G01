@@ -10,6 +10,10 @@
     if (!empty($_SESSION['Member'])) {
         $Member = $_SESSION['Member'];
     }
+    else{
+        header('Location: login.php');
+        exit;
+    }
 
     $hituyouDAO = new HituyouEiyouDAO();
     $eiyouDAO = new EiyouDAO();
@@ -29,7 +33,6 @@
     <body>
         <?php include "header.php" ?>
         <h2>必要栄養類摂取比較グラフ</h2>
-        <?= $Eiyou->tanpaku ?>
         <h3 id="month">今月分</h3>
         <input type="button" id="monthA" value="今月分はこちら">
         <input type="button" id="monthB" value="来月分はこちら">
