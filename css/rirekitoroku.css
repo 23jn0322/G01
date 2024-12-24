@@ -35,9 +35,10 @@ body {
     display: flex;
     flex-direction: row;
   }
+
   
   .item-input {
-    width: 70%; /* テキストボックスの幅を保つ */
+    display: flex;
     height: 40px; /* 数値入力欄と同じ高さに設定 */
     padding: 8px; /* 内側の余白を調整 */
     font-size: 1em; /* フォントサイズはそのまま */
@@ -68,6 +69,8 @@ body {
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    display: flex;
+    float: right;
 }
 
 
@@ -151,3 +154,4 @@ select {
     height: 40px; /* 高さを統一 */
     font-size: 1em; /* フォントサイズを統一 */
 }
+
