@@ -64,7 +64,7 @@ body {
     width: 70px; /* 数値入力欄の幅 */
     margin-right: 5px; /* 数量入力欄と選択ボックスの間隔 */
     margin-left: 15px; /* 右寄せ調整 */
-    padding: 12px 8px;  /* 上下の余白をさらに広げる */
+    padding: 7px 4px;  /* 上下の余白をさらに広げる */
     font-size: 1.2em;
     height: 40px;
     border: 1px solid #ccc;
@@ -153,5 +153,7 @@ select {
 select {
     height: 40px; /* 高さを統一 */
     font-size: 1em; /* フォントサイズを統一 */
+    width: 60px;
 }
+
 
