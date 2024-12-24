@@ -18,7 +18,7 @@
     </a>
     <div class="camera-container">
         <div class="camera-preview">
-            <img src="スクリーンショット 2024-11-19 104837.png" alt="サンプル画像" />
+            <img src="レシートmaga.jpg" alt="サンプル画像" />
        
         </div>
         <div class="controls">

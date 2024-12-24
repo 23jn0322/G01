@@ -563,7 +563,7 @@ $Foods_list = $FoodsDAO->get_foods();
     </div>
     <!-- フッター部分 -->
     <div class="footer">
-        <a href="home.php" class="small-button">冷蔵庫in</a>
+        <a href="home.php" class="small-button">登録</a>
     </div>
     </div>
 </body>

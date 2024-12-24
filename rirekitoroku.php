@@ -49,7 +49,7 @@ $unit_list = $RirekiDAO->get_rireki_by_UID();
     <!-- フッター部分 -->
     <div class="footer">
         <a href="shokutou.php" class="small-button">戻る</a>
-        <a href="home.php" class="small-button">冷蔵庫in</a>
+        <a href="home.php" class="small-button">登録</a>
 
     </div>
 </body>
