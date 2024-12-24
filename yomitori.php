@@ -10,12 +10,16 @@
     <div class="content-container">
         <!-- 画像を中央に配置 -->
         <div class="image-container">
-            <img src="スクリーンショット 2024-11-19 104837.png" alt="サンプル画像" />
+            <img src="レシートmaga.jpg" alt="サンプル画像" />
         </div>
 
         <!-- テキストボックスを画像の下に配置 -->
         <div class="textarea-container">
-            <textarea placeholder=""></textarea>
+            <imput type ="text" Value = "にんじん">サンチュ<br>
+            <imput type ="text" Value = "大根">大葉<br>
+            <imput type ="text" Value = "チンゲンサイ">チンゲンサイ<br>
+            <imput type ="text" Value = "ピーマン">ピーマン<br>
+            <imput type ="text" Value = "ながねぎ">ながねぎ<br>
         </div>
 
         <!-- ボタンをテキストボックスの下に配置 -->

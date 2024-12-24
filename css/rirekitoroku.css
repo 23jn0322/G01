@@ -12,7 +12,7 @@ body {
   }
   
   .container {
-    width: 60%;
+    width: 500px;
     margin: 0 auto;
     border: 1px solid #ccc;
     padding: 20px;
@@ -35,9 +35,11 @@ body {
     display: flex;
     flex-direction: row;
   }
+
   
   .item-input {
-    width: 70%; /* テキストボックスの幅を保つ */
+    display: flex;
+    width: 60%;
     height: 40px; /* 数値入力欄と同じ高さに設定 */
     padding: 8px; /* 内側の余白を調整 */
     font-size: 1em; /* フォントサイズはそのまま */
@@ -63,11 +65,13 @@ body {
     width: 70px; /* 数値入力欄の幅 */
     margin-right: 5px; /* 数量入力欄と選択ボックスの間隔 */
     margin-left: 15px; /* 右寄せ調整 */
-    padding: 12px 8px;  /* 上下の余白をさらに広げる */
+    padding: 7px 4px;  /* 上下の余白をさらに広げる */
     font-size: 1.2em;
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    display: flex;
+    float: right;
 }
 
 
@@ -150,4 +154,7 @@ select {
 select {
     height: 40px; /* 高さを統一 */
     font-size: 1em; /* フォントサイズを統一 */
+    width: 60px;
 }
+
+
