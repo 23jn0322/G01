@@ -12,7 +12,7 @@ body {
   }
   
   .container {
-    width: 60%;
+    width: 500px;
     margin: 0 auto;
     border: 1px solid #ccc;
     padding: 20px;
@@ -39,6 +39,7 @@ body {
   
   .item-input {
     display: flex;
+    width: 60%;
     height: 40px; /* 数値入力欄と同じ高さに設定 */
     padding: 8px; /* 内側の余白を調整 */
     font-size: 1em; /* フォントサイズはそのまま */
