@@ -98,20 +98,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach($memberAndFamily as $family) {
             
     ?>
-
+        
             <!-- 生年月日 -->
             <div class="birth-henko" id="birthdate-henko">
                 <label for="birth_year">生年月日</label>
                 <div class="date-inputs">
                     <!-- 生年月日の各部分（年、月、日）をセッションから取得して表示 -->
-                    <input type="text"  id="birth_year" name="family_birth_year<?= $i?>" value="<?php echo htmlspecialchars(explode('-', $family['Age'])[0] ?? ''); ?>" >
-                    <label for="birth_year">年</label>
                     
-                    <input type="text"  id="birth_month" name="family_birth_month<?= $i?>" value="<?php echo htmlspecialchars(explode('-',  $family['Age'])[1] ?? ''); ?>" >
-                    <label for="birth_month">月</label>
                     
-                    <input type="text"  id="birth_day" name="family_birth_day<?= $i?>" value="<?php echo htmlspecialchars(explode('-',  $family['Age'])[2] ?? ''); ?>" required>
-                    <label for="birth_day">日</label>
+                    <?php
+                    $familyAge = $family['Age'] ?? ''; // null の場合は空文字列に設定
+                    $familyDOB = explode('-', $familyAge); // 年月日を分割
+
+                    $year = $familyDOB[0] ?? ''; // 年
+                    $month = $familyDOB[1] ?? ''; // 月
+                    $day = $familyDOB[2] ?? '';   // 日
+                    ?>
+
+                <input type="text"  id="birth_year" name="family_birth_year<?= $i?>" value="<?php echo htmlspecialchars($year); ?>" >
+                <label for="birth_year">年</label>
+                <input type="text"  id="birth_month" name="family_birth_month<?= $i?>" value="<?php echo htmlspecialchars($month); ?>" >
+                <label for="birth_month">月</label>
+                <input type="text"  id="birth_day" name="family_birth_day<?= $i?>" value="<?php echo htmlspecialchars($day); ?>" >
+                <label for="birth_day">日</label>
+
         
                 </div>
             </div>
