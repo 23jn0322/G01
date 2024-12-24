@@ -12,7 +12,7 @@
 </head>
 <body>
     <button onclick="window.location.href='kanri.php'" class="back-button">← 戻る</button>
-    <h1>食材入力</h1>
+    <h1>新規食材登録</h1>
 
     <!-- 食材名称 -->
     <div class="container">

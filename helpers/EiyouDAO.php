@@ -193,7 +193,7 @@ class HituyouEiyouDAO
 
 class eiyouDAO
 {
-    public function get_nutrients(string $MID)
+    public function get_nowmonth_nutrients(string $MID)
     {
         $dbh = DAO::get_db_connect();
 
@@ -212,11 +212,49 @@ class eiyouDAO
                 JOIN 
                     nutrients n ON st.SyokuID = n.SyokuID AND st.UID = n.UID
                 WHERE 
-                    st.MID = :MID
+                    st.MID = :MID AND ResistDate >= DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0) AND ResistDate <= DATEADD(DAY, 24, DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0))
                 GROUP BY 
                     st.MID
                 ORDER BY 
                     st.MID;";
+
+        $stmt = $dbh->prepare($sql);
+
+        $stmt->bindValue(':MID', $MID, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $member_eiyou = $stmt->fetchObject('Eiyou');
+
+        if ($member_eiyou !== false){
+            return $member_eiyou;
+        }
+        return false;
+    }
+
+    public function get_nextmonth_nutrients(string $MID)
+    {
+        $dbh = DAO::get_db_connect();
+
+        $sql = "SELECT 
+                    SUM(CASE WHEN n.NID = 'tanpaku' THEN st.Quantity * n.IncludeNatri ELSE 0 END) AS tanpaku,
+                    SUM(CASE WHEN n.NID = 'tansui' THEN st.Quantity * n.IncludeNatri ELSE 0 END) AS tansui,
+                    SUM(CASE WHEN n.NID = 'syokumotu' THEN st.Quantity * n.IncludeNatri ELSE 0 END) AS syokumotu,
+                    SUM(CASE WHEN n.NID = 'tetu' THEN st.Quantity * n.IncludeNatri ELSE 0 END) AS tetu,
+                    SUM(CASE WHEN n.NID = 'karu' THEN st.Quantity * n.IncludeNatri ELSE 0 END) AS karu,
+                    SUM(CASE WHEN n.NID = 'zn' THEN st.Quantity * n.IncludeNatri ELSE 0 END) AS zn,
+                    SUM(CASE WHEN n.NID = 'bitaA' THEN st.Quantity * n.IncludeNatri ELSE 0 END) AS bitaA,
+                    SUM(CASE WHEN n.NID = 'bitaC' THEN st.Quantity * n.IncludeNatri ELSE 0 END) AS bitaC,
+                    SUM(CASE WHEN n.NID = 'bitaD' THEN st.Quantity * n.IncludeNatri ELSE 0 END) AS bitaD
+                FROM 
+                    syokutou st
+                JOIN 
+                    nutrients n ON st.SyokuID = n.SyokuID AND st.UID = n.UID
+                WHERE 
+                    st.MID = :MID AND ResistDate >= DATEADD(DAY, 25, DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0))
+                GROUP BY 
+                    st.MID
+                ORDER BY 
+                    st.MID";
 
         $stmt = $dbh->prepare($sql);
 

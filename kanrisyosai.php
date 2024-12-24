@@ -11,7 +11,7 @@
       <!-- 戻るボタン -->
 <button onclick="window.location.href='kanri.php'" class="back-button">← 戻る</button>
 
-        <h1>食材入力</h1>
+        <h1>食材詳細</h1>
     
         <div class="input-section">
             <label for="ingredient-name">名称</label>
