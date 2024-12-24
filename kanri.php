@@ -43,8 +43,8 @@
     <div class="choice">
         <div id="link-veggie"  style="display: none;">
             <h3>いつもの野菜：</h3>
-            <a href="kanrisyosai.php"> いつもの野菜</a><br>
-            <a href="kanrisyosai.php"> いつもの野菜</a><br>
+            <a href="kanrisyosai.php"> キャベツ</a><br>
+            <a href="kanrisyosai.php"> にんじん</a><br>
             <h3>葉物野菜：</h3>
             <a href="kanrisyosai.php"> 葉物野菜</a><br>
             <a href="kanrisyosai.php"> 葉物野菜</a><br>

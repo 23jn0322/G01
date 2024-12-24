@@ -15,136 +15,75 @@
     
         <div class="input-section">
             <label for="ingredient-name">名称</label>
-            <input type="text" id="ingredient-name" name="mei" class="input-box" placeholder="">
+            <input type="text" id="ingredient-name" name="mei" class="input-box" placeholder="" value="にんじん">
         
             <label for="category">中ジャンル</label>
-            <select id="category" class="dropdown">
-                <option value="">選択してください</option>
-                <option value="leafvegetable">葉物野菜</option>
-                <option value="mushroom">キノコ類</option>
-                <option value="rootvegetable">根菜類</option>
-                <option value="other">その他</option>
-            </select>
+            <input type="text" id="ingredient-name" name="mei" class="input-box" placeholder="" value="根菜類">
 
 <div class="checkbox-container">
     <label for="usual">
-        <input type="checkbox" id="usual"> いつもの
+        <input type="checkbox" id="usual" checked="checked"> いつもの
     </label>
 </div>
 </div>
 
     <div class="container"></div>
         <label for="ingredient-name" class="label">購入単位</label>
-        <input type="text" id="ingredient-name" class="input-box" placeholder="">
-        <select id="category" class="dropdown">
-            <option value="">選択してください</option>
-            <option value="ball">玉</option>
-            <option value="piece">個</option>
-            <option value="bottole">本</option>
-            <option value="bandle">束</option>
-            <option value="can">缶</option>
-            <option value="kg">kg</option>
-            <option value="g">g</option>
-        </select>
+        <input type="text" id="ingredient-name" class="input-box" placeholder="" value="本">
     </div>
 
     <div class="container"></div>
     <label for="ingredient-name" class="label">たんぱく質</label>
-    <input type="text" id="ingredient-name" class="input-box" placeholder="">
-    <select id="category" class="dropdown">
-        <option value="">選択してください</option>
-        <option value="mushroom">g</option>
-        <option value="rootvegetable">mg</option>
-        <option value="other">㎍</option>
-    </select>
+    <input type="text" id="ingredient-name" class="input-box" placeholder="" value="0.015">
+    <input type="text" id="ingredient-name" class="input-box" placeholder="" value="g">
 </div>
 
 <div class="container"></div>
 <label for="ingredient-name" class="label">食物繊維</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="mushroom">g</option>
-    <option value="rootvegetable">mg</option>
-    <option value="other">㎍</option>
-</select>
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="0.045">
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="g">
 </div>
 
 <div class="container"></div>
 <label for="ingredient-name" class="label">炭水化物</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="0.140">
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="g">
 </div>
 
 <div class="container"></div>
 <label for="ingredient-name" class="label">ビタミンD</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="0">
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="μg">
 </div>
 
 <div class="container"></div>
 <label for="ingredient-name" class="label">ビタミンC</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="0.120">
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="mg">
 </div>
 
 <div class="container"></div>
 <label for="ingredient-name" class="label">ビタミンA</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="12.500">
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="μg">
 </div>
 
 <div class="container"></div>
 <label for="ingredient-name" class="label">カルシウム</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="0.400">
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="mg">
 </div>
 
 <div class="container"></div>
 <label for="ingredient-name" class="label">鉄</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="0.009">
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="mg">
 </div>
 
 <div class="container"></div>
 <label for="ingredient-name" class="label">亜鉛</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="0.003">
+<input type="text" id="ingredient-name" class="input-box" placeholder="" value="mg">
 </div>
 
 
