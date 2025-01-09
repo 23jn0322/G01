@@ -12,19 +12,22 @@ class Syokutou
 }   
 
 class SyokutouDAO{
-    public function get_syokutou_by_MID(string $MID)
+ 
+    public function get_syokutou_by_UID(string $UID)
     {
         $dbh = DAO::get_db_connect();
-        $sql = "SELECT * FROM syokutou where MID = :MID";
+        $sql = "SELECT * FROM syokutou where UID = :UID";
 
         $stmt = $dbh->prepare($sql);
 
-        $stmt->bindValue(':MID',$MID,PDO::PARAM_STR);
+        $stmt->bindValue(':UID',$UID,PDO::PARAM_STR);
         $stmt->execute();
 
         $data = [];
         while($row = $stmt->fetchObject('Syokutou'))
         $data[] = $row;
     }
+
+
 }
 ?>

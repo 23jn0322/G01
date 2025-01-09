@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/kanrisyosai.css">
 </head>
 <body>
-        <!-- 戻るボタン -->
       <!-- 戻るボタン -->
 <button onclick="window.location.href='kanri.php'" class="back-button">← 戻る</button>
 

@@ -4,6 +4,12 @@ require_once './helpers/FoodsDAO.php';
 $FoodsDAO = new FoodsDAO();
 $Foods_list = $FoodsDAO->get_foods();
 
+$food[]="";
+if($_SERVER['REQUEST_METHOD']==='POST'){
+    if (isset($_POST['add'])){
+        $food = $_POST['food'];
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -12,6 +18,23 @@ $Foods_list = $FoodsDAO->get_foods();
 <link rel="stylesheet" href="css/shokutou.css">
 <link rel="stylesheet" href="css/rirekitoroku.css">
 
+    <script>
+        // チェックされた項目を表示する関数
+        function showCheckedItems() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var selectedItems = [];
+
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    selectedItems.push(checkbox.value);
+                }
+            });
+
+            // 選択された項目を表示
+            var result = document.getElementById('result');
+            result.innerHTML = selectedItems.join(', ') || '選択されていません';
+        }
+    </script>
 <body>
     <?php include "header.php" ?>
     <a href="rirekitoroku.php" class="rireki">
@@ -198,9 +221,10 @@ $Foods_list = $FoodsDAO->get_foods();
     <div class="choice">
         <div id="chk-veggie1" style="display: none;">
             <h3>いつもの野菜:</h3>
+            <form method="post" action="">
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if ($foods->UsualFlag == true && preg_match("/V/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -209,7 +233,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>葉物野菜:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]"value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -218,7 +242,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>根菜類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]"value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -227,7 +251,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>キノコ類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -236,7 +260,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>果実野菜:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -245,7 +269,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>豆類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V5/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -254,7 +278,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V6/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -264,7 +288,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>いつもの果物:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if ($foods->UsualFlag == true && preg_match("/F/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -273,7 +297,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>ドライフルーツ:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]"value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -282,7 +306,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>柑橘類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]"value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -291,7 +315,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>ベリー類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]"value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -300,7 +324,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]"value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -310,7 +334,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>牛肉:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -319,7 +343,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>豚肉:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -328,7 +352,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>鶏肉:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]"value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -337,7 +361,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>肉加工品:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -346,7 +370,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M5/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -356,7 +380,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>青魚:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -365,7 +389,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>赤身魚:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -374,7 +398,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>白身魚:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -383,7 +407,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>海藻類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -392,7 +416,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>魚加工品:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S5/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -401,7 +425,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S6/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -411,7 +435,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>お米:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]"value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -420,7 +444,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>パン:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -429,7 +453,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>麺:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -438,7 +462,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -449,7 +473,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>卵:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/E1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]"value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -458,7 +482,7 @@ $Foods_list = $FoodsDAO->get_foods();
             <h3>牛乳:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/E2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -467,25 +491,29 @@ $Foods_list = $FoodsDAO->get_foods();
         <div id="chk-soy" style="display: none;">
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/D1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
         </div>
     </div>
     <div class=toroku>
-        <button id="tuika">追加</button><br>
+      <input type ="submit" name="add" value = "追加"><br>
         <div>
+        </form>
             <a href="satsuei.php"><img src="カメラ２.png" alt="カメラ画像" /></a>
         </div>
         <p>↑撮影はこちら</p>
     </div>
 
+    
     <div class="title">買い物登録</div>
     <div class="container">
         <div class="content">
+        <?php foreach ($food as $value)  :?>
             <div class="item-row">
-                <input type="text" class="item-input" placeholder="例: 牛肉" value="牛肉">
+            <?php if (!$food ="") : ?>
+                <input type="text" class="item-input" value=<?= $value ?>>
                 <div class="row">
                     <input type="number" value="100" class="quantity-input">
                     <select>
@@ -499,66 +527,8 @@ $Foods_list = $FoodsDAO->get_foods();
                     </select>
                 </div>
             </div>
-            <div class="item-row">
-                <input type="text" class="item-input" placeholder="例: ほうれん草" value="ほうれん草">
-                <div class="row">
-                    <input type="number" value="100" class="quantity-input">
-                    <select>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                        <option value="本">本</option>
-                        <option value="玉">玉</option>
-                        <option value="個">個</option>
-                        <option value="束">束</option>
-                        <option value="袋">袋</option>
-                    </select>
-                </div>
-            </div>
-            <div class="item-row">
-                <input type="text" class="item-input" placeholder="例: にんじん" value="にんじん">
-                <div class="row">
-                    <input type="number" value="100" class="quantity-input">
-                    <select>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                        <option value="本">本</option>
-                        <option value="玉">玉</option>
-                        <option value="個">個</option>
-                        <option value="束">束</option>
-                        <option value="袋">袋</option>
-                    </select>
-                </div>
-            </div>
-            <div class="item-row">
-                <input type="text" class="item-input" placeholder="例: 大根" value="大根">
-                <div class="row">
-                    <input type="number" value="100" class="quantity-input">
-                    <select>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                        <option value="本">本</option>
-                        <option value="玉">玉</option>
-                        <option value="個">個</option>
-                        <option value="束">束</option>
-                        <option value="袋">袋</option>
-                    </select>
-                </div>
-            </div>
-            <div class="item-row">
-                <input type="text" class="item-input" placeholder="例: りんご" value="りんご">
-                <div class="row">
-                    <input type="number" value="100" class="quantity-input">
-                    <select>
-                        <option value="g">g</option>
-                        <option value="kg">kg</option>
-                        <option value="本">本</option>
-                        <option value="玉">玉</option>
-                        <option value="個">個</option>
-                        <option value="束">束</option>
-                        <option value="袋">袋</option>
-                    </select>
-                </div>
-            </div>
+            <?php endif; ?>
+            <?php endforeach ?>
         </div>
     </div>
     <!-- フッター部分 -->
