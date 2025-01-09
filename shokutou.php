@@ -4,12 +4,13 @@ require_once './helpers/FoodsDAO.php';
 $FoodsDAO = new FoodsDAO();
 $Foods_list = $FoodsDAO->get_foods();
 
-$food[]="";
+$food[]=NULL;
 if($_SERVER['REQUEST_METHOD']==='POST'){
     if (isset($_POST['add'])){
         $food = $_POST['food'];
     }
 }
+var_dump($food)
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -510,7 +511,8 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     <div class="title">買い物登録</div>
     <div class="container">
         <div class="content">
-        <?php foreach ($food as $value)  :?>
+            <?php if($food != NULL) :?>
+                <?php foreach ($food as $value)  :?>
             <div class="item-row">
             <?php if (!$food ="") : ?>
                 <input type="text" class="item-input" value=<?= $value ?>>
@@ -529,6 +531,9 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
             </div>
             <?php endif; ?>
             <?php endforeach ?>
+            <?php endif;?>
+
+        
         </div>
     </div>
     <!-- フッター部分 -->
