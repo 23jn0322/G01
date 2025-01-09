@@ -515,7 +515,7 @@ var_dump($food)
                 <?php foreach ($food as $value)  :?>
             <div class="item-row">
             <?php if (!$food ="") : ?>
-                <input type="text" class="item-input" value=<?= $value ?>>
+                <input type="text"  readonly class="item-input" value=<?= $value ?>>
                 <div class="row">
                     <input type="number" value="100" class="quantity-input">
                     <select>
