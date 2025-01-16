@@ -30,11 +30,14 @@ header {
 
 #logout a {
     text-decoration: none;
-    color: #333;
+    color: green;
 }
 
+#logout a:hover{
+    color:blue;
+}
 /* ナビゲーションテーブル */
-table {
+.link table {
     border-collapse: collapse;
     width: 100%;
     max-width: 100%; /* 最大幅を設定 */
@@ -43,6 +46,7 @@ table {
 
 th {
     border: 1px solid black;
+    font-size: 20px;
 }
 
 header a {
@@ -72,5 +76,5 @@ a:hover {
 }
 
 body {
-    padding-top: 250px; /* ヘッダーの高さ分の余白を追加 */
+    padding-top: 300px; /* ヘッダーの高さ分の余白を追加 */
 }

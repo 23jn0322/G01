@@ -40,8 +40,11 @@ h3 {
     width: 100%; /* ラベルをチャートと同じ幅にする */
 }
 
+#monthA, #monthB {
+    display: inline-block;
+    margin: 10px;
+}
+
 #monthB {
-    display: block; 
-    margin-left: auto;
-    margin-right: 0;
+    float: right;
 }
