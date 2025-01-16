@@ -136,7 +136,7 @@ public function update(Member $member) {
 }
     public function getFamily(string $MID) {
 
-    $dbh = DAO::get_db_connect();
+        $dbh = DAO::get_db_connect();
 
         $sql = "SELECT * From Members  Left outer JOIN  Family ON Members.MID = Family.MID where Members.MID=:MID";
 
