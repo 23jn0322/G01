@@ -24,6 +24,7 @@
 
 ?>
 <html>
+    <link rel="stylesheet" href="bootstrap-5.0.0-dist/css/bootstrap.min.css">
     <link href="css/home.css" rel="stylesheet">
     <script src="apexcharts.min.js"></script>
     <script src="jquery-3.6.0.min.js"></script>
@@ -36,8 +37,8 @@
         <?php include "header.php" ?>
         <h2>必要栄養類摂取比較グラフ</h2>
         <h3 id="month">今月分</h3>
-        <input type="button" id="monthA" value="今月分はこちら">
-        <input type="button" id="monthB" value="来月分はこちら">
+        <button type="button" id="monthA" class="btn btn-primary" disabled>今月分はこちら</button>
+        <button type="button" id="monthB" class="btn btn-primary">来月分はこちら</button>
         <div class="chart-container">
             <div class="chart-wrapper">
                 <div class="chart" id="chart"></div>
@@ -171,6 +172,8 @@
         $(function () {
             $('#monthB').click(function () {
                 document.getElementById('month').innerText = '来月分';
+                document.getElementById('monthB').setAttribute("disabled", "");
+                document.getElementById('monthA').removeAttribute("disabled", "");
                 // チャートの設定（既存のコードはそのまま）
                 let options = {
                     chart: { type: 'pie' },
@@ -256,6 +259,8 @@
 
             $('#monthA').click(function () {
                 document.getElementById('month').innerText = '今月分';
+                document.getElementById('monthA').setAttribute("disabled", "");
+                document.getElementById('monthB').removeAttribute("disabled", "");
                 // チャートの設定（既存のコードはそのまま）
                 let options = {
                     chart: { type: 'pie' },

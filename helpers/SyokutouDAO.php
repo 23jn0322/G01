@@ -1,33 +1,30 @@
 <?php
 require_once 'DAO.php';
 
-class Syokutou
-{
-    public string $MID;
-    public string $SyokutouID;
-    public string $ResistDate;
-    public string $Quantity;
-    public string $SyokuID;
-    public string $UID;
-}   
+class UID {
+    public string $UnitName;
+}
 
 class SyokutouDAO{
  
-    public function get_syokutou_by_UID(string $UID)
+    public function get_syokutou_by_UID(string $Syokuname)
     {
         $dbh = DAO::get_db_connect();
-        $sql = "SELECT * FROM syokutou where UID = :UID";
+        $sql = "select DISTINCT BuyUnitMaster.UnitName 
+        From BuyUnitMaster 
+        INNER JOIN Nutrients ON Nutrients.UID = BuyUnitMaster.UID 
+        INNER JOIN Foods on Nutrients.SyokuID = Foods.SyokuID 
+        where SyokuName = :SyokuName";
 
         $stmt = $dbh->prepare($sql);
 
-        $stmt->bindValue(':UID',$UID,PDO::PARAM_STR);
+        $stmt->bindValue(':SyokuName',$Syokuname,PDO::PARAM_STR);
         $stmt->execute();
 
-        $data = [];
-        while($row = $stmt->fetchObject('Syokutou'))
-        $data[] = $row;
+        $UnitName = $stmt->fetchObject("UID");
+
+        return $UnitName;
     }
-
-
+    
 }
 ?>
