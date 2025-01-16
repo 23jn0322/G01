@@ -42,6 +42,7 @@ h3 {
 }
 body {
     overflow-y: scroll;
+    padding-top: 300px;
 }
 
 
@@ -117,4 +118,9 @@ body {
 
 .rireki {
     float: none;
+}
+
+.row {
+    flex-wrap: nowrap;
+    width: 80px;
 }

@@ -17,6 +17,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 <html lang="ja">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include "header.php" ?>
 <link rel="stylesheet" href="css/shokutou.css">
 <link rel="stylesheet" href="css/rirekitoroku.css">
 
@@ -38,7 +39,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         }
     </script>
 <body>
-    <?php include "header.php" ?>
+    
     <a href="rirekitoroku.php" class="rireki">
         履歴から登録する
     </a>

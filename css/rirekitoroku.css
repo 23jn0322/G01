@@ -12,7 +12,7 @@ body {
   }
   
   .container {
-    width: 500px;
+    width: 550px;
     margin: 0 auto;
     border: 1px solid #ccc;
     padding: 20px;
@@ -47,6 +47,7 @@ body {
     border-radius: 4px; /* 角を丸く統一 */
     margin-bottom: 10px; /* ボックス間の余白を保持 */
     float: left;
+    margin-right: 30px;
 }
 
   .quantities {
@@ -82,7 +83,7 @@ select {
     border-radius: 4px;
     width: 45px;
     text-align: center;
-    margin-left: 15px; /* select要素もさらに右に寄せる */
+    margin-left: 5px; /* select要素もさらに右に寄せる */
 }
 
 
