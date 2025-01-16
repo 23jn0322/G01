@@ -531,7 +531,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     </div>
     <!-- フッター部分 -->
     <div class="footer">
-        <a href="home.php" class="small-button">登録</a>
+        <a href="home.php" class="">登録</a>
     </div>
     </div>
 </body>
