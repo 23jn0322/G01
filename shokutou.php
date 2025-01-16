@@ -12,10 +12,6 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $food = $_POST['food'];
     }
 }
-
-
-
-var_dump($food)
 ?>
 <!DOCTYPE html>
 <html lang="ja">
