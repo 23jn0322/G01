@@ -498,14 +498,6 @@ var_dump($food)
             <br>
         </div>
     </div>
-    <div class=toroku>
-      <input type ="submit" name="add" value = "追加"><br>
-        <div>
-        </form>
-            <a href="satsuei.php"><img src="カメラ２.png" alt="カメラ画像" /></a>
-        </div>
-        <p>↑撮影はこちら</p>
-    </div>
 
     
     <div class="title">買い物登録</div>
