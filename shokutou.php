@@ -3,6 +3,7 @@ require_once './helpers/FoodsDAO.php';
 require_once './helpers/SyokutouDAO.php';
 
 $FoodsDAO = new FoodsDAO();
+$SyokutouDAO = new SyokutouDAO();
 $Foods_list = $FoodsDAO->get_foods();
 
 $food[]=NULL;
@@ -12,8 +13,6 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     }
 }
 
-$SyokutouDAO = new SyokutouDAO();
-//$FoodsUnit_rist = $SyokutouDAO->get_syokutou_by_UID($food);
 
 
 var_dump($food)
@@ -512,24 +511,23 @@ var_dump($food)
     <div class="title">買い物登録</div>
     <div class="container">
         <div class="content">
-            <?php if($food != NULL) :?>
+            <?php if(!(is_null($food[0]))) :?>
                 <?php foreach ($food as $value)  :?>
-            <div class="item-row">
-            <?php if (!$food ="") : ?>
-                <input type="text"  readonly class="item-input" value=<?= $value ?>>
-                <div class="row">
-                    <input type="number" value="100" class="quantity-input">
-                    <select>
-                    <?php foreach ($FoodsUnit_rist as $unit) : ?>
-                                <?php if ($food->Syokuname === $FoodsUnit_rist->Syokuname): ?>
-                                    <option value=<?= $unit->UnitName ?>><?= $unit->UnitName ?></option>
-                                <?php endif ?>
-                            <?php endforeach ?>
-                    </select>
-                </div>
-            </div>
-            <?php endif; ?>
-            <?php endforeach ?>
+                    <div class="item-row">
+                    <?php if (!$food ="") : ?>
+                        <input type="text"  readonly class="item-input" value=<?= $value ?>>
+                        <div class="row">
+                            <input type="text" value="0" class="quantity-input">
+                            <select>
+                                <option value=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UnitName ?>><?= $SyokutouDAO->get_syokutou_by_UID($value)->UnitName ?></option>
+                                <?php if(!($SyokutouDAO->get_syokutou_by_UID($value)->UnitName == "g")) : ?>
+                                    <option value="g">g</option>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                <?php endforeach ?>
             <?php endif;?>
 
         
