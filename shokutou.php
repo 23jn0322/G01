@@ -1,17 +1,43 @@
 <?php
     require_once './helpers/FoodsDAO.php';
     require_once './helpers/SyokutouDAO.php';
+    require_once './helpers/MemberDAO.php';
+
+    if(session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (!empty($_SESSION['Member'])) {
+        $Member = $_SESSION['Member'];
+    }
+    else{
+        header('Location: login.php');
+        exit;
+    }
 
     $FoodsDAO = new FoodsDAO();
     $SyokutouDAO = new SyokutouDAO();
     $Foods_list = $FoodsDAO->get_foods();
-
+    
     $food[]=NULL;
     if($_SERVER['REQUEST_METHOD']==='POST'){
         if (isset($_POST['add'])){
             $food = $_POST['food'];
-        }
+        }        
+        elseif(isset($_POST['Resist'])){
+
+            $Syoku = $SyokutouDAO->get_SyokuID_by_SyokuName($_POST['SyokuName']); 
+            $Quantity = $_POST['Quantity'.'1']; //forぶんでまわして数字をふやす
+            var_dump($Quantity);
+            $unit = $SyokutouDAO->get_UID_by_UnitName($_POST['UnitName']);  
+            $TF = $SyokutouDAO->insert_syokutou($Member->MID,$Syoku->SyokuID,$Quantity,$unit->UID);
+            if ($TF == true){
+                header('Location: home.php');
+                exit;
+            }
     }
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -54,12 +80,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="veggiesLink2">葉物野菜</a>
+                        <a class="accordion__link" id="veggiesLink2">葉・茎類</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="veggiesLink3">根菜類</a>
+                        <a class="accordion__link" id="veggiesLink3">芋・根菜類</a>
                     </td>
                 </tr>
                 <tr>
@@ -69,7 +95,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="veggiesLink5">果実野菜</a>
+                        <a class="accordion__link" id="veggiesLink5">果実類</a>
                     </td>
                 </tr>
                 <tr>
@@ -318,7 +344,7 @@
             <h3>ベリー類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $food->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -506,21 +532,17 @@
 
     
     <div class="title">買い物登録</div>
+    <form  action="" method="POST">
     <div class="container">
         <div class="content">
             <?php if(!(is_null($food[0]))) :?>
                 <?php foreach ($food as $value)  :?>
                     <div class="item-row">
                     <?php if (!$food ="") : ?>
-                        <input type="text"  readonly class="item-input" value=<?= $value ?>>
+                        <input type="text"  readonly class="item-input" name = "SyokuName" value=<?= $value ?>>
                         <div class="row">
-                            <input type="text" value="0" class="quantity-input">
-                            <select>
-                                <option id=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UID ?> value=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UnitName ?>><?= $SyokutouDAO->get_syokutou_by_UID($value)->UnitName ?></option>
-                                <?php if(!($SyokutouDAO->get_syokutou_by_UID($value)->UnitName == "g")) : ?>
-                                    <option id="gram" value="g">g</option>
-                                <?php endif; ?>
-                            </select>
+                            <input type="text" value="0" class="quantity-input" name = "Quantity1"><!--forぶんでそれぞれのnameの後に.で1,2,3のように数字を文字列連結して判断させる
+                            <input name="UnitName" id=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UID ?> value=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UnitName ?>>
                         </div>
                     </div>
                     <?php endif; ?>
@@ -532,7 +554,8 @@
     </div>
     <!-- フッター部分 -->
     <div class="footer">
-        <a href="home.php" class="">登録</a>
+        <button type="submit" name="Resist">登録</a>
+    </form>
     </div>
     </div>
 </body>
