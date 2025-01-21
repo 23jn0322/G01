@@ -135,7 +135,7 @@ input[type="radio"] {
     float: right; /* This will push the button to the right side */
     margin-top: 50px; /* Add space on top */
     padding: 10px 20px; /* Further adjusted padding for narrower height */
-    background-color: #35dfd0; /* Optional: Green background */
+    background-color: #005da5; /* Optional: Green background */
     color: white; /* White text */
     border: none; /* Remove the default border */
     border-radius: 5px; /* Optional: Rounded corners */
@@ -144,8 +144,13 @@ input[type="radio"] {
     white-space: nowrap; /* 文字が折り返さないように設定 */
 }
 
-.change-button:hover {
-    background-color: #45a049; /* Darker green when hovered */
-}
 
+/* kaiinhenkou.css */
+
+/* フレックスボックスでボタンを右寄せ */
+#family-group {
+    display: flex;
+    justify-content: flex-end; /* 右端に寄せる */
+    gap: 10px; /* ボタンと他の要素の間に隙間を作る */
+}
 
