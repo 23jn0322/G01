@@ -1,3 +1,6 @@
+<?php
+    require_once './helpers/FoodsDAO.php';
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
