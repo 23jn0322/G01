@@ -475,9 +475,7 @@
             <br>
         </div>
     </div>
-    <div class=toroku>
-      <input type ="submit" name="add" value = "追加"><br>
-    </div>
+
 </body>
 <script src="kanri.js"></script>
 <script src="shokutou.js"></script>
