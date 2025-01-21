@@ -22,8 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(isset($_POST['sakujyo_FID'])){
         //famiyさくじょ($_POST['FID'])
         $MemberDAO->deleteFamily($_POST['sakujyo_FID']);
-        $memberAndFamily = $MemberDAO->getFamily($user->MID);
-    }
+            $memberAndFamily = $MemberDAO->getFamily($user->MID);
+
+    }else{
+
     // フォームデータを取得
     $MID = $_POST['user_id'] ?? '';  // ユーザID
     $Name = $_POST['name'] ?? '';  // 名前
@@ -46,13 +48,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //}
         //var_dump($user->MID);
         // 家族メンバーの情報を追加
-        var_dump($MemberDAO->addFamily($user->MID, $familyMembers));
+        $MemberDAO->addOneFamily($user->MID, $familyMembers);
     //}
     // メンバー情報をセッションに保存
     //$_SESSION['Member'] = $MemberDAO->get_member($MID,  $Password);
 
     // セッションの中身を確認
     //var_dump($_SESSION['Member']);  // ここで、name が正しく格納されているか確認
+    }
+    $memberAndFamily = $MemberDAO->getFamily($user->MID);
 
 }
 ?>
@@ -74,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div>
         <label for="name">名前:</label>
         <!-- 既存の名前をデフォルト値として表示 -->
-        <input type="text" readonly id="name" name="name" value="<?php echo htmlspecialchars($memberAndFamily[0]['Name']); ?>" >
+        <input type="text" readonly id="name" name="name" value="<?php echo htmlspecialchars($user->Name); ?>" >
     </div>
     <br>
 
@@ -88,13 +92,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="birth_year">生年月日</label>
         <div class="date-inputs">
             <!-- 生年月日の各部分（年、月、日）をセッションから取得して表示 -->
-            <input type="text" readonly id="birth_year" name="birth_year" value="<?php echo htmlspecialchars(explode('-', $memberAndFamily[0]['DOB'])[0] ?? ''); ?>" >
+            <input type="text" readonly id="birth_year" name="birth_year" value="<?php echo htmlspecialchars(explode('-', $user->DOB)[0] ?? ''); ?>" >
             <label for="birth_year">年</label>
                     
-            <input type="text" readonly id="birth_month" name="birth_month" value="<?php echo htmlspecialchars(explode('-',  $memberAndFamily[0]['DOB'])[1] ?? ''); ?>" >
+            <input type="text" readonly id="birth_month" name="birth_month" value="<?php echo htmlspecialchars(explode('-',  $user->DOB)[1] ?? ''); ?>" >
             <label for="birth_month">月</label>
                     
-            <input type="text" readonly id="birth_day" name="birth_day" value="<?php echo htmlspecialchars(explode('-',  $memberAndFamily[0]['DOB'])[2] ?? ''); ?>" required>
+            <input type="text" readonly id="birth_day" name="birth_day" value="<?php echo htmlspecialchars(explode('-',  $user->DOB)[2] ?? ''); ?>" required>
             <label for="birth_day">日</label>
         
             </div>
@@ -106,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div>
                 <label>性別</label>
                 <?php
-                    if($memberAndFamily[0]["Sex"] == 1){
+                    if($user->Sex == 1){
                 ?>
                     <label for="sex-male">男</label>
                 <?php
