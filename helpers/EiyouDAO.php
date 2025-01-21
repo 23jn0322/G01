@@ -268,5 +268,33 @@ class eiyouDAO
         }
         return false;
     }
+
+    public function get_Nutrients_SyokuID(string $SyokuName)
+    {
+        $dbh = DAO::get_db_connect();
+
+        $sql = "SELECT 
+                    MAX(CASE WHEN NID = 'tanpaku' THEN IncludeNatri END) AS tanpaku,
+                    MAX(CASE WHEN NID = 'tansui' THEN IncludeNatri END) AS tansui,
+                    MAX(CASE WHEN NID = 'syokumotu' THEN IncludeNatri END) AS syokumotu,
+                    MAX(CASE WHEN NID = 'tetu' THEN IncludeNatri END) AS tetu,
+                    MAX(CASE WHEN NID = 'karu' THEN IncludeNatri END) AS karu,
+                    MAX(CASE WHEN NID = 'zn' THEN IncludeNatri END) AS zn,
+                    MAX(CASE WHEN NID = 'bitaA' THEN IncludeNatri END) AS bitaA,
+                    MAX(CASE WHEN NID = 'bitaC' THEN IncludeNatri END) AS bitaC,
+                    MAX(CASE WHEN NID = 'bitaD' THEN IncludeNatri END) AS bitaD
+                FROM Nutrients
+                INNER JOIN Foods on Nutrients.SyokuID = Foods.SyokuID
+                WHERE SyokuName = :SyokuName";
+
+        $stmt = $dbh->prepare($sql);
+
+        $stmt->bindValue(':SyokuName', $SyokuName, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $eiyou = $stmt->fetchObject('Eiyou');
+
+        return $eiyou;
+    }
 }
 ?>

@@ -1,5 +1,15 @@
 <?php
     require_once './helpers/FoodsDAO.php';
+    require_once './helpers/EiyouDAO.php';
+
+    $FoodsDAO = new FoodsDAO();
+    $EiyouDAO = new EiyouDAO();
+    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $SyokuName = $_POST['SyokuName'];
+        
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
