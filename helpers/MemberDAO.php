@@ -85,7 +85,7 @@ public function addFamily($MID, $familyMembers) {
         foreach ($familyMembers as $index => $family) {
             // 家族のユーザーID（MID-1, MID-2...）
             $familyMID = $MID . '-' . ($index + 1);
-            
+
             // 家族の生年月日と性別をバインド
             $familyStmt->bindValue(':FID', $familyMID, PDO::PARAM_STR); // 家族のユーザーID（例: MID-1）
             $familyStmt->bindValue(':MID', $MID, PDO::PARAM_STR); // 親のMID
@@ -106,7 +106,51 @@ public function addFamily($MID, $familyMembers) {
     }
 }
 
+public function addOneFamily($MID, $familyMembers) {
+    $dbh = DAO::get_db_connect();
     
+    // トランザクション開始
+    $dbh->beginTransaction();
+
+    try {
+        $sql = "select COUNT(FID) as MAXID from Family where MID= :MID";
+
+        $stmt = $dbh->prepare($sql);
+
+        $stmt->bindvalue(':MID', $MID, PDO::PARAM_STR);
+
+        $stmt->execute();
+        $res = $stmt->fetchAll();
+        $index = $res['MAXID'];
+        // 家族メンバーの情報を挿入
+        $familyStmt = $dbh->prepare("INSERT INTO Family (FID, MID, Age, Sex) VALUES (:FID, :MID, :Age, :Sex)");
+
+        //foreach ($familyMembers as $index => $family) {
+            // 家族のユーザーID（MID-1, MID-2...）
+            $familyMID = $MID . '-' . ($index + 1);
+            var_dump($familyMID);
+            var_dump($family['DOB']);
+            var_dump($family['Sex']);
+
+            // 家族の生年月日と性別をバインド
+            $familyStmt->bindValue(':FID', $familyMID, PDO::PARAM_STR); // 家族のユーザーID（例: MID-1）
+            $familyStmt->bindValue(':MID', $MID, PDO::PARAM_STR); // 親のMID
+            $familyStmt->bindValue(':Age', $family['DOB'], PDO::PARAM_STR); // 家族の生年月日
+            $familyStmt->bindValue(':Sex', $family['Sex'], PDO::PARAM_INT); // 性別
+            
+            // SQLの実行（Familyテーブル）
+            $familyStmt->execute();
+        //}
+
+        // コミット
+        $dbh->commit();
+    } catch (PDOException $e) {
+        // エラーが発生した場合の処理
+        $dbh->rollBack();  // ロールバック
+        error_log('Error inserting family: ' . $e->getMessage());  // エラーログに記録
+        return false;  // 失敗した場合はfalseを返す
+    }
+}
 
 public function update(Member $member) {
     $dbh = DAO::get_db_connect();
@@ -138,7 +182,7 @@ public function update(Member $member) {
 
         $dbh = DAO::get_db_connect();
 
-        $sql = "SELECT * From Members  Left outer JOIN  Family ON Members.MID = Family.MID where Members.MID=:MID";
+        $sql = "SELECT * From Members  Left outer JOIN  Family ON Members.MID = Family.MID where Members.MID=:MID and DeleteF=0";
 
         $stmt = $dbh->prepare($sql);
 
@@ -173,6 +217,36 @@ public function update(Member $member) {
             return false;  // 失敗した場合はfalseを返す
         }
     }
+    public function deleteFamily(string $FID)
+    {
+        $dbh = DAO::get_db_connect();
+
+        $sql = "UPDATE Family SET DeleteF=1 WHERE FID=:FID;";
+
+        $stmt = $dbh->prepare($sql);
+
+        
+        $stmt->bindValue(':FID',$FID,PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
+    public function insertFamily(Member $member)
+    {
+        $dbh = DAO::get_db_connect();
+
+        $sql = "INSERT INTO Family(Age,Sex)
+                VALUES(:Age,:Sex)";
+
+        $stmt = $dbh->prepare($sql);
+
+
+        $stmt->bindValue(':Age',$Age,PDO::PARAM_STR);
+        $stmt->bindValue(':Sex',$Sex);
+        
+        $stmt->execute();
+
+    }
+
 }
 
 ?>
