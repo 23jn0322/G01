@@ -150,11 +150,9 @@ table tr td a{
     width: 200px;
 }
 
-.choice {
-    margin-left: 20px;
-    height: 300px;
-    width: auto;
-    padding: 10px;
 
+
+body {
+    padding-top: 10px;
 }
 
