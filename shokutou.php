@@ -1,17 +1,17 @@
 <?php
-require_once './helpers/FoodsDAO.php';
-require_once './helpers/SyokutouDAO.php';
+    require_once './helpers/FoodsDAO.php';
+    require_once './helpers/SyokutouDAO.php';
 
-$FoodsDAO = new FoodsDAO();
-$SyokutouDAO = new SyokutouDAO();
-$Foods_list = $FoodsDAO->get_foods();
+    $FoodsDAO = new FoodsDAO();
+    $SyokutouDAO = new SyokutouDAO();
+    $Foods_list = $FoodsDAO->get_foods();
 
-$food[]=NULL;
-if($_SERVER['REQUEST_METHOD']==='POST'){
-    if (isset($_POST['add'])){
-        $food = $_POST['food'];
+    $food[]=NULL;
+    if($_SERVER['REQUEST_METHOD']==='POST'){
+        if (isset($_POST['add'])){
+            $food = $_POST['food'];
+        }
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
