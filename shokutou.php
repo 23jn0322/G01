@@ -233,7 +233,7 @@
             <br>
         </div>
         <div id="chk-veggie2" style="display: none;">
-            <h3>葉物野菜:</h3>
+            <h3>葉・茎類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V1/", $foods->MiddleGenreID)) : ?>
                     <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
@@ -242,7 +242,7 @@
             <br>
         </div>
         <div id="chk-veggie3" style="display: none;">
-            <h3>根菜類:</h3>
+            <h3>芋・根菜類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V2/", $foods->MiddleGenreID)) : ?>
                     <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
@@ -260,7 +260,7 @@
             <br>
         </div>
         <div id="chk-veggie5" style="display: none;">
-            <h3>果実野菜:</h3>
+            <h3>果実類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V4/", $foods->MiddleGenreID)) : ?>
                     <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
