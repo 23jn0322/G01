@@ -29,16 +29,16 @@ class FHituyouEiyou
 
 class Eiyou
 {
-    public float $tanpaku;
-    public float $tansui;
-    public float $syokumotu;
-    public float $tetu;
-    public float $karu;
-    public float $zn;
-    public float $bitaA;
-    public float $bitaC;
-    public float $bitaD;
+    public float $IncludeNatri;
 }
+
+class EiyouName
+{
+    public string $NID;
+    public string $NutrientsName;
+    public string $IUnitName;
+}
+
 
 class HituyouEiyouDAO
 {
@@ -274,27 +274,66 @@ class eiyouDAO
         $dbh = DAO::get_db_connect();
 
         $sql = "SELECT 
-                    MAX(CASE WHEN NID = 'tanpaku' THEN IncludeNatri END) AS tanpaku,
-                    MAX(CASE WHEN NID = 'tansui' THEN IncludeNatri END) AS tansui,
-                    MAX(CASE WHEN NID = 'syokumotu' THEN IncludeNatri END) AS syokumotu,
-                    MAX(CASE WHEN NID = 'tetu' THEN IncludeNatri END) AS tetu,
-                    MAX(CASE WHEN NID = 'karu' THEN IncludeNatri END) AS karu,
-                    MAX(CASE WHEN NID = 'zn' THEN IncludeNatri END) AS zn,
-                    MAX(CASE WHEN NID = 'bitaA' THEN IncludeNatri END) AS bitaA,
-                    MAX(CASE WHEN NID = 'bitaC' THEN IncludeNatri END) AS bitaC,
-                    MAX(CASE WHEN NID = 'bitaD' THEN IncludeNatri END) AS bitaD
+                    IncludeNatri
                 FROM Nutrients
                 INNER JOIN Foods on Nutrients.SyokuID = Foods.SyokuID
-                WHERE SyokuName = :SyokuName";
+                WHERE SyokuName = :SyokuName
+				ORDER BY
+					CASE NID
+						WHEN 'tanpaku' THEN 1
+						WHEN 'tansui' THEN 2
+						WHEN 'syokumotu' THEN 3
+						WHEN 'tetu' THEN 4
+						WHEN 'karu' THEN 5
+						WHEN 'zn' THEN 6
+						WHEN 'bitaA' THEN 7
+						WHEN 'bitaC' THEN 8
+						WHEN 'bitaD' THEN 9
+					  END;";
 
         $stmt = $dbh->prepare($sql);
 
         $stmt->bindValue(':SyokuName', $SyokuName, PDO::PARAM_STR);
         $stmt->execute();
 
-        $eiyou = $stmt->fetchObject('Eiyou');
+        $data = [];
+        while($row = $stmt->fetchObject('Eiyou')) {
+            $data[] = $row;
+        }
 
-        return $eiyou;
+        return $data;
+    }
+
+    public function get_NutrientsName()
+    {
+        $dbh = DAO::get_db_connect();
+
+        $sql = "SELECT NID, NutrientsName, IUnitName
+                FROM NutrientsMaster
+                INNER JOIN IntakeUnitMaster ON NutrientsMaster.IUID = IntakeUnitMaster.IUID
+                ORDER BY 
+                CASE NutrientsName
+                    WHEN 'たんぱく質' THEN 1
+                    WHEN '炭水化物' THEN 2
+                    WHEN '食物繊維' THEN 3
+                    WHEN '鉄' THEN 4
+                    WHEN 'カルシウム' THEN 5
+                    WHEN '亜鉛' THEN 6
+                    WHEN 'ビタミンA' THEN 7
+                    WHEN 'ビタミンC' THEN 8
+                    WHEN 'ビタミンD' THEN 9
+                END;";
+
+        $stmt = $dbh->prepare($sql);
+
+        $stmt->execute();
+
+        $data = [];
+        while($row = $stmt->fetchObject('EiyouName')) {
+            $data[] = $row;
+        }
+
+        return $data;
     }
 }
 ?>

@@ -9,6 +9,15 @@ class Foods
     public string $MiddleGenreID;   //中ジャンルID
 }
 
+class FoodsSyousai
+{
+    public string $SyokuID;              
+    public bool   $UsualFlag;      
+    public string $MiddleGenreID;
+    public string $MiddleGenreName;
+    public string $UnitName;
+}
+
 class FoodsDAO
 {
     public function get_foods()
@@ -27,6 +36,27 @@ class FoodsDAO
         }
 
         return $data;
+    }
+
+    public function get_foods_by_SyokuName($SyokuName)
+    {
+        $dbh = DAO::get_db_connect();
+
+        $sql = "SELECT DISTINCT Foods.SyokuID, UsualFlag, MiddleGenre.MiddleGenreID, MiddleGenreName, UnitName FROM Foods 
+                INNER JOIN MiddleGenre ON Foods.MiddleGenreID = MiddleGenre.MiddleGenreID
+                INNER JOIN Nutrients ON Foods.SyokuID = Nutrients.SyokuID
+                INNER JOIN BuyUnitMaster ON Nutrients.UID = BuyUnitMaster.UID
+                WHERE SyokuName = :SyokuName";
+
+        $stmt = $dbh->prepare($sql);
+
+        $stmt->bindvalue(':SyokuName', $SyokuName, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        $Foods = $stmt->fetchObject('FoodsSyousai');
+
+        return $Foods;
     }
 }
 ?>

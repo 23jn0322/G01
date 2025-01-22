@@ -86,9 +86,12 @@ class SyokutouDAO{
         $stmt->bindValue(':UnitName',$UnitName,PDO::PARAM_STR);
         $stmt->execute();
 
-        $Unit = $stmt->fetchObject("UID");
+        $data = [];
+        while($row = $stmt->fetchObject("UID")) {
+            $data[] = $row;
+        }
 
-        return $Unit;
+        return $data;
     }
     
 }
