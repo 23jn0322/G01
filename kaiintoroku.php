@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // 家族メンバーの情報を追加
             $MemberDAO->addFamily($MID, $familyMembers);
         }
-        $_SESSION['Member'] = $MemberDAO->get_member($MID, $Password);
+        //$_SESSION['Member'] = $MemberDAO->get_member($MID, $Password);
         // ここでリダイレクト
         header('Location: home.php');  
         exit;  // 必ずここで終了してその後のコードを実行しないようにする

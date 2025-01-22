@@ -25,7 +25,7 @@ form {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding-top: 400px;
+    padding-top: 60px;
 }
 
 /* フォームタイトル */
@@ -90,7 +90,7 @@ input[type="radio"] {
     }
     
     .date-inputs input {
-        width: 50px;  /* Set a fixed width for the input boxes */
+        width: 70px;  /* Set a fixed width for the input boxes */
         margin-right: 10px; /* Space between each input */
         padding: 5px;  /* Add padding for better input appearance */
         border-radius: 4px;
@@ -135,17 +135,13 @@ input[type="radio"] {
     float: right; /* This will push the button to the right side */
     margin-top: 50px; /* Add space on top */
     padding: 10px 20px; /* Further adjusted padding for narrower height */
-    background-color: #35dfd0; /* Optional: Green background */
+    background-color: #0c61c9; /* Optional: Green background */
     color: white; /* White text */
     border: none; /* Remove the default border */
     border-radius: 5px; /* Optional: Rounded corners */
     cursor: pointer; /* Optional: Add a pointer cursor */
     writing-mode: horizontal-tb; /* 文字を横向きに設定 */
     white-space: nowrap; /* 文字が折り返さないように設定 */
-}
-
-.change-button:hover {
-    background-color: #45a049; /* Darker green when hovered */
 }
 
 
