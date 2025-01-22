@@ -5,6 +5,7 @@ if(session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+$user;
 // セッションの情報がある場合に表示する
 if (isset($_SESSION['Member'])) {
     $user = $_SESSION['Member']; // セッションからログインしたユーザーの情報を取得
@@ -13,10 +14,18 @@ if (isset($_SESSION['Member'])) {
 } else {
     // セッションに情報がない場合はリダイレクトなどを検討
     header('Location: login.php');
-    exit;
+    //exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //var_dump($_POST['sakujyo_FID']);
+    if(isset($_POST['sakujyo_FID'])){
+        //famiyさくじょ($_POST['FID'])
+        $MemberDAO->deleteFamily($_POST['sakujyo_FID']);
+            $memberAndFamily = $MemberDAO->getFamily($user->MID);
+
+    }else{
+
     // フォームデータを取得
     $MID = $_POST['user_id'] ?? '';  // ユーザID
     $Name = $_POST['name'] ?? '';  // 名前
@@ -26,30 +35,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $Sex = $_POST['sex'] ?? '';  // 性別
 
     // 家族構成の追加処理
-    if (isset($_POST['family']) && $_POST['family'] === 'あり') {
+    //if (isset($_POST['family']) && $_POST['family'] === 'あり') {
         $familyMembers = [];
-        for ($i = 1; $i <= 5; $i++) {
-            if (!empty($_POST["birth_year$i"])) {
+        //for ($i = 1; $i <= 1; $i++) {
+            if (!empty($_POST["birth_year1"])) {
                 $family = [
-                    'DOB' => $_POST["birth_year$i"] . '-' . $_POST["birth_month$i"] . '-' . $_POST["birth_day$i"],
-                    'Sex' => ($_POST["sex$i"] === '男') ? 1 : 0
+                    'DOB' => $_POST["birth_year1"] . '-' . $_POST["birth_month1"] . '-' . $_POST["birth_day1"],
+                    'Sex' => ($_POST["sex1"] === '男') ? 1 : 0
                 ];
                 $familyMembers[] = $family;
             }
-        }
-
+        //}
+        //var_dump($user->MID);
         // 家族メンバーの情報を追加
-        $MemberDAO->addFamily($MID, $familyMembers);
-    }
+        $MemberDAO->addOneFamily($user->MID, $familyMembers);
+    //}
     // メンバー情報をセッションに保存
-    $_SESSION['Member'] = $MemberDAO->get_member($MID,  $Password);
+    //$_SESSION['Member'] = $MemberDAO->get_member($MID,  $Password);
 
     // セッションの中身を確認
-    var_dump($_SESSION['Member']);  // ここで、name が正しく格納されているか確認
+    //var_dump($_SESSION['Member']);  // ここで、name が正しく格納されているか確認
+    }
+    $memberAndFamily = $MemberDAO->getFamily($user->MID);
 
-    ob_flush();
-    header('Location: home.php');  
-    exit; 
 }
 ?>
 <!DOCTYPE html>
@@ -70,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div>
         <label for="name">名前:</label>
         <!-- 既存の名前をデフォルト値として表示 -->
-        <input type="text" readonly id="name" name="name" value="<?php echo htmlspecialchars($memberAndFamily[0]['Name']); ?>" >
+        <input type="text" readonly id="name" name="name" value="<?php echo htmlspecialchars($user->Name); ?>" >
     </div>
     <br>
 
@@ -78,22 +86,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <br>
     <label>家族構成:</label>
+    <!-- 生年月日 -->
+    <div class="birth-henko" id="birthdate-henko">
+        <!-- 会員の情報を表示 -->
+        <label for="birth_year">生年月日</label>
+        <div class="date-inputs">
+            <!-- 生年月日の各部分（年、月、日）をセッションから取得して表示 -->
+            <input type="text" readonly id="birth_year" name="birth_year" value="<?php echo htmlspecialchars(explode('-', $user->DOB)[0] ?? ''); ?>" >
+            <label for="birth_year">年</label>
+                    
+            <input type="text" readonly id="birth_month" name="birth_month" value="<?php echo htmlspecialchars(explode('-',  $user->DOB)[1] ?? ''); ?>" >
+            <label for="birth_month">月</label>
+                    
+            <input type="text" readonly id="birth_day" name="birth_day" value="<?php echo htmlspecialchars(explode('-',  $user->DOB)[2] ?? ''); ?>" required>
+            <label for="birth_day">日</label>
+        
+            </div>
+        </div>
+            
+        <br>
+        
+        <!-- 性別 -->
+        <div>
+                <label>性別</label>
+                <?php
+                    if($user->Sex == 1){
+                ?>
+                    <label for="sex-male">男</label>
+                <?php
+                    }else {
+                ?>                
+                        <label for="sex-female">女</label>
+                <?php } ?>
+
+            </div>     
+            <br>
+            <br>
+            <br>
     <?php
         foreach($memberAndFamily as $family){
             //var_dump($family);
     ?>
+            <!-- 家族の情報を表示 -->
             <!-- 生年月日 -->
+            <button type="submit" name="sakujyo_FID" onClick="location.href='./kaiinhenkou.php'" method="POST" value="<?php echo htmlspecialchars($family['FID']) ?>" class="change-button">削除</button>
             <div class="birth-henko" id="birthdate-henko">
                 <label for="birth_year">生年月日</label>
                 <div class="date-inputs">
                     <!-- 生年月日の各部分（年、月、日）をセッションから取得して表示 -->
-                    <input type="text" readonly id="birth_year" name="birth_year" value="<?php echo htmlspecialchars(explode('-', $family['DOB'])[0] ?? ''); ?>" >
+                    <input type="text" readonly id="birth_year" name="birth_year" value="<?php echo htmlspecialchars(explode('-', $family['Age'])[0] ?? ''); ?>" >
                     <label for="birth_year">年</label>
                     
-                    <input type="text" readonly id="birth_month" name="birth_month" value="<?php echo htmlspecialchars(explode('-',  $family['DOB'])[1] ?? ''); ?>" >
+                    <input type="text" readonly id="birth_month" name="birth_month" value="<?php echo htmlspecialchars(explode('-',  $family['Age'])[1] ?? ''); ?>" >
                     <label for="birth_month">月</label>
                     
-                    <input type="text" readonly id="birth_day" name="birth_day" value="<?php echo htmlspecialchars(explode('-',  $family['DOB'])[2] ?? ''); ?>" required>
+                    <input type="text" readonly id="birth_day" name="birth_day" value="<?php echo htmlspecialchars(explode('-',  $family['Age'])[2] ?? ''); ?>" required>
                     <label for="birth_day">日</label>
         
                 </div>
@@ -113,12 +160,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ?>                
                         <label for="sex-female">女</label>
                 <?php } ?>
-
+                
             </div>        
     <?php
         }
     ?>
-    <button type="submit" name="henkou" class="change-button">削除</button>
+    
 
     <br>
     <div id="family-group" class="form-group" style="display: ;">
