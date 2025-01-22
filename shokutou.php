@@ -20,23 +20,25 @@
     $Foods_list = $FoodsDAO->get_foods();
     
     $food[]=NULL;
+    $i2 = 0;
     if($_SERVER['REQUEST_METHOD']==='POST'){
         if (isset($_POST['add'])){
             $food = $_POST['food'];
         }        
         elseif(isset($_POST['Resist'])){
-
-            $Syoku = $SyokutouDAO->get_SyokuID_by_SyokuName($_POST['SyokuName']); 
-            $Quantity = $_POST['Quantity'.'1']; //forぶんでまわして数字をふやす
-            var_dump($Quantity);
-            $unit = $SyokutouDAO->get_UID_by_UnitName($_POST['UnitName']);  
-            $TF = $SyokutouDAO->insert_syokutou($Member->MID,$Syoku->SyokuID,$Quantity,$unit->UID);
+            $i = $_POST['suji'];
+            for($i2 = 0; $i2 < $i; $i2++){
+                $Syoku = $SyokutouDAO->get_SyokuID_by_SyokuName($_POST['SyokuName'.$i2]); 
+                $Quantity = $_POST['Quantity'.$i2]; //forぶんでまわして数字をふやす
+                var_dump($Quantity);
+                $unit = $SyokutouDAO->get_UID_by_UnitName($_POST['UnitName'.$i2]);  
+                $TF = $SyokutouDAO->insert_syokutou($Member->MID,$Syoku->SyokuID,$Quantity,$unit->UID);
+            }
             if ($TF == true){
                 header('Location: home.php');
                 exit;
             }
     }
-
 }
 ?>
 <!DOCTYPE html>
@@ -167,27 +169,22 @@
             <table border="1" class="table">
                 <tr>
                     <td>
-                        <a class="accordion__link" id="fishLink1">青魚</a>
+                        <a class="accordion__link" id="fishLink1">赤身魚</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="fishLink2">赤身魚</a>
+                        <a class="accordion__link" id="fishLink2">白身魚</a>
                     </td>
                 </tr>
                 <tr></tr>
                 <td>
-                    <a class="accordion__link" id="fishLink3">白身魚</a>
+                    <a class="accordion__link" id="fishLink3">甲殻・貝類</a>
                 </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="fishLink4">海藻類</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="accordion__link" id="fishLink5">魚加工品</a>
+                        <a class="accordion__link" id="fishLink4">魚加工品</a>
                     </td>
                 </tr>
             </table>
@@ -406,7 +403,7 @@
         </div>
 
         <div id="chk-fish1" style="display: none;">
-            <h3>青魚:</h3>
+            <h3>赤身魚:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S1/", $foods->MiddleGenreID)) : ?>
                     <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
@@ -415,7 +412,7 @@
             <br>
         </div>
         <div id="chk-fish2" style="display: none;">
-            <h3>赤身魚:</h3>
+            <h3>白身魚:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S2/", $foods->MiddleGenreID)) : ?>
                     <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
@@ -424,7 +421,7 @@
             <br>
         </div>
         <div id="chk-fish3" style="display: none;">
-            <h3>白身魚:</h3>
+            <h3>甲殻・貝類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S3/", $foods->MiddleGenreID)) : ?>
                     <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
@@ -433,27 +430,9 @@
             <br>
         </div>
         <div id="chk-fish4" style="display: none;">
-            <h3>海藻類:</h3>
-            <?php foreach ($Foods_list as $foods) : ?>
-                <?php if (preg_match("/S4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
-                <?php endif; ?>
-            <?php endforeach ?>
-            <br>
-        </div>
-        <div id="chk-fish5" style="display: none;">
             <h3>魚加工品:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
-                <?php if (preg_match("/S5/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
-                <?php endif; ?>
-            <?php endforeach ?>
-            <br>
-        </div>
-        <div id="chk-fish6" style="display: none;">
-            <h3>その他:</h3>
-            <?php foreach ($Foods_list as $foods) : ?>
-                <?php if (preg_match("/S6/", $foods->MiddleGenreID)) : ?>
+                <?php if (preg_match("/S4/", $foods->MiddleGenreID)) : ?>
                     <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
@@ -530,7 +509,7 @@
       <input type ="submit" name="add" value = "追加"><br>
     </div>
 
-    
+    <?php $i = 0; ?>
     <div class="title">買い物登録</div>
     <form  action="" method="POST">
     <div class="container">
@@ -539,21 +518,23 @@
                 <?php foreach ($food as $value)  :?>
                     <div class="item-row">
                     <?php if (!$food ="") : ?>
-                        <input type="text"  readonly class="item-input" name = "SyokuName" value=<?= $value ?>>
+                        <input type="text"  readonly class="item-input" name = <?= "SyokuName".$i ?> value=<?= $value ?>>
                         <div class="row">
-                            <input type="text" value="0" class="quantity-input" name = "Quantity1"><!--forぶんでそれぞれのnameの後に.で1,2,3のように数字を文字列連結して判断させる
-                            <input name="UnitName" id=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UID ?> value=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UnitName ?>>
+                            <input type="text" value="0" class="quantity-input" name = <?= "Quantity".$i ?>><!--forぶんでそれぞれのnameの後に.で1,2,3のように数字を文字列連結して判断させる -->
+                            <input name=<?= "UnitName" . $i ?> readonly  id=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UID ?> value=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UnitName ?>>
                         </div>
                     </div>
-                    <?php endif; ?>
+                    <?php endif ?>
+                    <?php $i++ ?>
                 <?php endforeach ?>
-            <?php endif;?>
+            <?php endif?>
 
         
         </div>
     </div>
     <!-- フッター部分 -->
     <div class="footer">
+            <input type="hidden" name="suji" value=<?= $i ?>>
         <button type="submit" name="Resist">登録</a>
     </form>
     </div>

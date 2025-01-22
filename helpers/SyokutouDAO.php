@@ -68,7 +68,6 @@ class SyokutouDAO{
     
             // SQLの実行
             $stmt->execute();
-            
             return true;  // 成功した場合はtrueを返す
         
         
