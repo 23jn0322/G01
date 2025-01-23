@@ -527,7 +527,7 @@
         </div>
     </div>
     <div class=toroku>
-      <input type ="submit" name="add" value = "追加"><br>
+      <input type ="submit" name="add" value = "追加" class="button"><br>
     </div>
 
     
@@ -554,7 +554,7 @@
     </div>
     <!-- フッター部分 -->
     <div class="footer">
-        <button type="submit" name="Resist">登録</a>
+        <button type="submit" name="Resist" class="button">登録</a>
     </form>
     </div>
     </div>

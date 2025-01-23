@@ -48,3 +48,7 @@ h3 {
 #monthB {
     float: right;
 }
+
+.btn btn-primary{
+    background-color: #109972;
+}

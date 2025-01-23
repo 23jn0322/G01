@@ -124,3 +124,7 @@ body {
     flex-wrap: nowrap;
     width: 80px;
 }
+
+.button{
+    background-color:#109972;
+}
