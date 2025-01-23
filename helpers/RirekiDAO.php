@@ -9,8 +9,8 @@ class Rireki{
    public string $SyokuID;
 }
 class Unit{
-    public string $UID;
     public string $SyokuID;
+    public string $UID;
     public string $UnitName;
 }
 
@@ -35,23 +35,24 @@ class rirekiDAO{
         }
         return $data;
     }
-    public function get_rireki_by_UID()
+    public function get_UID_by_SyokuID($SyokuID)
     {
         $dbh = DAO::get_db_connect();
 
-        $sql = "SELECT DISTINCT syokutou.SyokuID,UnitName 
-        from Nutrients 
-        INNER JOIN syokutou ON Nutrients.UID = syokutou.UID 
-        INNER JOIN BuyUnitMaster ON Nutrients.UID = BuyUnitMaster.UID";
+        $sql = "SELECT DISTINCT syokutou.SyokuID,UnitName,Nutrients.UID
+                from Nutrients 
+                INNER JOIN syokutou ON Nutrients.UID = syokutou.UID 
+                INNER JOIN BuyUnitMaster ON Nutrients.UID = BuyUnitMaster.UID
+				where syokutou.SyokuID = :SyokuID";
 
         $stmt = $dbh->prepare($sql);
+
+        $stmt->bindValue(':SyokuID',$SyokuID,PDO::PARAM_STR);
         $stmt->execute();
 
-        $data = [];
-        while($row = $stmt->fetchObject('Unit')){
-        $data[] = $row;
-    }
-    return $data;
+        $Unit = $stmt->fetchObject("Unit");
+
+        return $Unit;        
     }
 }
 ?>
