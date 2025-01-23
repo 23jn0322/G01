@@ -508,7 +508,7 @@
         </div>
     </div>
     <div class=toroku>
-      <input type ="submit" name="add" class = 'btn btn-primary' value = "追加"><br>
+      <input type ="submit" name="add" value = "追加" class="button"><br>
     </div>
 
     <?php $i = 0; ?>
@@ -537,7 +537,7 @@
     <!-- フッター部分 -->
     <div class="footer">
             <input type="hidden" name="suji" value=<?= $i ?>>
-        <button type="submit" class = 'btn btn-primary' name="Resist">登録</a>
+        <button type="submit" name="Resist" class="button">登録</a>
     </form>
     </div>
     </div>

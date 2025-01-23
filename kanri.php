@@ -202,8 +202,7 @@
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if ($foods->UsualFlag == true && preg_match("/V/", $foods->MiddleGenreID)) : ?>
                     <form name="a_form"method="POST" action="kanrisyosai.php">
-                        <a href="kanrisyosai.php" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?> onclick="document.a_form.submit();"><?= $foods->SyokuName ?></a>
-                        <input type="hidden" name="SyokuName" value=<?= $foods->SyokuName ?>>
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
                     </form>
                 <?php endif; ?>
             <?php endforeach ?>
