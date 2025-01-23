@@ -209,19 +209,23 @@
             <br>
         </div>
         <div id="chk-veggie2" style="display: none;">
-            <h3>葉物野菜:</h3>
+            <h3>葉・茎類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V1/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
         </div>
         <div id="chk-veggie3" style="display: none;">
-            <h3>根菜類:</h3>
+            <h3>芋・根菜類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V2/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -230,16 +234,20 @@
             <h3>キノコ類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V3/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
         </div>
         <div id="chk-veggie5" style="display: none;">
-            <h3>果実野菜:</h3>
+            <h3>果実類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V4/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -248,16 +256,9 @@
             <h3>豆類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V5/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
-                <?php endif; ?>
-            <?php endforeach ?>
-            <br>
-        </div>
-        <div id="chk-veggie7" style="display: none;">
-            <h3>その他:</h3>
-            <?php foreach ($Foods_list as $foods) : ?>
-                <?php if (preg_match("/V6/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -267,7 +268,9 @@
             <h3>いつもの果物:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if ($foods->UsualFlag == true && preg_match("/F/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -276,16 +279,20 @@
             <h3>ドライフルーツ:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F1/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
         </div>
         <div id="chk-fruits3" style="display: none;">
-            <h3>柑橘類:</h3>
+            <h3>果物:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F2/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -294,16 +301,9 @@
             <h3>ベリー類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F3/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
-                <?php endif; ?>
-            <?php endforeach ?>
-            <br>
-        </div>
-        <div id="chk-fruits5" style="display: none;">
-            <h3>その他:</h3>
-            <?php foreach ($Foods_list as $foods) : ?>
-                <?php if (preg_match("/F4/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -313,7 +313,9 @@
             <h3>牛肉:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M1/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -322,7 +324,9 @@
             <h3>豚肉:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M2/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -331,7 +335,9 @@
             <h3>鶏肉:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M3/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -340,7 +346,9 @@
             <h3>肉加工品:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M4/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -349,62 +357,54 @@
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M5/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
         </div>
 
         <div id="chk-fish1" style="display: none;">
-            <h3>青魚:</h3>
+            <h3>赤身魚:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S1/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
         </div>
         <div id="chk-fish2" style="display: none;">
-            <h3>赤身魚:</h3>
+            <h3>白身魚:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S2/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
         </div>
         <div id="chk-fish3" style="display: none;">
-            <h3>白身魚:</h3>
+            <h3>甲殻・貝類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S3/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
         </div>
         <div id="chk-fish4" style="display: none;">
-            <h3>海藻類:</h3>
-            <?php foreach ($Foods_list as $foods) : ?>
-                <?php if (preg_match("/S4/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
-                <?php endif; ?>
-            <?php endforeach ?>
-            <br>
-        </div>
-        <div id="chk-fish5" style="display: none;">
             <h3>魚加工品:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
-                <?php if (preg_match("/S5/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
-                <?php endif; ?>
-            <?php endforeach ?>
-            <br>
-        </div>
-        <div id="chk-fish6" style="display: none;">
-            <h3>その他:</h3>
-            <?php foreach ($Foods_list as $foods) : ?>
-                <?php if (preg_match("/S6/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                <?php if (preg_match("/S4/", $foods->MiddleGenreID)) : ?>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -414,7 +414,9 @@
             <h3>お米:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T1/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -423,7 +425,9 @@
             <h3>パン:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T2/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -432,7 +436,9 @@
             <h3>麺:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T3/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -441,7 +447,9 @@
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T4/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -452,7 +460,9 @@
             <h3>卵:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/E1/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -461,16 +471,21 @@
             <h3>牛乳:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/E2/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
         </div>
 
         <div id="chk-soy" style="display: none;">
+            <h3>大豆製品</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/D1/", $foods->MiddleGenreID)) : ?>
-                    <a href="kanrisyosai.php" name="food[]" value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></a>
+                    <form name="a_form"method="POST" action="kanrisyosai.php">
+                        <input type="submit" name='SyokuName' value=<?= $foods->SyokuName ?>>
+                    </form>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>

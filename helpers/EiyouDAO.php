@@ -223,7 +223,7 @@ class eiyouDAO
         $stmt->bindValue(':MID', $MID, PDO::PARAM_STR);
         $stmt->execute();
 
-        $member_eiyou = $stmt->fetchObject('Eiyou');
+        $member_eiyou = $stmt->fetchObject('HituyouEiyou');
 
         if ($member_eiyou !== false){
             return $member_eiyou;
@@ -334,6 +334,22 @@ class eiyouDAO
         }
 
         return $data;
+    }
+
+    public function Update_Eiyou($SyokuName,$Eiyou,$NutrientsName){
+        $dbh = DAO::get_db_connect();
+
+        $sql = "";
+
+        $stmt = $dbh->prepare($sql);
+
+        $stmt->bindValue(':SyokuName', $SyokuName, PDO::PARAM_STR);
+        $stmt->bindValue(':Eiyou', $Eiyou, PDO::PARAM_STR);
+        $stmt->bindValue(':NutrientsName', $NutrientsName, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return true;
     }
 }
 ?>

@@ -28,43 +28,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h1>食材詳細</h1>
 
-    <div class="input-section">
-        <label for="ingredient-name">名称</label>
-        <input type="text" id="ingredient-name" name="mei" class="input-box" placeholder="" value=<?= $SyokuName ?>>
+    <form action="" method="POST" >
+        <div class="input-section">
+            <label for="ingredient-name">名称</label>
+            <input type="text" id="ingredient-name" name="Syokuname" class="input-box" placeholder="" value=<?= $SyokuName ?>>
 
-        <label for="category">中ジャンル</label>
-        <input type="text" id="ingredient-name" name="mei" class="input-box" placeholder="" value=<?= $FoodsSyousai->MiddleGenreName ?>>
+            <label for="category">中ジャンル</label>
+            <input type="text" id="ingredient-name" name="MiddleGenreName" class="input-box" placeholder="" value=<?= $FoodsSyousai->MiddleGenreName ?>>
 
-        <div class="checkbox-container">
-            <label for="usual">
-                <input type="checkbox" id="usual" checked=<?php if($FoodsSyousai->UsualFlag) {echo 'checked';}else{echo '';}?>> いつもの
-            </label>
+            <div class="checkbox-container">
+                <label for="usual">
+                    <input type="checkbox" id="usual" checked=<?php if($FoodsSyousai->UsualFlag == true) {echo 'checked';}else{echo '';}?>> いつもの
+                </label>
+            </div>
         </div>
-    </div>
 
-    <div class="container"></div>
-        <label for="ingredient-name" class="label">購入単位</label>
-        <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $FoodsSyousai->UnitName ?>>
-    </div>
-
-
-    <?php foreach(array_map(null, $Eiyou_list, $Nutrients_list) as [$Eiyou, $Nutrients]) : ?>
         <div class="container"></div>
-        <label for="ingredient-name" class="label"><?= $Eiyou->NutrientsName ?></label>
-        
-        <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $Nutrients->IncludeNatri ?>>
-        <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
+            <label for="ingredient-name" class="label">購入単位</label>
+            <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $FoodsSyousai->UnitName ?>>
         </div>
-    <?php endforeach ?>
+
+
+        <?php foreach(array_map(null, $Eiyou_list, $Nutrients_list) as [$Eiyou, $Nutrients]) : ?>
+            <div class="container"></div>
+            <label for="ingredient-name" class="label"><?= $Eiyou->NutrientsName ?></label>
+            
+            <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $Nutrients->IncludeNatri ?>>
+            <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
+            </div>
+        <?php endforeach ?>
     
-<!--つづき！！！！！！！！！！！！！！！！！！！！！！！！！！！！！-->
-    
+        <div class="submit-container">
 
-
-    <div class="submit-container">
-
-        <button class="submit-button" onclick="confirmRegistration()">登録</button>
-    </div>
+            <button class="submit-button" onclick="confirmRegistration()">登録</button>
+        </div>
+    </form>
 
     <script>
         function confirmRegistration() {
