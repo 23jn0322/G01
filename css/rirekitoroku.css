@@ -1,8 +1,6 @@
 
 /* styles.css */
-body {
-    font-family: Arial, sans-serif;
-  }
+
   
   .title {
     font-size: 1.5em;
@@ -99,23 +97,25 @@ select {
   }
   
   .footer a {
-    display: inline-block; /* ボタンのように表示 */
-    text-align: center; /* テキストを中央揃え */
+    display: inline-block;
+    text-align: center;
     background-color: #109972;
     color: white;
-    text-decoration: none; /* 下線を消す */
+    text-decoration: none;
     border: none;
-    padding: 4px 8px; /* ボタンの内側余白 */
-    font-size: 0.8em;
-    border-radius: 4px;
+    padding: 10px 20px; /* ボタン内の余白 */
+    font-size: 1.2em; /* フォントサイズ */
+    border-radius: 5px; /* 角を丸く */
     cursor: pointer;
-    width: 80px; /* ボタンの幅 */
+    width: auto; /* 幅を自動調整 */
     transition: background-color 0.3s ease;
+    margin: 0 40px; /* ボタン間の間隔を広げる */
   }
-  
+
   .footer a:hover {
     background-color: #109670;
   }
+
   
   
   

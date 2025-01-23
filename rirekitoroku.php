@@ -51,7 +51,14 @@ $unit_list = $RirekiDAO->get_rireki_by_UID();
         <a href="shokutou.php" class="small-button">戻る</a>
         <a href="home.php" class="small-button">登録</a>
 
-    </div>
+    </div>  
 </body>
 
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #fffedb !important;
+    margin: 100px !important;
+    }
+  </style>
 </html>

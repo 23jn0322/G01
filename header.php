@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="bootstrap-5.0.0-dist/css/bootstrap.min.css">
     <link href="css/header.css" rel="stylesheet">
     <div id="logo">
-        <img src="ロゴ.png" width="250px">
+        <img src="ロゴ２.png" width="250px">
     </div>
     <?php if (isset($Member)) : ?>
             <?= $Member->Name ?>さん

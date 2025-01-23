@@ -52,7 +52,7 @@
     <script>
         // チェックされた項目を表示する関数
         function showCheckedItems() {
-            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var checkboxes = document.querySelectorAll('input[class="form-check-input" type="checkbox"]');
             var selectedItems = [];
 
             checkboxes.forEach(function(checkbox) {
@@ -246,11 +246,11 @@
 
     <div class="choice">
         <div id="chk-veggie1" style="display: none;">
-            <h3>いつもの野菜:</h3>
+            <h3 >いつもの野菜:</h3>
             <form method="post" action="">
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if ($foods->UsualFlag == true && preg_match("/V/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label class="form-check-label" ><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -259,7 +259,7 @@
             <h3>葉・茎類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -268,7 +268,7 @@
             <h3>芋・根菜類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -277,7 +277,7 @@
             <h3>キノコ類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -286,7 +286,7 @@
             <h3>果実類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -295,7 +295,7 @@
             <h3>豆類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V5/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -304,7 +304,7 @@
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/V6/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -314,7 +314,7 @@
             <h3>いつもの果物:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if ($foods->UsualFlag == true && preg_match("/F/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -323,7 +323,7 @@
             <h3>ドライフルーツ:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -332,7 +332,7 @@
             <h3>柑橘類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -341,7 +341,7 @@
             <h3>ベリー類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -350,7 +350,7 @@
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -360,7 +360,7 @@
             <h3>牛肉:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -369,7 +369,7 @@
             <h3>豚肉:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -378,7 +378,7 @@
             <h3>鶏肉:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -387,7 +387,7 @@
             <h3>肉加工品:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -396,7 +396,7 @@
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/M5/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -406,7 +406,7 @@
             <h3>赤身魚:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -415,7 +415,7 @@
             <h3>白身魚:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -424,7 +424,7 @@
             <h3>甲殻・貝類:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -433,7 +433,7 @@
             <h3>魚加工品:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/S4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -443,7 +443,7 @@
             <h3>お米:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -452,7 +452,7 @@
             <h3>パン:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -461,7 +461,7 @@
             <h3>麺:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T3/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -470,7 +470,7 @@
             <h3>その他:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/T4/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -481,7 +481,7 @@
             <h3>卵:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/E1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -490,7 +490,7 @@
             <h3>牛乳:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/E2/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
@@ -499,14 +499,14 @@
         <div id="chk-soy" style="display: none;">
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/D1/", $foods->MiddleGenreID)) : ?>
-                    <label><input type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
+                    <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
                 <?php endif; ?>
             <?php endforeach ?>
             <br>
         </div>
     </div>
     <div class=toroku>
-      <input type ="submit" name="add" value = "追加" class="button"><br>
+      <input type ="submit" name="add" value = "追加" class="btn btn-success"><br>
     </div>
 
     <?php $i = 0; ?>
@@ -535,7 +535,7 @@
     <!-- フッター部分 -->
     <div class="footer">
             <input type="hidden" name="suji" value=<?= $i ?>>
-        <button type="submit" name="Resist" class="button">登録</a>
+        <button type="submit" name="Resist" class="btn btn-success">登録</a>
     </form>
     </div>
     </div>
