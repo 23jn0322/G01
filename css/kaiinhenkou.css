@@ -1,14 +1,16 @@
 /* body */
 body {
+    background-color: #fffedb;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f9;
-    padding-top: 300px;
+    width: 100%; /* 幅を画面いっぱいに設定 */
+    height: 100%; /* 高さも画面いっぱいに設定 */
+    margin: 0;/* クリーム色 */
+    padding-top: 0; /* 上の余白を削除 */
 }
+
 
 /* ユーザIDの上に表示されるpタグ */
 p {
@@ -21,7 +23,7 @@ p {
 form {
     width: 100%;
     max-width: 600px;
-    background-color: white;
+    background-color: rgb(255 251 190);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -135,7 +137,7 @@ input[type="radio"] {
     float: right; /* This will push the button to the right side */
     margin-top: 50px; /* Add space on top */
     padding: 10px 20px; /* Further adjusted padding for narrower height */
-    background-color: #0c61c9; /* Optional: Green background */
+    background-color: #109972; /* Optional: Green background */
     color: white; /* White text */
     border: none; /* Remove the default border */
     border-radius: 5px; /* Optional: Rounded corners */
@@ -143,5 +145,3 @@ input[type="radio"] {
     writing-mode: horizontal-tb; /* 文字を横向きに設定 */
     white-space: nowrap; /* 文字が折り返さないように設定 */
 }
-
-
