@@ -1,3 +1,4 @@
+<?php include "header.php" ?>
 <?php
 require_once './helpers/SyokutouDAO.php';
 require_once './helpers/MemberDAO.php';
@@ -9,10 +10,32 @@ if (session_status() === PHP_SESSION_NONE) {
 if (!empty($_SESSION['Member'])) {
     $Member = $_SESSION['Member'];
 }
-
+$SyokutouDAO = new SyokutouDAO();
 $RirekiDAO = new RirekiDAO();
 $rireki_list = $RirekiDAO->get_rireki_by_MID($Member->MID);
-$unit_list = $RirekiDAO->get_rireki_by_UID();
+$i2 = 0;
+$TF = false;
+if($_SERVER['REQUEST_METHOD']==='POST'){    
+    if(isset($_POST['Resist'])){
+        $i = $_POST['suji'];
+        for($i2 = 0; $i2 < $i; $i2++){
+            $Syoku = $SyokutouDAO->get_SyokuID_by_SyokuName($_POST['SyokuName'.$i2]); 
+            $Quantity = $_POST['Quantity'.$i2]; //forぶんでまわして数字をふやす
+            $UID =$_POST['UID'.$i2];
+            if($Quantity > 0){
+                $TF = $SyokutouDAO->insert_syokutou($Member->MID,$Syoku->SyokuID,$Quantity,$UID);
+            }
+        }
+        if ($TF == true){
+            header('Location: home.php');
+            exit;
+        }
+        else{
+            //エラー文を入れる
+        }
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -26,32 +49,32 @@ $unit_list = $RirekiDAO->get_rireki_by_UID();
 </head>
 
 <body>
+<?php $i = 0; ?>
     <div class="title">履歴から買い物登録</div>
-    <div class="container">
-        <div class="content">
-            <?php foreach ($rireki_list as $rireki) : ?>
-                <div class="item-row">
-                    <input type="text" class="item-input" value="<?= $rireki->SyokuName ?>">
-                    <div class="row">
-                        <input type="number" value="0" class="quantity-input">
-                        <select>
-                            <?php foreach ($unit_list as $unit) : ?>
-                                <?php if ($rireki->SyokuID === $unit->SyokuID): ?>
-                                    <option value=<?= $unit->UnitName ?>><?= $unit->UnitName ?></option>
-                                <?php endif ?>
-                            <?php endforeach ?>
-                        </select>
+    <form action="" method="POST">
+        <div class="container">
+            <div class="content">
+                <?php foreach ($rireki_list as $rireki) : ?>
+                    <div class="item-row">
+                        <input type="text" name = <?= "SyokuName".$i ?> class="item-input" readonly value="<?= $rireki->SyokuName ?>">
+                        <div class="row">
+                            <input type="text" value="0" class="quantity-input" name = <?= "Quantity".$i ?>>
+                            <input name=<?= "UnitName" . $i ?> class="unittext" readonly value=<?= ($RirekiDAO->get_UID_by_SyokuID($rireki->SyokuID))->UnitName ?>>
+                            <input type="hidden" name=<?="UID" . $i ?> value=<?= ($RirekiDAO->get_UID_by_SyokuID($rireki->SyokuID))->UID ?>>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach ?>
+                    <?php $i++ ?>
+                <?php endforeach ?>
+            </div>
         </div>
-    </div>
-    <!-- フッター部分 -->
-    <div class="footer">
-        <a href="shokutou.php" class="small-button">戻る</a>
-        <a href="home.php" class="small-button">登録</a>
 
-    </div>  
+        <!-- フッター部分 -->
+        <div class="footer">
+            <a href="shokutou.php" class="small-button">戻る</a>
+            <input type="hidden" name="suji" value=<?= $i ?>>
+            <button type="submit" class = 'btn btn-primary' name="Resist">登録</a>
+        </div>
+    </form>
 </body>
 
   <style>

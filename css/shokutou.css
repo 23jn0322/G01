@@ -131,3 +131,45 @@ body {
     border: none; /* 枠線を無くす */
     outline: none; /* フォーカス時のアウトラインも無くす */
 }
+
+.item-input {
+    display: flex;
+    width: 60%;
+    height: 40px; /* 数値入力欄と同じ高さに設定 */
+    padding: 8px; /* 内側の余白を調整 */
+    font-size: 1.2em; /* フォントサイズはそのまま */
+    border: 1px solid #ccc; /* 枠線を統一 */
+    border-radius: 4px; /* 角を丸く統一 */
+    margin-bottom: 10px; /* ボックス間の余白を保持 */
+    float: left;
+    margin-right: 30px;
+    text-align: center;
+  }
+  
+  .quantity-input {
+    width: 70px; /* 数値入力欄の幅 */
+    margin-right: 5px; /* 数量入力欄と選択ボックスの間隔 */
+    margin-left: 15px; /* 右寄せ調整 */
+    padding: 7px 4px;  /* 上下の余白をさらに広げる */
+    font-size: 1.2em;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    float: right;
+    text-align: right;
+  }
+  
+  .unittext {
+    width: 70px; /* 数値入力欄の幅 */
+    margin-right: 5px; /* 数量入力欄と選択ボックスの間隔 */
+    margin-left: 15px; /* 右寄せ調整 */
+    padding: 7px 4px;  /* 上下の余白をさらに広げる */
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    float: right;
+    text-align: center;
+    font-size: 1.2em;
+  }

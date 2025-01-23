@@ -29,10 +29,11 @@
             $i = $_POST['suji'];
             for($i2 = 0; $i2 < $i; $i2++){
                 $Syoku = $SyokutouDAO->get_SyokuID_by_SyokuName($_POST['SyokuName'.$i2]); 
-                $Quantity = $_POST['Quantity'.$i2]; //forぶんでまわして数字をふやす
-                var_dump($Quantity);
-                $unit = $SyokutouDAO->get_UID_by_UnitName($_POST['UnitName'.$i2]);  
-                $TF = $SyokutouDAO->insert_syokutou($Member->MID,$Syoku->SyokuID,$Quantity,$unit->UID);
+                $Quantity = $_POST['Quantity'.$i2]; 
+                $unit = $SyokutouDAO->get_UID_by_UnitName($_POST['UnitName'.$i2]); 
+                if($Quantity > 0){ 
+                    $TF = $SyokutouDAO->insert_syokutou($Member->MID,$Syoku->SyokuID,$Quantity,$unit->UID);
+                }
             }
             if ($TF == true){
                 header('Location: home.php');
@@ -122,7 +123,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="fruitsLink3">柑橘類</a>
+                        <a class="accordion__link" id="fruitsLink3">果物</a>
                     </td>
                 </tr>
                 <tr>
@@ -329,7 +330,7 @@
             <br>
         </div>
         <div id="chk-fruits3" style="display: none;">
-            <h3>柑橘類:</h3>
+            <h3>果物:</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/F2/", $foods->MiddleGenreID)) : ?>
                     <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
@@ -497,6 +498,7 @@
         </div>
 
         <div id="chk-soy" style="display: none;">
+            <h3>大豆製品</h3>
             <?php foreach ($Foods_list as $foods) : ?>
                 <?php if (preg_match("/D1/", $foods->MiddleGenreID)) : ?>
                     <label><input class="form-check-input" class="form-check-input" type="checkbox" name="food[]" id=<?= $foods->SyokuID ?> value=<?= $foods->SyokuName ?>><?= $foods->SyokuName ?></label>
@@ -521,7 +523,7 @@
                         <input type="text"  readonly class="item-input" name = <?= "SyokuName".$i ?> value=<?= $value ?>>
                         <div class="row">
                             <input type="text" value="0" class="quantity-input" name = <?= "Quantity".$i ?>><!--forぶんでそれぞれのnameの後に.で1,2,3のように数字を文字列連結して判断させる -->
-                            <input name=<?= "UnitName" . $i ?> readonly  id=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UID ?> value=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UnitName ?>>
+                            <input name=<?= "UnitName" . $i ?> readonly class="unittext" id=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UID ?> value=<?= $SyokutouDAO->get_syokutou_by_UID($value)->UnitName ?>>
                         </div>
                     </div>
                     <?php endif ?>
