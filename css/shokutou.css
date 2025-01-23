@@ -43,6 +43,7 @@ h3 {
 body {
     overflow-y: scroll;
     padding-top: 300px;
+    background-color: #fffedb !important;
 }
 
 
@@ -127,6 +128,8 @@ body {
 
 .button{
     background-color:#109972;
+    border: none; /* 枠線を無くす */
+    outline: none; /* フォーカス時のアウトラインも無くす */
 }
 
 .item-input {

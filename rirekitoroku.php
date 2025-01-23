@@ -67,13 +67,33 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
                 <?php endforeach ?>
             </div>
         </div>
+
         <!-- フッター部分 -->
         <div class="footer">
-            <a href="shokutou.php" class="small-button">戻る</a>
+            <a href="shokutou.php" class="btn btn-primary">戻る</a>
             <input type="hidden" name="suji" value=<?= $i ?>>
-            <button type="submit" class = 'btn btn-primary' name="Resist">登録</a>
+            <button type="submit" class="btn btn-primary" name="Resist">登録</a>
         </div>
     </form>
 </body>
 
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #fffedb !important;
+    margin: 100px !important;
+    }
+
+    .btn-primary{
+        background-color: #109972 !important;
+        padding: 10px 20px;
+        font-size: 1.2em; /* フォントサイズ */
+        border-radius: 5px; /* 角を丸く */
+        cursor: pointer;
+        width: auto; /* 幅を自動調整 */
+        transition: background-color 0.3s ease;
+        margin: 0 40px;
+        border-color: #109972 !important;
+    }
+  </style>
 </html>

@@ -33,6 +33,8 @@
     <header>
         <meta charset="utf-8">
     </header>
+
+    
     <body>
         <?php include "header.php" ?>
         <h2>必要栄養類摂取比較グラフ</h2>
@@ -347,4 +349,17 @@
         });
         
     </script>
+
+    <style>
+    .btn-primary {
+    color: #fff;
+    background-color: #109972 !important;
+    border-color: #109972 !important;
+    }
+
+    body{
+    background-color: #fffedb !important;
+    }
+    </style>
+
 </html>
