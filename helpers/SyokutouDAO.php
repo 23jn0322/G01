@@ -68,7 +68,7 @@ class SyokutouDAO{
     
             // SQLの実行
             $stmt->execute();
-            
+
             return true;  // 成功した場合はtrueを返す
         
         
@@ -86,10 +86,7 @@ class SyokutouDAO{
         $stmt->bindValue(':UnitName',$UnitName,PDO::PARAM_STR);
         $stmt->execute();
 
-        $data = [];
-        while($row = $stmt->fetchObject("UID")) {
-            $data[] = $row;
-        }
+        $data = $stmt->fetchObject("UID");
 
         return $data;
     }
