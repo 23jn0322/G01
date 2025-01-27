@@ -1,5 +1,13 @@
 <?php
-    
+    require_once './helpers/kanriDAO.php';
+    require_once './helpers/EiyouDAO.php';
+
+    $KanriDAO = new KanriDAO();
+    $EiyouDAO = new eiyouDAO();
+
+    $MiddleGenre = $KanriDAO->get_MiddleGenre();
+    $BuyUnit = $KanriDAO->get_BuyUnit();
+    $Eiyou_list = $EiyouDAO->get_NutrientsName();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -14,6 +22,7 @@
     <button onclick="window.location.href='kanri.php'" class="back-button">← 戻る</button>
     <h1>新規食材登録</h1>
 
+    <form action="" method="POST">
     <!-- 食材名称 -->
     <div class="container">
         <label for="ingredient-name" class="label">名称</label>
@@ -25,137 +34,40 @@
         <label for="category" class="label">中ジャンル</label>
         <select id="category" class="dropdown">
             <option value="">選択してください</option>
-            <option value="leafvegetable">葉物野菜</option>
-            <option value="mushroom">キノコ類</option>
-            <option value="rootvegetable">根菜類</option>
-            <option value="other">その他</option>
+            <?php foreach($MiddleGenre as $Genre) : ?>
+                <option name="MiddleGenre" value=<?=$Genre->MiddleGenreID ?>><?= $Genre->MiddleGenreName ?></option>
+            <?php endforeach ?>
         </select>
     </div>
 
     <!-- いつもの -->
     <div class="container">
         <label for="usual" class="label">いつもの</label>
-        <input type="checkbox" id="usual">
+        <input type="checkbox" id="usual" name="UsualFlag">
     </div>
 
     <div class="container"></div>
         <label for="ingredient-name" class="label">購入単位</label>
-        <input type="text" id="ingredient-name" class="input-box" placeholder="">
         <select id="category" class="dropdown">
             <option value="">選択してください</option>
-            <option value="ball">玉</option>
-            <option value="piece">個</option>
-            <option value="bottole">本</option>
-            <option value="bandle">束</option>
-            <option value="can">缶</option>
-            <option value="kg">kg</option>
-            <option value="g">g</option>
+            <?php foreach($BuyUnit as $Unit) : ?>
+                <option name="BuyUnit" value=<?= $Unit->UID ?>><?= $Unit->UnitName ?></option>
+            <?php endforeach ?>
         </select>
     </div>
 
-    <div class="container"></div>
-    <label for="ingredient-name" class="label">たんぱく質</label>
-    <input type="text" id="ingredient-name" class="input-box" placeholder="">
-    <select id="category" class="dropdown">
-        <option value="">選択してください</option>
-        <option value="mushroom">g</option>
-        <option value="rootvegetable">mg</option>
-        <option value="other">㎍</option>
-    </select>
-</div>
+    <?php foreach($Eiyou_list as $Eiyou) : ?>
+            <div class="container"></div>
+            <label for="ingredient-name" class="label"><?= $Eiyou->NutrientsName ?></label>
+            <input type="text" id="ingredient-name" class="input-box" placeholder="" value="">
+            <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
+            </div>
+    <?php endforeach ?>
 
-<div class="container"></div>
-<label for="ingredient-name" class="label">食物繊維</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="mushroom">g</option>
-    <option value="rootvegetable">mg</option>
-    <option value="other">㎍</option>
-</select>
-</div>
-
-<div class="container"></div>
-<label for="ingredient-name" class="label">炭水化物</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
-</div>
-
-<div class="container"></div>
-<label for="ingredient-name" class="label">ビタミンD</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
-</div>
-
-<div class="container"></div>
-<label for="ingredient-name" class="label">ビタミンC</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
-</div>
-
-<div class="container"></div>
-<label for="ingredient-name" class="label">ビタミンA</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
-</div>
-
-<div class="container"></div>
-<label for="ingredient-name" class="label">カルシウム</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
-</div>
-
-<div class="container"></div>
-<label for="ingredient-name" class="label">鉄</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
-</div>
-
-<div class="container"></div>
-<label for="ingredient-name" class="label">亜鉛</label>
-<input type="text" id="ingredient-name" class="input-box" placeholder="">
-<select id="category" class="dropdown">
-    <option value="">選択してください</option>
-    <option value="gram">g</option>
-    <option value="mgram">mg</option>
-    <option value="microgram">㎍</option>
-</select>
-</div>
-
-
-<div class="submit-container">
-    <button class="submit-button" onclick="confirmRegistration()">登録</button>
-</div>
+        <div class="submit-container">
+            <button type="submit" class="submit-button">登録</button>
+        </div>
+    </form>
 
 <script>
     function confirmRegistration() {

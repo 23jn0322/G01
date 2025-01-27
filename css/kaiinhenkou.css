@@ -1,6 +1,6 @@
 /* body */
 body {
-    background-color: #fffedb;
+    background-color: #fffedb !important;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
