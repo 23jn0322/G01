@@ -26,7 +26,10 @@ class FHituyouEiyou
     public float $bitaC;
     public float $bitaD;
 }
+class get_SyokuID{
+    public String $SyokuID;
 
+}
 class Eiyou
 {
     public float $IncludeNatri;
@@ -38,7 +41,11 @@ class EiyouName
     public string $NutrientsName;
     public string $IUnitName;
 }
-
+class Newinclude{
+    public string $SyokuID;
+    public string $NID;
+    public float $IncludeNatri;
+}
 
 class HituyouEiyouDAO
 {
@@ -336,20 +343,39 @@ class eiyouDAO
         return $data;
     }
 
-    public function Update_Eiyou($SyokuName,$Eiyou,$NutrientsName){
+    public function Update_Eiyou($SyokuID,$IncludeNatri,$NID){
         $dbh = DAO::get_db_connect();
 
-        $sql = "";
+        $sql = "UPDATE Nutrients 
+                SET IncludeNatri = :IncludeNatri
+                from Nutrients JOIN Foods ON Nutrients.SyokuID = Foods.SyokuID 
+                WHERE Nutrients.SyokuID = :SyokuID AND Nutrients.NID = :NID";
 
         $stmt = $dbh->prepare($sql);
 
-        $stmt->bindValue(':SyokuName', $SyokuName, PDO::PARAM_STR);
-        $stmt->bindValue(':Eiyou', $Eiyou, PDO::PARAM_STR);
-        $stmt->bindValue(':NutrientsName', $NutrientsName, PDO::PARAM_STR);
+        $stmt->bindValue(':SyokuID', $SyokuID, PDO::PARAM_STR);
+        $stmt->bindValue(':IncludeNatri', $IncludeNatri, PDO::PARAM_INT);
+        $stmt->bindValue(':NID', $NID, PDO::PARAM_STR);
 
         $stmt->execute();
+        $Newinclude = $stmt->fetchObject("Newinclude");
 
-        return true;
+        return $Newinclude;
+    }
+
+    public function get_SyokuID_by_SyokuName(string $SyokuName)
+    {
+        $dbh = DAO::get_db_connect();
+        $sql = "SELECT SyokuID FROM Foods where SyokuName = :SyokuName";
+
+        $stmt = $dbh->prepare($sql);
+
+        $stmt->bindValue(':SyokuName',$SyokuName,PDO::PARAM_STR);
+        $stmt->execute();
+
+        $SyokuID = $stmt->fetchObject("SyokuID");
+
+        return $SyokuID;
     }
 }
 ?>
