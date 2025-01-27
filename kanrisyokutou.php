@@ -8,6 +8,17 @@
     $MiddleGenre = $KanriDAO->get_MiddleGenre();
     $BuyUnit = $KanriDAO->get_BuyUnit();
     $Eiyou_list = $EiyouDAO->get_NutrientsName();
+
+    $Flag = false;
+    if($_SERVER['REQUEST_METHOD']==='POST'){
+        $SyokuName = $_POST['SyokuName'];
+        $MiddleGenreID = $_POST['MiddleGenre'];
+        $UsualFlag = $_POST['UsualFlag'];
+        var_dump($SyokuName);
+        var_dump($MiddleGenreID);
+        var_dump($UsualFlag);
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -22,20 +33,20 @@
     <button onclick="window.location.href='kanri.php'" class="back-button">← 戻る</button>
     <h1>新規食材登録</h1>
 
-    <form action="" method="POST">
+    <form action="" method="POST" name="form1">
     <!-- 食材名称 -->
     <div class="container">
         <label for="ingredient-name" class="label">名称</label>
-        <input type="text" id="ingredient-name" name="mei" class="input-box" placeholder="">
+        <input type="text" id="ingredient-name" name="SyokuName" class="input-box" placeholder="">
     </div>
 
     <!-- 中ジャンル -->
     <div class="container">
         <label for="category" class="label">中ジャンル</label>
-        <select id="category" class="dropdown">
+        <select name="MiddleGenre" id="category" class="dropdown">
             <option value="">選択してください</option>
             <?php foreach($MiddleGenre as $Genre) : ?>
-                <option name="MiddleGenre" value=<?=$Genre->MiddleGenreID ?>><?= $Genre->MiddleGenreName ?></option>
+                <option  value=<?=$Genre->MiddleGenreID ?>><?= $Genre->MiddleGenreName ?></option>
             <?php endforeach ?>
         </select>
     </div>
@@ -59,13 +70,14 @@
     <?php foreach($Eiyou_list as $Eiyou) : ?>
             <div class="container"></div>
             <label for="ingredient-name" class="label"><?= $Eiyou->NutrientsName ?></label>
-            <input type="text" id="ingredient-name" class="input-box" placeholder="" value="">
-            <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
+            <input type="hidden" name="NutrientsName[]" Value= <?= $Eiyou->NID ?>> 
+            <input type="text" id="ingredient-name" class="input-box" name="Nutrients[]" placeholder="" value="">
+            <input type="text" id="ingredient-name" class="input-box" name="UID[]" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
             </div>
     <?php endforeach ?>
 
         <div class="submit-container">
-            <button type="submit" class="submit-button">登録</button>
+            <button type="submit" class="submit-button" >登録</button>
         </div>
     </form>
 
@@ -89,6 +101,14 @@
         } else {
             // ユーザーがキャンセルを押した場合
             alert("登録をキャンセルしました。");
+        }
+    }
+
+    function myCheck() {
+        if (document.form1.UsualFlag.Checked) {
+            <?php $Flag = true; ?>
+        }else{
+            <?php $Flag = false; ?>
         }
     }
 </script>

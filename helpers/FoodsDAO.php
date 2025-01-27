@@ -58,5 +58,42 @@ class FoodsDAO
 
         return $Foods;
     }
+
+    public function insert_Foods($SyokuID, $SyokuName, $Usualflag, $MiddleGenreID)
+    {
+        $dbh = DAO::get_db_connect();
+
+        $sql = "INSERT INTO Foods Values(:SyokuID, :SyokuName, :UsualFlag, :MiddleGenreID)";
+
+        $stmt = $dbh->prepare($sql);
+
+        $stmt->bindvalue(':SyokuID', $SyokuID, PDO::PARAM_STR);
+        $stmt->bindvalue(':SyokuName', $SyokuName, PDO::PARAM_STR);
+        $stmt->bindvalue(':UsualFlag', $UsualFlag, PDO::PARAM_BOOL);
+        $stmt->bindvalue(':MiddleGenreID', $MiddleGenreID, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return true;
+    }
+
+    public function insert_Nutrients($UID, $SyokuName, $Usualflag, $MiddleGenreID)
+    {
+        $dbh = DAO::get_db_connect();
+
+        $sql = "INSERT INTO Nutrients(UID,NID,SyokuID,IncludeNatri) VALUES
+                (:UID, :NID, :SyokuID, :IncludeNatri)";
+
+        $stmt = $dbh->prepare($sql);
+
+        $stmt->bindvalue(':SyokuID', $SyokuID, PDO::PARAM_STR);
+        $stmt->bindvalue(':SyokuName', $SyokuName, PDO::PARAM_STR);
+        $stmt->bindvalue(':UsualFlag', $UsualFlag, PDO::PARAM_BOOL);
+        $stmt->bindvalue(':MiddleGenreID', $MiddleGenreID, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return true;
+    }
 }
 ?>
