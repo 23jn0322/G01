@@ -21,12 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $NID = $_POST['NID'.$i2];
             $IncludeNatri = $_POST['IncludeNatri'.$i2];
 
-            var_dump( $SyokuID[0]["SyokuID"]);
-            var_dump($IncludeNatri);
-
-            var_dump( $NID);
-
-
             $TF = $EiyouDAO->Update_Eiyou($SyokuID[0]["SyokuID"],$IncludeNatri,$NID);
         }
         $Nutrients_list = $EiyouDAO->get_Nutrients_SyokuID($SyokuName);
