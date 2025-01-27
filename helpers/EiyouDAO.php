@@ -26,7 +26,7 @@ class FHituyouEiyou
     public float $bitaC;
     public float $bitaD;
 }
-class get_SyokuID{
+class SyokuID{
     public String $SyokuID;
 
 }

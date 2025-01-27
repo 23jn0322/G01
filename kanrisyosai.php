@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $i = $_POST['suji'];
         $SyokuID = $EiyouDAO->get_SyokuID_by_SyokuName($SyokuName);
         for($i2 = 0; $i2 < $i; $i2++){
-            //for文で繰り返す incrudenatri を繰り返して１つずつ更新する
             $NID = $_POST['NID'.$i2];
             $IncludeNatri = $_POST['IncludeNatri'.$i2];
             $TF = $EiyouDAO->Update_Eiyou($SyokuID,$IncludeNatri,$NID);
@@ -46,7 +45,7 @@ $Flag = false;
     <?php $i = 0; ?>
         <div class="input-section">
             <label for="ingredient-name">名称</label>
-            <input type="text" id="ingredient-name" name="Syokuname" class="input-box" placeholder="" value=<?= $SyokuName ?>>
+            <input type="text" id="ingredient-name" name="SyokuName" class="input-box" placeholder="" value=<?= $SyokuName ?>>
 
             <label for="category">中ジャンル</label>
             <input type="text" id="ingredient-name" name="MiddleGenreName" class="input-box" placeholder="" value=<?= $FoodsSyousai->MiddleGenreName ?>>
@@ -75,7 +74,7 @@ $Flag = false;
     
         <div class="submit-container">
         <input type="hidden" name="suji" value=<?= $i ?>>
-            <button type="submit" name = "Resist" class="submit-button" onclick="myCheck()" >登録</button>
+            <button type="submit" name = "Resist" class="submit-button">登録</button>
         </div>
     </form>
 
@@ -104,15 +103,7 @@ $Flag = false;
             }
         }
 
-        function myCheck() {
-            
-            if (document.form1.Usual.checked) {
-                <?php $Flag = true; ?>   
-            }
-            else{
-                <?php $Flag = false; ?>
-            }
-        }
+
     </script>
 
 </body>
