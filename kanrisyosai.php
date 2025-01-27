@@ -5,12 +5,26 @@ require_once './helpers/EiyouDAO.php';
 $FoodsDAO = new FoodsDAO();
 $EiyouDAO = new eiyouDAO();
 
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $SyokuName = $_POST['SyokuName'];
     $Eiyou_list = $EiyouDAO->get_NutrientsName();
     $Nutrients_list = $EiyouDAO->get_Nutrients_SyokuID($SyokuName);
     $FoodsSyousai = $FoodsDAO->get_foods_by_SyokuName($SyokuName);
-}   
+
+    if(isset($_POST['Resist'])){
+        $i = $_POST['suji'];
+        $SyokuID = $EiyouDAO->get_SyokuID_by_SyokuName($SyokuName);
+        for($i2 = 0; $i2 < $i; $i2++){
+            //for文で繰り返す incrudenatri を繰り返して１つずつ更新する
+            $NID = $_POST['NID'.$i2];
+            $IncludeNatri = $_POST['IncludeNatri'.$i2];
+            $TF = $EiyouDAO->Update_Eiyou($SyokuID,$IncludeNatri,$NID);
+        }
+    }
+}
+$Flag = false;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -28,7 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <h1>食材詳細</h1>
 
-    <form action="" method="POST" >
+    <form action="" method="POST" name="form1" >
+    <?php $i = 0; ?>
         <div class="input-section">
             <label for="ingredient-name">名称</label>
             <input type="text" id="ingredient-name" name="Syokuname" class="input-box" placeholder="" value=<?= $SyokuName ?>>
@@ -38,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="checkbox-container">
                 <label for="usual">
-                    <input type="checkbox" id="usual" checked=<?php if($FoodsSyousai->UsualFlag == true) {echo 'checked';}else{echo '';}?>> いつもの
+                    <input type="checkbox" id="usual" name="Usual" <?php if($FoodsSyousai->UsualFlag === true) {echo 'checked';}else{echo '';}?>> いつもの
                 </label>
             </div>
         </div>
@@ -51,18 +66,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <?php foreach(array_map(null, $Eiyou_list, $Nutrients_list) as [$Eiyou, $Nutrients]) : ?>
             <div class="container"></div>
-            <label for="ingredient-name" class="label"><?= $Eiyou->NutrientsName ?></label>
-            
-            <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $Nutrients->IncludeNatri ?>>
-            <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
+            <label for="ingredient-name" class="label"><?= $Eiyou->NutrientsName  ?></label>
+            <input type="text" id="ingredient-name" name = <?="IncludeNatri" . $i?> class="input-box" placeholder="" value=<?= $Nutrients->IncludeNatri ?>>
+            <input type="text" id="ingredient-name" name = <?="NID" . $i?> class="input-box" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
             </div>
+            <?php $i++ ?>
         <?php endforeach ?>
     
         <div class="submit-container">
-
-            <button class="submit-button" onclick="confirmRegistration()">登録</button>
+        <input type="hidden" name="suji" value=<?= $i ?>>
+            <button type="submit" name = "Resist" class="submit-button" onclick="myCheck()" >登録</button>
         </div>
     </form>
+
+
 
     <script>
         function confirmRegistration() {
@@ -84,6 +101,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 // ユーザーがキャンセルを押した場合
                 alert("登録をキャンセルしました。");
+            }
+        }
+
+        function myCheck() {
+            
+            if (document.form1.Usual.checked) {
+                <?php $Flag = true; ?>   
+            }
+            else{
+                <?php $Flag = false; ?>
             }
         }
     </script>
