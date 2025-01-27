@@ -348,19 +348,19 @@ class eiyouDAO
 
         $sql = "UPDATE Nutrients 
                 SET IncludeNatri = :IncludeNatri
-                from Nutrients JOIN Foods ON Nutrients.SyokuID = Foods.SyokuID 
+                from Nutrients Inner JOIN Foods ON Nutrients.SyokuID = Foods.SyokuID 
                 WHERE Nutrients.SyokuID = :SyokuID AND Nutrients.NID = :NID";
 
         $stmt = $dbh->prepare($sql);
 
         $stmt->bindValue(':SyokuID', $SyokuID, PDO::PARAM_STR);
-        $stmt->bindValue(':IncludeNatri', $IncludeNatri, PDO::PARAM_INT);
+        $stmt->bindValue(':IncludeNatri', $IncludeNatri, PDO::PARAM_STR);
         $stmt->bindValue(':NID', $NID, PDO::PARAM_STR);
 
         $stmt->execute();
-        $Newinclude = $stmt->fetchObject("Newinclude");
+        //$Newinclude = $stmt->fetchObject("Newinclude");
 
-        return $Newinclude;
+        //return $Newinclude;
     }
 
     public function get_SyokuID_by_SyokuName(string $SyokuName)
@@ -373,7 +373,7 @@ class eiyouDAO
         $stmt->bindValue(':SyokuName',$SyokuName,PDO::PARAM_STR);
         $stmt->execute();
 
-        $SyokuID = $stmt->fetchObject("SyokuID");
+        $SyokuID = $stmt->fetchAll();
 
         return $SyokuID;
     }
