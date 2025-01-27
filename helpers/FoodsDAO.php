@@ -59,7 +59,7 @@ class FoodsDAO
         return $Foods;
     }
 
-    public function insert_Foods($SyokuID, $SyokuName, $Usualflag, $MiddleGenreID)
+    public function insert_Foods($SyokuID, $SyokuName, $UsualFlag, $MiddleGenreID)
     {
         $dbh = DAO::get_db_connect();
 
@@ -69,7 +69,7 @@ class FoodsDAO
 
         $stmt->bindvalue(':SyokuID', $SyokuID, PDO::PARAM_STR);
         $stmt->bindvalue(':SyokuName', $SyokuName, PDO::PARAM_STR);
-        $stmt->bindvalue(':UsualFlag', $UsualFlag, PDO::PARAM_BOOL);
+        $stmt->bindvalue(':UsualFlag', $UsualFlag, PDO::PARAM_INT);
         $stmt->bindvalue(':MiddleGenreID', $MiddleGenreID, PDO::PARAM_STR);
 
         $stmt->execute();
@@ -77,7 +77,7 @@ class FoodsDAO
         return true;
     }
 
-    public function insert_Nutrients($UID, $SyokuName, $Usualflag, $MiddleGenreID)
+    public function insert_Nutrients($UID, $NID, $SyokuID, $IncludeNutri)
     {
         $dbh = DAO::get_db_connect();
 
@@ -86,14 +86,14 @@ class FoodsDAO
 
         $stmt = $dbh->prepare($sql);
 
-        $stmt->bindvalue(':SyokuID', $SyokuID, PDO::PARAM_STR);
-        $stmt->bindvalue(':SyokuName', $SyokuName, PDO::PARAM_STR);
-        $stmt->bindvalue(':UsualFlag', $UsualFlag, PDO::PARAM_BOOL);
-        $stmt->bindvalue(':MiddleGenreID', $MiddleGenreID, PDO::PARAM_STR);
+        foreach(array_map(null, $NID, $IncludeNutri) as [$nid, $includenutri]) {
+            $stmt->bindvalue(':UID', $UID, PDO::PARAM_STR);
+            $stmt->bindvalue(':NID', $nid, PDO::PARAM_STR);
+            $stmt->bindvalue(':SyokuID', $SyokuID, PDO::PARAM_BOOL);
+            $stmt->bindvalue(':IncludeNatri', $includenutri, PDO::PARAM_STR);
 
-        $stmt->execute();
-
-        return true;
+            $stmt->execute();
+        }
     }
 }
 ?>

@@ -1,9 +1,12 @@
 <?php
     require_once './helpers/kanriDAO.php';
     require_once './helpers/EiyouDAO.php';
+    require_once './helpers/FoodsDAO.php';
 
     $KanriDAO = new KanriDAO();
     $EiyouDAO = new eiyouDAO();
+    $FoodsDAO = new FoodsDAO();
+
 
     $MiddleGenre = $KanriDAO->get_MiddleGenre();
     $BuyUnit = $KanriDAO->get_BuyUnit();
@@ -11,16 +14,25 @@
 
     $Flag = false;
     if($_SERVER['REQUEST_METHOD']==='POST'){
+        $SyokuID = $_POST['SyokuID'];
         $SyokuName = $_POST['SyokuName'];
-        $MiddleGenreID = $_POST['MiddleGenre'];
-        if(is_null($_POST['UsualFlag'])){
-            $UsualFlag = 0;
-        }else {
+        if(isset($_POST['UsualFlag'])){
             $UsualFlag = 1;
+        }else {
+            $UsualFlag = 0;
         }
-        var_dump($SyokuName);
-        var_dump($MiddleGenreID);
+        $MiddleGenreID = $_POST['MiddleGenre'];
+        $FoodsDAO->insert_Foods($SyokuID, $SyokuName, $UsualFlag, $MiddleGenreID);
+        
+        $UID = $_POST['UID'];
+        $NID = $_POST['NID'];
         var_dump($UsualFlag);
+        $SyokuID = $_POST['SyokuID'];
+        $IncludeNutri = $_POST['Nutrients'];
+        $FoodsDAO->insert_Nutrients($UID, $NID, $SyokuID, $IncludeNutri);
+
+        header('Location: kanri.php');
+        exit;
     }
     
 ?>
@@ -39,6 +51,10 @@
 
     <form action="" method="POST" name="form1">
     <!-- 食材名称 -->
+    <div class="container">
+        <label for="ingredient-name" class="label">食材ID</label>
+        <input type="text" id="ingredient-name" name="SyokuID" class="input-box" placeholder="">
+    </div>
     <div class="container">
         <label for="ingredient-name" class="label">名称</label>
         <input type="text" id="ingredient-name" name="SyokuName" class="input-box" placeholder="">
@@ -63,7 +79,7 @@
 
     <div class="container"></div>
         <label for="ingredient-name" class="label">購入単位</label>
-        <select id="category" class="dropdown">
+        <select name="UID" id="category" class="dropdown">
             <option value="">選択してください</option>
             <?php foreach($BuyUnit as $Unit) : ?>
                 <option name="BuyUnit" value=<?= $Unit->UID ?>><?= $Unit->UnitName ?></option>
@@ -74,9 +90,9 @@
     <?php foreach($Eiyou_list as $Eiyou) : ?>
             <div class="container"></div>
             <label for="ingredient-name" class="label"><?= $Eiyou->NutrientsName ?></label>
-            <input type="hidden" name="NutrientsName[]" Value= <?= $Eiyou->NID ?>> 
+            <input type="hidden" name="NID[]" Value= <?= $Eiyou->NID ?>> 
             <input type="text" id="ingredient-name" class="input-box" name="Nutrients[]" placeholder="" value="">
-            <input type="text" id="ingredient-name" class="input-box" name="UID[]" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
+            <input type="text" id="ingredient-name" class="input-box" name="UnitName" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
             </div>
     <?php endforeach ?>
 
