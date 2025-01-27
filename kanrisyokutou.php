@@ -13,7 +13,11 @@
     if($_SERVER['REQUEST_METHOD']==='POST'){
         $SyokuName = $_POST['SyokuName'];
         $MiddleGenreID = $_POST['MiddleGenre'];
-        $UsualFlag = $_POST['UsualFlag'];
+        if(is_null($_POST['UsualFlag'])){
+            $UsualFlag = 0;
+        }else {
+            $UsualFlag = 1;
+        }
         var_dump($SyokuName);
         var_dump($MiddleGenreID);
         var_dump($UsualFlag);
@@ -101,14 +105,6 @@
         } else {
             // ユーザーがキャンセルを押した場合
             alert("登録をキャンセルしました。");
-        }
-    }
-
-    function myCheck() {
-        if (document.form1.UsualFlag.Checked) {
-            <?php $Flag = true; ?>
-        }else{
-            <?php $Flag = false; ?>
         }
     }
 </script>
