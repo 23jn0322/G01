@@ -79,7 +79,7 @@ $Flag = false;
     
         <div class="submit-container">
         <input type="hidden" name="suji" value=<?= $i ?>>
-            <button type="submit" name = "Resist" class="submit-button">登録</button>
+            <button type="submit" name = "Resist" class="submit-button">変更</button>
         </div>
     </form>
 
