@@ -46,12 +46,14 @@ h3 {
     margin-top: 10px;  /* チャートとラベルの間のスペース */
     color: #333;  /* ラベルの文字色 */
     width: 100%; /* ラベルをチャートと同じ幅にする */
-    font-family: "HG創英角ﾎﾟｯﾌﾟ体";
 }
 
 #monthA, #monthB {
     display: inline-block;
     margin: 10px;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
 }
 
 #monthB {

@@ -16,6 +16,7 @@
 <header>
     <link rel="stylesheet" href="bootstrap-5.0.0-dist/css/bootstrap.min.css">
     <link href="css/header.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
     <div id="logo">
         <img src="ロゴ２.png" width="250px">
     </div>
