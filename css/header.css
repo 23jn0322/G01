@@ -21,7 +21,7 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background-color: rgba(255, 255, 255, 0.5); /* 白色の50%透過 */
+    background-color: rgb(248, 248, 214); /* 白色の50%透過 */
 }
 
 #logout {
@@ -76,6 +76,6 @@ a:hover {
 }
 
 body {
-    padding-top: 300px; /* ヘッダーの高さ分の余白を追加 */
+    padding-top: 150px; /* ヘッダーの高さ分の余白を追加 */
 }
 

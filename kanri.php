@@ -29,12 +29,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="veggiesLink2">葉物野菜</a>
+                        <a class="accordion__link" id="veggiesLink2">葉・茎類</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="veggiesLink3">根菜類</a>
+                        <a class="accordion__link" id="veggiesLink3">芋・根菜類</a>
                     </td>
                 </tr>
                 <tr>
@@ -44,7 +44,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="veggiesLink5">果実野菜</a>
+                        <a class="accordion__link" id="veggiesLink5">果実類</a>
                     </td>
                 </tr>
                 <tr>
@@ -69,7 +69,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="fruitsLink3">柑橘類</a>
+                        <a class="accordion__link" id="fruitsLink3">果物</a>
                     </td>
                 </tr>
                 <tr>
@@ -116,27 +116,22 @@
             <table border="1" class="table">
                 <tr>
                     <td>
-                        <a class="accordion__link" id="fishLink1">青魚</a>
+                        <a class="accordion__link" id="fishLink1">赤身魚</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="fishLink2">赤身魚</a>
+                        <a class="accordion__link" id="fishLink2">白身魚</a>
                     </td>
                 </tr>
                 <tr></tr>
                 <td>
-                    <a class="accordion__link" id="fishLink3">白身魚</a>
+                    <a class="accordion__link" id="fishLink3">甲殻・貝類</a>
                 </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="accordion__link" id="fishLink4">海藻類</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="accordion__link" id="fishLink5">魚加工品</a>
+                        <a class="accordion__link" id="fishLink4">魚加工品</a>
                     </td>
                 </tr>
             </table>

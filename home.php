@@ -54,8 +54,6 @@
                 <div class="chart" id="chart3"></div>
                 <p class="chart-label">食物繊維</p>
             </div>
-        </div>
-        <div class="chart-container">
             <div class="chart-wrapper">
                 <div class="chart" id="chart4"></div>
                 <p class="chart-label">鉄</p>
@@ -64,21 +62,21 @@
                 <div class="chart" id="chart5"></div>
                 <p class="chart-label">カルシウム</p>
             </div>
-            <div class="chart-wrapper">
+        </div>
+        <div class="chart-container">
+            <div class="chart-wrapper1">
                 <div class="chart" id="chart6"></div>
                 <p class="chart-label">亜鉛</p>
             </div>
-        </div>
-        <div class="chart-container">
-            <div class="chart-wrapper">
+            <div class="chart-wrapper1">
                 <div class="chart" id="chart7"></div>
                 <p class="chart-label">ビタミンA</p>
             </div>
-            <div class="chart-wrapper">
+            <div class="chart-wrapper1">
                 <div class="chart" id="chart8"></div>
                 <p class="chart-label">ビタミンC</p>
             </div>
-            <div class="chart-wrapper">
+            <div class="chart-wrapper1">
                 <div class="chart" id="chart9"></div>
                 <p class="chart-label">ビタミンD</p>
             </div>
@@ -93,7 +91,7 @@
             legend: { show: false },
             series: [<?= $nowEiyou->tanpaku ?>, <?= ($Hituyou->tanpaku + $FHituyou->tanpaku) - $nowEiyou->tanpaku ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
-            colors: ['#fcb8a2', '#ffffff']
+            colors: ['#FF6633', '#ffffff']
         };
 
         let options2 = {
@@ -101,7 +99,7 @@
             legend: { show: false },
             series: [<?= $nowEiyou->tansui ?>, <?= ($Hituyou->tansui + $FHituyou->tansui) - $nowEiyou->tansui ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
-            colors: ['#fcb8a2', '#ffffff']
+            colors: ['#FF6633', '#ffffff']
         };
 
         let options3 = {
@@ -109,7 +107,7 @@
             legend: { show: false },
             series: [<?= $nowEiyou->syokumotu ?>, <?= ($Hituyou->syokumotu + $FHituyou->syokumotu) - $nowEiyou->syokumotu ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
-            colors: ['#fcb8a2', '#ffffff']
+            colors: ['#FF6633', '#ffffff']
         };
 
         let options4 = {
@@ -117,7 +115,7 @@
             legend: { show: false },
             series: [<?= $nowEiyou->tetu ?>, <?= ($Hituyou->tetu + $FHituyou->tetu) - $nowEiyou->tetu ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
-            colors: ['#fcb8a2', '#ffffff']
+            colors: ['#FF6633', '#ffffff']
         };
 
         let options5 = {
@@ -125,7 +123,7 @@
             legend: { show: false },
             series: [<?= $nowEiyou->karu ?>, <?= ($Hituyou->karu + $FHituyou->karu) - $nowEiyou->karu ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
-            colors: ['#fcb8a2', '#ffffff']
+            colors: ['#FF6633', '#ffffff']
         };
 
         let options6 = {
@@ -133,7 +131,7 @@
             legend: { show: false },
             series: [<?= $nowEiyou->zn ?>, <?= ($Hituyou->zn + $FHituyou->zn) - $nowEiyou->zn ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
-            colors: ['#fcb8a2', '#ffffff']
+            colors: ['#FF6633', '#ffffff']
         };
 
         let options7 = {
@@ -141,7 +139,7 @@
             legend: { show: false },
             series: [<?= $nowEiyou->bitaA ?>, <?= ($Hituyou->bitaA + $FHituyou->bitaA) - $nowEiyou->bitaA ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
-            colors: ['#fcb8a2', '#ffffff']
+            colors: ['#FF6633', '#ffffff']
         };
 
         let options8 = {
@@ -149,7 +147,7 @@
             legend: { show: false },
             series: [<?= $nowEiyou->bitaC ?>, <?= ($Hituyou->bitaC + $FHituyou->bitaC) - $nowEiyou->bitaC ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
-            colors: ['#fcb8a2', '#ffffff']
+            colors: ['#FF6633', '#ffffff']
         };
 
         let options9 = {
@@ -157,7 +155,7 @@
             legend: { show: false },
             series: [<?= $nowEiyou->bitaD ?>, <?= ($Hituyou->bitaD + $FHituyou->bitaD) - $nowEiyou->bitaD ?>],
             tooltip: { enabled: false },  // ツールチップを無効化
-            colors: ['#fcb8a2', '#ffffff']
+            colors: ['#FF6633', '#ffffff']
         };
 
         // チャートのレンダリング

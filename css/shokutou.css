@@ -42,7 +42,7 @@ h3 {
 }
 body {
     overflow-y: scroll;
-    padding-top: 300px;
+    padding-top: 150px;
     background-color: #fffedb !important;
 }
 
@@ -108,8 +108,8 @@ body {
 
 .genre {
     float: left;
-    overflow-y: auto;
-    height: auto;
+    height: 500px;
+    overflow-y: scroll;
 }
 
 .toroku {
