@@ -104,7 +104,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
             
-        <br>
         
         <!-- 性別 -->
         <div>
@@ -146,7 +145,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
             
-            <br>
         
             <!-- 性別 -->
             <div>
@@ -162,6 +160,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php } ?>
                 
             </div>        
+            <br>
+            <br>
     <?php
         }
     ?>
