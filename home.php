@@ -54,8 +54,6 @@
                 <div class="chart" id="chart3"></div>
                 <p class="chart-label">食物繊維</p>
             </div>
-        </div>
-        <div class="chart-container">
             <div class="chart-wrapper">
                 <div class="chart" id="chart4"></div>
                 <p class="chart-label">鉄</p>
@@ -64,21 +62,21 @@
                 <div class="chart" id="chart5"></div>
                 <p class="chart-label">カルシウム</p>
             </div>
-            <div class="chart-wrapper">
+        </div>
+        <div class="chart-container">
+            <div class="chart-wrapper1">
                 <div class="chart" id="chart6"></div>
                 <p class="chart-label">亜鉛</p>
             </div>
-        </div>
-        <div class="chart-container">
-            <div class="chart-wrapper">
+            <div class="chart-wrapper1">
                 <div class="chart" id="chart7"></div>
                 <p class="chart-label">ビタミンA</p>
             </div>
-            <div class="chart-wrapper">
+            <div class="chart-wrapper1">
                 <div class="chart" id="chart8"></div>
                 <p class="chart-label">ビタミンC</p>
             </div>
-            <div class="chart-wrapper">
+            <div class="chart-wrapper1">
                 <div class="chart" id="chart9"></div>
                 <p class="chart-label">ビタミンD</p>
             </div>
