@@ -45,8 +45,8 @@
         <form action="" method="POST">
             <!-- ユーザー名 -->
             <div class="form-group">
-                <label for="username">ユーザー名</label>
-                <input type="text" id="username" name="MID" placeholder="ユーザー名を入力" required>
+                <label for="username">ユーザーID</label>
+                <input type="text" id="username" name="MID" placeholder="ユーザーIDを入力" required>
             </div>
 
             <!-- パスワード -->
