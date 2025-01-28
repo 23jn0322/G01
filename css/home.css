@@ -42,10 +42,11 @@ h3 {
 
 .chart-label {
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 10px;  /* チャートとラベルの間のスペース */
     color: #333;  /* ラベルの文字色 */
     width: 100%; /* ラベルをチャートと同じ幅にする */
+    font-family: "HG創英角ﾎﾟｯﾌﾟ体";
 }
 
 #monthA, #monthB {
