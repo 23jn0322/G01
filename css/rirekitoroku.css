@@ -185,69 +185,22 @@ body {
   background-color: #fffedb !important;
 }
 
-/* 018 */
-.button018 a {
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 225px;
-  padding: 10px 0px 10px 25px;
-  color: #f3f0f0;
-  transition: 0.3s ease-in-out;
-  font-weight: 500;
-  border-radius: 8px;
-  margin-bottom: 30px; 
-
+.button {
+  display       : inline-block;
+  border-radius : 31%;          /* 角丸       */
+  font-size     : 14pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #029751;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 7px 7px 9px #666666;  /* 影の設定 */
+  border        : 2px solid #117411;    /* 枠の指定 */
 }
-
-.button018 a:before, .button018 a:after {
-content: "";
-position: absolute;
-display: block;
-top: 50%;
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #074807;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
 }
-.button018 a:before {
-width: 0.5rem;
-height: 0.5rem;
-left: 1.1rem;
-border-top: solid 2px #fff;
-border-right: solid 2px #fff;
-z-index: 2;
-transform: translateY(-50%) rotate(45deg);
-transition: all 0.3s;
-border-radius: 8px;
-
-}
-.button018 a:after {
-left: 0;
-background: #71c07b;
-z-index: 1;
-width: 3rem;
-height: 3rem;
-border-radius: 4rem;
-transform: translateY(-50%);
-transition: all 0.5s;
-
-
-}
-.button018 a span {
-position: relative;
-transition: all 0.3s;
-z-index: 3;
-}
-
-.button018 a:hover span {
-color: #fff;
-}
-.button018 a:hover:before {
-left: 2rem;
-}
-.button018 a:hover:after {
-right: 0;
-width: 100%;
-border-radius: 8px;
-
-}
-
