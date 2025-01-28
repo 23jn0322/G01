@@ -13,26 +13,31 @@
     $Eiyou_list = $EiyouDAO->get_NutrientsName();
 
     $Flag = false;
+    $TF = true;
     if($_SERVER['REQUEST_METHOD']==='POST'){
-        $SyokuID = $_POST['SyokuID'];
-        $SyokuName = $_POST['SyokuName'];
-        if(isset($_POST['UsualFlag'])){
-            $UsualFlag = 1;
-        }else {
-            $UsualFlag = 0;
-        }
-        $MiddleGenreID = $_POST['MiddleGenre'];
-        $FoodsDAO->insert_Foods($SyokuID, $SyokuName, $UsualFlag, $MiddleGenreID);
-        
-        $UID = $_POST['UID'];
-        $NID = $_POST['NID'];
-        var_dump($UsualFlag);
-        $SyokuID = $_POST['SyokuID'];
-        $IncludeNutri = $_POST['Nutrients'];
-        $FoodsDAO->insert_Nutrients($UID, $NID, $SyokuID, $IncludeNutri);
+        if(isset($_POST['SyokuID']) and isset($_POST['SyokuName']) and isset($_POST['UsualFlag']) and isset($_POST['MiddleGenre'])){
+            $SyokuID = $_POST['SyokuID'];
+            $SyokuName = $_POST['SyokuName'];
+            if(isset($_POST['UsualFlag'])){
+                $UsualFlag = 1;
+            }else {
+                $UsualFlag = 0;
+            }
+            $MiddleGenreID = $_POST['MiddleGenre'];
+            $FoodsDAO->insert_Foods($SyokuID, $SyokuName, $UsualFlag, $MiddleGenreID);
+            
+            $UID = $_POST['UID'];
+            $NID = $_POST['NID'];
+            var_dump($UsualFlag);
+            $SyokuID = $_POST['SyokuID'];
+            $IncludeNutri = $_POST['Nutrients'];
+            $FoodsDAO->insert_Nutrients($UID, $NID, $SyokuID, $IncludeNutri);
 
-        header('Location: kanri.php');
-        exit;
+            header('Location: kanri.php');
+            exit;
+        }else{
+            $TF = false;
+        }
     }
     
 ?>
@@ -48,7 +53,9 @@
 <body>
     <button onclick="window.location.href='kanri.php'" class="back-button">← 戻る</button>
     <h1>新規食材登録</h1>
-
+    <?php if($TF == false) :?>
+        <h2 class='error'>※未入力の箇所があります<h2>
+    <?php endif ?>
     <form action="" method="POST" name="form1">
     <!-- 食材名称 -->
     <div class="container">
@@ -91,7 +98,7 @@
             <div class="container"></div>
             <label for="ingredient-name" class="label"><?= $Eiyou->NutrientsName ?></label>
             <input type="hidden" name="NID[]" Value= <?= $Eiyou->NID ?>> 
-            <input type="text" id="ingredient-name" class="input-box" name="Nutrients[]" placeholder="" value="">
+            <input type="text" id="ingredient-name" class="input-box" name="Nutrients[]" placeholder="" value="0">
             <input type="text" id="ingredient-name" class="input-box" name="UnitName" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
             </div>
     <?php endforeach ?>

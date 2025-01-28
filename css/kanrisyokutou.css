@@ -63,3 +63,7 @@ body {
 .submit-button:hover {
     background-color: #f71a81; /* ホバー時に色を変える */
 }
+
+.error {
+    color: red;
+}
