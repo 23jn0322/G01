@@ -22,7 +22,15 @@ h3 {
     display: flex;
     flex-direction: column; /* チャートとラベルを縦に並べる */
     align-items: center; /* チャートとラベルを中央に配置 */
-    width: 30%; /* 各チャートの幅を指定 */
+    width: 18%; /* 各チャートの幅を指定 */
+    justify-content: flex-start; /* チャートとラベルを上に寄せる */
+}
+
+.chart-wrapper1 {
+    display: flex;
+    flex-direction: column; /* チャートとラベルを縦に並べる */
+    align-items: center; /* チャートとラベルを中央に配置 */
+    width: 18%; /* 各チャートの幅を指定 */
     justify-content: flex-start; /* チャートとラベルを上に寄せる */
 }
 
