@@ -22,9 +22,11 @@
     $food[]=NULL;
     $i2 = 0;
     $TF = false;
+    $TF1 = true;
     if($_SERVER['REQUEST_METHOD']==='POST'){
         if (isset($_POST['add']) and isset($_POST['food'])){
             $food = $_POST['food'];
+            $TF1 = true;
         }        
         elseif(isset($_POST['Resist'])){
             $i = $_POST['suji'];
@@ -39,9 +41,13 @@
             if ($TF == true){
                 header('Location: home.php');
                 exit;
+            }else{
+                $TF1 = false;
             }
+        }else{
+            $TF1 = false;
+        }
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -516,6 +522,9 @@
     <div class="title">買い物登録</div>
     <form  action="" method="POST">
     <div class="container">
+        <?php if($TF1 == false) : ?>
+            <h2>※食材を追加してください</h2>
+        <?php endif ?>
         <div class="content">
             <?php if(!(is_null($food[0]))) :?>
                 <?php foreach ($food as $value)  :?>
