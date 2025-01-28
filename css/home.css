@@ -42,7 +42,7 @@ h3 {
 
 .chart-label {
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
     margin-top: 10px;  /* チャートとラベルの間のスペース */
     color: #333;  /* ラベルの文字色 */
     width: 100%; /* ラベルをチャートと同じ幅にする */

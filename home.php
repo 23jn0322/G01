@@ -38,7 +38,7 @@
     
     <body>
         <?php include "header.php" ?>
-        <h2 style="font-size: 30px; font-family: M PLUS Rounded 1c;">必要栄養類摂取比較グラフ</h2>
+        <h2 style="font-size: 35px; font-family: M PLUS Rounded 1c;">必要栄養類摂取比較グラフ</h2>
         <h3 id="month" style="font-size: 30px; padding-top: 10px;">今月分</h3>
         <button type="button" id="monthA" class="btn btn-primary" disabled>今月分はこちら</button>
         <button type="button" id="monthB" class="btn btn-primary">来月分はこちら</button>

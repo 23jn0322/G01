@@ -167,10 +167,26 @@ body {
     font-size: 1.2em;
   }
 
-  h2 {
+  .error {
     color: red;
   }
 
   tr{
     width: 100px;
+  }
+
+.form-check-label{
+    font-size: 20px;
+}
+h3 {
+    font-size: 25px;
+}
+a{
+    transition: color 0.3s;
+    text-decoration: none;
+    font-size: 25px;
+  }
+  
+  a:hover{
+    color : green;
   }

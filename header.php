@@ -21,10 +21,10 @@
         <img src="ロゴ２.png" width="250px">
     </div>
     <?php if (isset($Member)) : ?>
-            <p style="font-size: 20px"><?= $Member->Name ?>さん</p>
+            <p style="font-size: 30px"><?= $Member->Name ?>さん</p>
         <?php endif; ?>
     <div id="logout">
-        <a href="logout.php" style="font-size: 20px">ログアウト</a>
+        <a href="logout.php" style="font-size: 30px">ログアウト</a>
     </div>
     <table class="link table">
         <tr>
