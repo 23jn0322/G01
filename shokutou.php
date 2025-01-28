@@ -21,6 +21,7 @@
     
     $food[]=NULL;
     $i2 = 0;
+    $TF = false;
     if($_SERVER['REQUEST_METHOD']==='POST'){
         if (isset($_POST['add'])){
             $food = $_POST['food'];
