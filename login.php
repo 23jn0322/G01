@@ -31,13 +31,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン画面 モックアップ</title>
+    <title>ログイン画面</title>
     <link rel="stylesheet" href="css/login.css"> <!-- CSSファイルを読み込み -->
 </head>
 <body>
 
     <!-- ログインフォームのモックアップ -->
     <div class="login-container">
+        <div id="logo">
+            <img src="ロゴ２.png" width="300px">
+        </div>
         <h2>ログイン</h2>
         <form action="" method="POST">
             <!-- ユーザー名 -->

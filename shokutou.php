@@ -547,7 +547,7 @@
     <!-- フッター部分 -->
     <div class="footer">
             <input type="hidden" name="suji" value=<?= $i ?>>
-        <button type="submit" name="Resist" class="btn btn-success">登録</a>
+        <button type="submit" name="Resist" class="btn btn-success">登録</a><?php ?>
     </form>
     </div>
     </div>
