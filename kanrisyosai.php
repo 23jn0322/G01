@@ -16,11 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(isset($_POST['Resist'])){
         $i = $_POST['suji'];
         $SyokuID = $EiyouDAO->get_SyokuID_by_SyokuName($SyokuName);
+
         for($i2 = 0; $i2 < $i; $i2++){
             $NID = $_POST['NID'.$i2];
             $IncludeNatri = $_POST['IncludeNatri'.$i2];
-            $TF = $EiyouDAO->Update_Eiyou($SyokuID,$IncludeNatri,$NID);
+
+            $TF = $EiyouDAO->Update_Eiyou($SyokuID[0]["SyokuID"],$IncludeNatri,$NID);
         }
+        $Nutrients_list = $EiyouDAO->get_Nutrients_SyokuID($SyokuName);
+
     }
 }
 $Flag = false;
@@ -67,7 +71,8 @@ $Flag = false;
             <div class="container"></div>
             <label for="ingredient-name" class="label"><?= $Eiyou->NutrientsName  ?></label>
             <input type="text" id="ingredient-name" name = <?="IncludeNatri" . $i?> class="input-box" placeholder="" value=<?= $Nutrients->IncludeNatri ?>>
-            <input type="text" id="ingredient-name" name = <?="NID" . $i?> class="input-box" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
+            <input type="hidden" name=<?="NID" . $i?> value=<?= $Eiyou->NID ?>>
+            <input type="text" id="ingredient-name" class="input-box" placeholder="" value=<?= $Eiyou->IUnitName ?> readonly>
             </div>
             <?php $i++ ?>
         <?php endforeach ?>
