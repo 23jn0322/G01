@@ -268,7 +268,7 @@ class eiyouDAO
         $stmt->bindValue(':MID', $MID, PDO::PARAM_STR);
         $stmt->execute();
 
-        $member_eiyou = $stmt->fetchObject('Eiyou');
+        $member_eiyou = $stmt->fetchObject('HituyouEiyou');
 
         if ($member_eiyou !== false){
             return $member_eiyou;
