@@ -69,11 +69,11 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         </div>
 
         <!-- フッター部分 -->
-        <div class="footer1">
-        <div class="button018"><a href="shokutou.php"><span>戻る</span></a></div>
+        <div class="footer">
+        <div class="button018"><a href="shokutou.php" value="戻る">
             <input type="hidden" name="suji" value=<?= $i ?>>
             <div class="button018">
-  <a href="#" type="submit"><span>登録</span></a>
+  <input type="submit" name="Resist" value="登録">
 </div>
         </div>
     </form>
