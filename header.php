@@ -23,9 +23,7 @@
     <?php if (isset($Member)) : ?>
             <p style="font-size: 30px"><?= $Member->Name ?>さん</p>
         <?php endif; ?>
-    <div id="logout">
-        <a href="logout.php" style="font-size: 30px">ログアウト</a>
-    </div>
+    
     <table class="link table">
         <tr>
             <th><a href="home.php" style="font-size: 25px">健康メーター</a></th>
@@ -33,4 +31,7 @@
             <th><a href="kaiinhenkou.php" style="font-size: 25px">会員情報変更</a></th>
         </tr>
     </table>
+    <div id="logout">
+        <a href="logout.php" style="font-size: 30px">ログアウト</a>
+    </div>
 </header>
