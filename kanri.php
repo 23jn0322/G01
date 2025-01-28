@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/shokutou.css">
     <link rel="stylesheet" href="css/rirekitoroku.css">
     <link rel="stylesheet" href="css/kanri.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap" rel="stylesheet">
     <h1>管理者画面</h1>
 </header>
 <body>

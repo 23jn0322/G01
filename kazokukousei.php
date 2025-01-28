@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>家族構成の変更</title>
     <link rel="stylesheet" href="css/kazokukousei.css">
-
+    
     
 </head>
 <body>

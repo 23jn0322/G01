@@ -37,6 +37,7 @@ $Flag = false;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理者食材詳細画面</title>
     <link rel="stylesheet" href="css/kanrisyosai.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap" rel="stylesheet">
 </head>
 
 <body>

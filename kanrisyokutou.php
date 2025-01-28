@@ -48,7 +48,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理者食材登録画面</title>
     <link rel="stylesheet" href="css/kanrisyokutou.css">
-   
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap" rel="stylesheet">
 </head>
 <body>
     <button onclick="window.location.href='kanri.php'" class="back-button">← 戻る</button>

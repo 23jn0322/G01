@@ -1,12 +1,9 @@
-body {
-    padding-top: 250px; /* ヘッダーの高さ分の余白を追加 */
-}
-
 table[border="1"]{
 	border-spacing:0;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	border: none;
+    width: 300px;
 }
 
 table[border="1"] td,table[border="1"] th{
@@ -42,7 +39,6 @@ h3 {
 }
 body {
     overflow-y: scroll;
-    padding-top: 150px;
     background-color: #fffedb !important;
 }
 
@@ -71,6 +67,7 @@ body {
     color: #333333;
     font-weight: 600;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .accordion-003 summary::-webkit-details-marker {
@@ -172,4 +169,8 @@ body {
 
   h2 {
     color: red;
+  }
+
+  tr{
+    width: 100px;
   }

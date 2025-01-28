@@ -2,11 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "HG創英角ﾎﾟｯﾌﾟ体";
+    font-family: "Kaisei Opti", serif;
 }
 
 body {
-    padding-top: 120px; /* ヘッダーの高さ分の余白を追加 */
+    padding-top: 160px; /* ヘッダーの高さ分の余白を追加 */
 }
 
 /* ヘッダー */
@@ -74,9 +74,5 @@ a:hover {
 
 .active{
     background-color: rgb(229, 229, 229);
-}
-
-body {
-    padding-top: 150px; /* ヘッダーの高さ分の余白を追加 */
 }
 
